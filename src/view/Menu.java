@@ -1,6 +1,8 @@
 package view;
 
 
+import controller.ImageLoader;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -18,15 +20,9 @@ public class Menu extends Container {
         MainFrame.mainframe.setContentPane(pane);
         pane.setVisible(true);
         pane.setSize(MainFrame.width,MainFrame.height);
-        pane.setBackground(Color.BLUE);
-        try {
-            BufferedImage playb = ImageIO.read(new File("img/playbutton.png"));
-            JLabel label = new JLabel(new ImageIcon(playb));
-            label.setSize(1366,768);
-            label.setVisible(true);
-            pane.add(label);
-        } catch (Exception e) {
-            System.out.println("Error");
-        }
+        pane.setBackground(MainFrame.DARK_GRAY);
+        JButton label = new JButton("TEST");
+        label.setVisible(true);
+        pane.add(label);
     }
 }

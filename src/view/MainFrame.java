@@ -1,5 +1,6 @@
 package view;
 
+import controller.ImageLoader;
 import view.util.ImagePanel;
 
 import javax.imageio.ImageIO;
@@ -31,14 +32,7 @@ public class MainFrame {
         mainframe.getContentPane().setBackground(DARK_GRAY);
         mainframe.setSize(width,height);
         mainframe.setVisible(true);
-        try {
-            BufferedImage img;
-            img = ImageIO.read(new File("img/comlogo.png"));
-            MainFrame.mainframe.add(new JLabel(new ImageIcon(img.getScaledInstance(960,540,Image.SCALE_SMOOTH))));
-
-        } catch (Exception e) {
-
-        }
+        MainFrame.mainframe.add(new JLabel(new ImageIcon(ImageLoader.splash.getScaledInstance(960,540,Image.SCALE_SMOOTH))));
         device.setFullScreenWindow(mainframe);
     }
 

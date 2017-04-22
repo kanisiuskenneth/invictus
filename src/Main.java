@@ -1,4 +1,5 @@
 
+import controller.ImageLoader;
 import view.*;
 
 /**
@@ -6,6 +7,7 @@ import view.*;
  */
 public class Main {
     public static void main(String[] args) {
+            new ImageLoader();
             new MainFrame();
             try {
                 Thread.sleep(5000);

@@ -30,6 +30,10 @@ public class SlowSpell extends PowerUp {
     /**
      *
      */
+    public void buy(int id) {
+
+    }
+
 
     public String getDescription() {
         return "decrease the speed of the words by 0.5.";
