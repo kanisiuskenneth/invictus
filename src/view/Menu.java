@@ -23,11 +23,11 @@ public class Menu extends Container {
         main_panel.setBackground(MainFrame.DARK_GRAY);
         main_panel.setLayout(new BorderLayout(0,60));
 
-        JLabel gamelogo = new JLabel(new ImageIcon(ImageLoader.game_banner.getScaledInstance(1000,270,Image.SCALE_SMOOTH)));
+        JLabel gamelogo = new JLabel(new ImageIcon(ImageLoader.game_banner.getScaledInstance(800,220,Image.SCALE_SMOOTH)));
         main_panel.add(gamelogo,BorderLayout.NORTH);
         JPanel menu_panel = new JPanel();
         main_panel.add(menu_panel,BorderLayout.CENTER);
-        menu_panel.setLayout(new GridLayout(5,1));
+        menu_panel.setLayout(new GridLayout(4,1));
         menu_panel.setBackground(MainFrame.DARK_GRAY);
 
         JButton play = new JButton(new ImageIcon(
