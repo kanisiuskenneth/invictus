@@ -31,5 +31,10 @@ public class MainFrame {
         mainframe.setVisible(true);
         device.setFullScreenWindow(mainframe);
     }
-
+    static int widthToPx(int percent) {
+        return (int) percent*width/100;
+    }
+    static int heightToPx(int percent) {
+        return (int) percent*height/100;
+    }
 }
