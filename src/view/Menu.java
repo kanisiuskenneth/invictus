@@ -31,7 +31,7 @@ public class Menu extends Container {
         main_panel.add(gamelogo,BorderLayout.NORTH);
         JPanel menu_panel = new JPanel();
         main_panel.add(menu_panel,BorderLayout.CENTER);
-        int content_rows = content_height/100;
+        int content_rows = content_height/90;
         menu_panel.setLayout(new GridLayout(content_rows,1));
         menu_panel.setBackground(MainFrame.DARK_GRAY);
         JButton play = new JButton(new ImageIcon(

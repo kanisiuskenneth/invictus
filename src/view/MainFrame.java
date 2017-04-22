@@ -16,8 +16,8 @@ public class MainFrame {
     public static Color DARK_GRAY = new Color(30,30,30);
 
     public MainFrame() {
-        JFrame.setDefaultLookAndFeelDecorated(true);
         mainframe = new JFrame("Undefeated Typer");
+        mainframe.setUndecorated(true);
         mainframe.setIconImage(new ImageIcon("img/gamelogo.png").getImage());
         mainframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mainframe.setResizable(false);

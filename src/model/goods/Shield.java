@@ -2,7 +2,7 @@ package model.goods;
 
 /**
  * File: Shield.java
- * Author: 13515063 - Kezia Suhendra
+ * Author: 13515070 - Sylvia Juliana
  */
 
 /**
