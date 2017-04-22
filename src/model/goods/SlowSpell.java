@@ -34,4 +34,9 @@ public class SlowSpell extends PowerUp {
     public String getDescription() {
         return "decrease the speed of the words by 0.5.";
     }
+
+    @Override
+    public void buy(int id) {
+
+    }
 }

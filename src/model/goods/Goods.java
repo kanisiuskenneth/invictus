@@ -5,7 +5,7 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
-public abstract class Goods implements Shoppable {
+abstract public class Goods implements Shoppable {
     protected int id;
     protected int price;
 

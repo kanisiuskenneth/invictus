@@ -6,7 +6,5 @@ package model.goods;
  */
 
 public interface Shoppable {
-    public void buy(int id) {
-
-    }
+    public void buy(int id);
 }
