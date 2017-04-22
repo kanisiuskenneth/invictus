@@ -1,5 +1,7 @@
 package model.player;
 
+import model.main.MainModel;
+
 /**
  * File: Player.java
  * Author: 13515063 - Kezia Suhendra
@@ -16,7 +18,7 @@ public class Player {
      */
 
     public Player() {
-        current_health = max_health;
+        current_health = MainModel.health_maximum;
         score = 0;
     }
     /**

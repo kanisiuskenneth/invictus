@@ -36,10 +36,6 @@ public class SlowSpell extends Items {
      * Getter description
      * @return description dari SlowSpell
      */
-    public void buy(int id) {
-
-    }
-
 
     public String getDescription() {
         return "decrease the speed of the words by 0.5.";
