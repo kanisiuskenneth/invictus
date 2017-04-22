@@ -20,13 +20,11 @@ import java.util.Random;
 public class GameController {
     private Player player;
     private GameView game_view;
-    public HashMap<String, SwingWorker<Void, Void>> map_of_thread;
     public Random random;
 
     public GameController() {
         player = new Player();
         game_view = new GameView();
-        map_of_thread = new HashMap<String, SwingWorker<Void, Void>>();
         random = new Random();
         startGame();
     }
@@ -46,33 +44,6 @@ public class GameController {
         player.increaseScore(score);
     }
 
-    public void addWord() {
-        //Word new_word = new Word("A");
-        /*
-        String str = "A";
-        while (map_of_thread.containsKey(str)) {
-            str = str + "A";
-        }
-        Word new_word = new Word("DIKAGANTENGBANGET");
-        */
-        String content = MainModel.word_bank.get(random.nextInt(MainModel.word_bank.size()));
-        while (map_of_thread.containsKey(content)) {
-            content = MainModel.word_bank.get(random.nextInt(MainModel.word_bank.size()));
-        }
-        Word new_word = new Word(content);
-        //harusnya ngeloop terus sampe content nya ga ada di map
-        SwingWorker<Void, Void> worker = null;
-        worker = game_view.viewWord(new_word, worker);
-        map_of_thread.put(new_word.getContent(), worker);
-    }
-
-    public void deleteWord(String content) {
-        if (map_of_thread.containsKey(content)) {
-            map_of_thread.get(content).cancel(true);
-            map_of_thread.remove(content);
-        }
-    }
-
     public void startGame() {
         while (true) {
             try
@@ -82,7 +53,7 @@ public class GameController {
             {
 
             }
-            addWord();
+            game_view.addWord();
             // adding dummy word to prevent bugs
             try
             {
