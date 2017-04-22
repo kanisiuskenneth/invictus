@@ -46,7 +46,6 @@ public class GameController {
         Word new_word = new Word("JING");
         list_of_words.add(new_word);
         game_view.viewWord(new_word);
-        System.out.println("ADD");
     }
 
     public void startGame() {

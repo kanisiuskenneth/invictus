@@ -1,6 +1,7 @@
 package view;
 
 import model.word.Word;
+import util.Pair;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +31,7 @@ public class GameView {
         SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() throws Exception {
-                JLabel label = new JLabel("<html> <font color = 'white'> " + word.getContent()+ " </font></html>");
+                JLabel label = new JLabel("<html> <font color = 'white'> " + word.getContent() + " </font></html>");
                 int position_x = random.nextInt(1000);
                 int position_y = 0; // y position dari paling atas
                 label.setLocation(position_x, position_y);
@@ -45,6 +46,7 @@ public class GameView {
                         Point cr = label.getLocation();
                         cr.y += 2;
                         label.setLocation(position_x, cr.y);
+                        word.setPosition(new Pair(position_x, cr.y));
                     }
                 });
                 timer.start();
