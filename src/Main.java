@@ -1,6 +1,7 @@
 
 import controller.GameController;
 import controller.ImageLoader;
+import model.main.MainModel;
 import view.*;
 
 /**
@@ -10,11 +11,12 @@ public class Main {
     public static void main(String[] args) {
             new ImageLoader();
             new MainFrame();
+            new MainModel();
             try {
                 Thread.sleep(5000);
             } catch(Exception e) {
             }
-            new GameController();
-            //new Menu();
+            //new GameController();
+            new Menu();
         }
 }
