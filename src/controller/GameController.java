@@ -10,6 +10,7 @@ import model.word.Word;
 import view.GameView;
 
 import javax.swing.*;
+import java.util.HashMap;
 import java.util.Vector;
 
 /**
@@ -17,13 +18,13 @@ import java.util.Vector;
  */
 public class GameController {
     private Player player;
-    private Vector<Word> list_of_words;
     private GameView game_view;
+    public HashMap<String, SwingWorker<Void, Void>> map_of_thread;
 
     public GameController() {
         player = new Player();
-        list_of_words = new Vector<Word>();
         game_view = new GameView();
+        map_of_thread = new HashMap<String, SwingWorker<Void, Void>>();
         startGame();
     }
     /**
@@ -43,9 +44,32 @@ public class GameController {
     }
 
     public void addWord() {
-        Word new_word = new Word("JING");
-        list_of_words.add(new_word);
-        game_view.viewWord(new_word);
+        //Word new_word = new Word("A");
+        String str = "A";
+        while (map_of_thread.containsKey(str)) {
+            str = str + "A";
+        }
+        Word new_word = new Word(str);
+        //harusnya ngeloop terus sampe content nya ga ada di map
+        SwingWorker<Void, Void> worker = null;
+        worker = game_view.viewWord(new_word, worker);
+        map_of_thread.put(new_word.getContent(), worker);
+    }
+
+    public void deleteWord(String content) {
+        if (map_of_thread.containsKey(content)) {
+            //map_of_thread.get(content).cancel(true);
+            SwingWorker<Void, Void> worker = map_of_thread.get(content);
+            if (worker == null) {
+
+            }
+            else {
+                System.out.println("Mau stio thread");
+                worker.cancel(true);
+            }
+            //worker.cancel(true);
+            map_of_thread.remove(content);
+        }
     }
 
     public void startGame() {
@@ -57,6 +81,7 @@ public class GameController {
             {
 
             }
+            deleteWord("AAAA");
             addWord();
         }
     }

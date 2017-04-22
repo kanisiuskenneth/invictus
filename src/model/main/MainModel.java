@@ -25,11 +25,14 @@ public class MainModel {
     static public float score_multiplier;
     private Vector<Pair<Items, Integer>> item;
     private Pair<String, Integer> leaderboard[];
+    private Vector<String> word_bank;
 
     public MainModel(){
         item = new Vector<Pair<Items, Integer>>();
         leaderboard = new Pair[5];
         loadData("asset/data.txt");
+        //loadWord("asset/word.txt");
+        //nunggu word.txt nya ada
         System.out.println(health_maximum);
         System.out.println(coin);
         System.out.println(coin_multiplier);
@@ -60,6 +63,18 @@ public class MainModel {
                 int second_value = scanner.nextInt();
                 leaderboard[i] = new Pair(first_value, second_value);
                 i++;
+            }
+        } catch (IOException e)
+        {
+            System.out.println("File I/O error!");
+        }
+    }
+
+    public void loadWord(String input_file) {
+        try {
+            Scanner scanner = new Scanner(new File(input_file));
+            while (scanner.hasNext()) {
+                word_bank.add(scanner.next());
             }
         } catch (IOException e)
         {
