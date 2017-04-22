@@ -1,24 +1,24 @@
 package model.goods;
 
 /**
- * File: SlowSpell.java
+ * File: Potion.java
  * Author: 13515063 - Kezia Suhendra
  */
 
 /**
- * Kelas SlowSpell
+ * Kelas Potion
  */
-public class SlowSpell extends Items {
+public class Potion extends Items {
     /**
      * Constructor
      */
 
-    public SlowSpell() {
-        super(10, 0);
+    public Potion() {
+        super(12, 0);
     }
     /**
      * Getter id
-     * @return id dari SlowSpell
+     * @return id dari Potion
      */
 
     public int getID() {
@@ -26,7 +26,7 @@ public class SlowSpell extends Items {
     }
     /**
      * Getter price
-     * @return price dari SlowSpell
+     * @return price dari Potion
      */
 
     public int getPrice() {
@@ -34,14 +34,14 @@ public class SlowSpell extends Items {
     }
     /**
      * Getter description
-     * @return description dari SlowSpell
+     * @return description dari Potion
      */
 
     public String getDescription() {
-        return "decrease the speed of the words by 0.5.";
+        return "stop all of the words on the screen for 10 seconds.";
     }
     /**
-     * Buy SlowSpell
+     * Buy Potion
      * @param id
      */
 

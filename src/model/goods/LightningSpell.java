@@ -1,24 +1,24 @@
 package model.goods;
 
 /**
- * File: SlowSpell.java
+ * File: LightningSpell.java
  * Author: 13515063 - Kezia Suhendra
  */
 
 /**
- * Kelas SlowSpell
+ * Kelas LightningSpell
  */
-public class SlowSpell extends Items {
+public class LightningSpell extends Items {
     /**
      * Constructor
      */
 
-    public SlowSpell() {
-        super(10, 0);
+    public LightningSpell() {
+        super(13, 0);
     }
     /**
      * Getter id
-     * @return id dari SlowSpell
+     * @return id dari LightningSpell
      */
 
     public int getID() {
@@ -26,7 +26,7 @@ public class SlowSpell extends Items {
     }
     /**
      * Getter price
-     * @return price dari SlowSpell
+     * @return price dari LightningSpell
      */
 
     public int getPrice() {
@@ -34,14 +34,14 @@ public class SlowSpell extends Items {
     }
     /**
      * Getter description
-     * @return description dari SlowSpell
+     * @return description dari LightningSpell
      */
 
     public String getDescription() {
-        return "decrease the speed of the words by 0.5.";
+        return "destroy all of the words on the screen.";
     }
     /**
-     * Buy SlowSpell
+     * Buy LightningSpell
      * @param id
      */
 
