@@ -27,19 +27,25 @@ public class GameView {
         panel.setBackground(MainFrame.DARK_GRAY);
     }
 
-    public void viewWord(Word word) {
-        SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+    public SwingWorker<Void, Void> viewWord(Word word, SwingWorker<Void, Void> worker) {
+        JLabel label = new JLabel("<html> <font color = 'white'> " + word.getContent() + " </font></html>");
+        int position_x = random.nextInt(1000);
+        int position_y = 0; // y position dari paling atas
+        label.setLocation(position_x, position_y);
+        label.setVisible(true);
+        panel.setLayout(new BorderLayout());
+        panel.add(label, BorderLayout.NORTH);
+        panel.setVisible(true);
+        MainFrame.mainframe.setVisible(true);
+        worker = new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() throws Exception {
-                JLabel label = new JLabel("<html> <font color = 'white'> " + word.getContent() + " </font></html>");
-                int position_x = random.nextInt(1000);
-                int position_y = 0; // y position dari paling atas
-                label.setLocation(position_x, position_y);
-                label.setVisible(true);
-                panel.setLayout(new BorderLayout());
-                panel.add(label, BorderLayout.NORTH);
-                panel.setVisible(true);
-                MainFrame.mainframe.setVisible(true);
+                try {
+                    Thread.sleep(1);
+                } catch (Exception e) {
+                    return null;
+                }
+
                 Timer timer = new Timer(10, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -54,5 +60,6 @@ public class GameView {
             }
         };
         worker.execute();
+        return worker;
     }
 }
