@@ -1,4 +1,5 @@
 
+import controller.GameController;
 import controller.ImageLoader;
 import view.*;
 
@@ -13,6 +14,7 @@ public class Main {
                 Thread.sleep(5000);
             } catch(Exception e) {
             }
-            new Menu();
+            new GameController();
+            //new Menu();
         }
 }

@@ -28,4 +28,8 @@ public class Player {
     public void reducedHealth() {
         --current_health;
     }
+
+    public void increaseScore(int score) {
+        this.score += score;
+    }
 }

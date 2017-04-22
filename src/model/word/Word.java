@@ -22,4 +22,16 @@ public class Word {
     public Word(String content) {
         this.content = content;
     }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Pair<Integer, Integer> getPosition() {
+        return position;
+    }
+
+    public void setPosition(Pair<Integer, Integer> position) {
+        this.position = position;
+    }
 }
