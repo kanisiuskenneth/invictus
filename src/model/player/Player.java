@@ -25,6 +25,10 @@ public class Player {
      *  Mengurangi current health points player.
      */
 
+    public int getCurrent_health() {
+        return current_health;
+    }
+
     public void reducedHealth() {
         --current_health;
     }

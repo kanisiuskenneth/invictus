@@ -2,6 +2,7 @@ package view;
 
 import controller.GameController;
 import model.main.MainModel;
+import model.player.Player;
 import model.word.Word;
 import sun.applet.Main;
 import util.Pair;
@@ -22,20 +23,26 @@ import java.util.Random;
  */
 
 public class GameView {
-    public JPanel panel;
-    public JTextField field;
-    public JButton submit;
-    public Random random;
-    public HashMap<String, SwingWorker<Void, Void>> map_of_thread;
+    private Player player;
+    private JPanel panel;
+    private JTextField field;
+    private JButton submit;
+    private Random random;
+    private JLabel health_label;
+    private HashMap<String, SwingWorker<Void, Void>> map_of_thread;
 
     public GameView() {
         map_of_thread = new HashMap<String, SwingWorker<Void, Void>>();
         panel = new JPanel();
         field = new JTextField("");
+        player = new Player();
+        health_label = new JLabel("<html> <font color = 'red' size = '20'> " + player.getCurrent_health() + "</font></html>");
+        health_label.setLocation(20,0);
+        panel.add(health_label, BorderLayout.NORTH);
         submit = new JButton("Submit");
         submit.addActionListener(new SubmitButton(this, field));
         submit.addKeyListener(new SubmitButton(this, field));
-        submit.setVisible(true);
+        submit.setVisible(false);
         panel.add(submit, BorderLayout.WEST);
         random = new Random();
         MainFrame.mainframe.setContentPane(panel);
@@ -50,6 +57,13 @@ public class GameView {
         field.requestFocusInWindow();
     }
 
+    public void reduceHP(){
+        player.reducedHealth();
+    }
+
+    public void addScore(int score) {
+        player.increaseScore(score);
+    }
 
     public void addWord() {
         String content = MainModel.word_bank.get(random.nextInt(MainModel.word_bank.size()));
@@ -68,9 +82,15 @@ public class GameView {
             map_of_thread.get(content).cancel(true);
             map_of_thread.remove(content);
             if (typed) {
-                // ada score
+                addScore(10 * content.length());
             } else {
-                // reduce health
+                reduceHP();
+                try {
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    
+                }
+                health_label.setText("<html> <font color = 'red' size = '20'> " + player.getCurrent_health() + "</font></html>");
             }
         }
     }

@@ -18,14 +18,10 @@ import java.util.Random;
  * Kelas GameController untuk mengatur kerja game
  */
 public class GameController {
-    private Player player;
     private GameView game_view;
-    public Random random;
 
     public GameController() {
-        player = new Player();
         game_view = new GameView();
-        random = new Random();
         startGame();
     }
     /**
@@ -34,14 +30,6 @@ public class GameController {
      */
     public void useItem(int id){
         // masih belum
-    }
-
-    public void reduceHP(){
-        player.reducedHealth();
-    }
-
-    public void addScore(int score) {
-        player.increaseScore(score);
     }
 
     public void startGame() {
