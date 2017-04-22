@@ -33,7 +33,11 @@ public class GameView {
 
     public GameView() {
         map_of_thread = new HashMap<String, SwingWorker<Void, Void>>();
+        MainFrame.mainframe.remove(MainFrame.mainframe.getContentPane());
         panel = new JPanel();
+        System.out.println("Starting game");
+        MainFrame.mainframe.setContentPane(panel);
+        MainFrame.mainframe.getRootPane().setDefaultButton(submit);
         field = new JTextField("");
         player = new Player();
         health_label = new JLabel("<html> <font color = 'red' size = '20'> " + player.getCurrent_health() + "</font></html>");
@@ -45,11 +49,9 @@ public class GameView {
         submit.setVisible(false);
         panel.add(submit, BorderLayout.WEST);
         random = new Random();
-        MainFrame.mainframe.setContentPane(panel);
-        MainFrame.mainframe.getRootPane().setDefaultButton(submit);
         panel.setVisible(true);
         panel.setSize(MainFrame.width,MainFrame.height);
-        panel.setBackground(MainFrame.DARK_GRAY);
+        panel.setBackground(Color.BLUE);
         field.setSize(100, 20);
         field.setVisible(true);
         panel.setLayout(new BorderLayout());

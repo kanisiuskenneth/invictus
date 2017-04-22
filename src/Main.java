@@ -16,7 +16,6 @@ public class Main {
                 Thread.sleep(5000);
             } catch(Exception e) {
             }
-            new GameController();
-            //new Menu();
+            new Menu();
         }
 }

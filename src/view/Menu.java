@@ -1,6 +1,7 @@
 package view;
 
 
+import controller.GameController;
 import controller.ImageLoader;
 import sun.applet.Main;
 
@@ -92,6 +93,16 @@ public class Menu extends Container {
                     @Override
                     public void actionPerformed(ActionEvent e) {
 
+                    }
+                }
+        );
+
+        play.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+
+                        new GameController();
                     }
                 }
         );
