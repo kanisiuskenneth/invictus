@@ -30,7 +30,7 @@ public class SubmitButton implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent submitClicked) {
         System.out.println(input_text.getText()+"|");
-        game_view.deleteWord(input_text.getText());
+        game_view.deleteWord(input_text.getText(), true);
         input_text.setText("");
     }
 
@@ -39,7 +39,7 @@ public class SubmitButton implements ActionListener, KeyListener {
         System.out.println("TEST");
         if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE) {
             System.out.println(input_text.getText()+"}");
-            game_view.deleteWord(input_text.getText());
+            game_view.deleteWord(input_text.getText(), true);
             input_text.setText("");
         }
 

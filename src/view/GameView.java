@@ -62,11 +62,16 @@ public class GameView {
         map_of_thread.put(new_word.getContent(), worker);
     }
 
-    public void deleteWord(String content) {
+    public void deleteWord(String content, boolean typed) {
         content = content.toUpperCase();
         if (map_of_thread.containsKey(content)) {
             map_of_thread.get(content).cancel(true);
             map_of_thread.remove(content);
+            if (typed) {
+                // ada score
+            } else {
+                // reduce health
+            }
         }
     }
 
@@ -114,6 +119,7 @@ public class GameView {
                     label.setLocation(position_x, cr.y);
                     word.setPosition(new Pair(position_x, cr.y));
                     if (cr.y > 500) {
+                        deleteWord(word.getContent(), false);
                         cancel(true);
                     }
                 }
