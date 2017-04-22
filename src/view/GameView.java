@@ -63,10 +63,6 @@ public class GameView {
         label.setLocation(position_x, position_y);
         label.setVisible(true);
         panel.add(label, BorderLayout.NORTH);
-        JLabel dummy = new JLabel("<hrml> <font color = 'black'> </font> </html>");
-        dummy.setLocation(0,0);
-        dummy.setVisible(false);
-        panel.add(dummy, BorderLayout.WEST);
         panel.setVisible(true);
         MainFrame.mainframe.setVisible(true);
         worker = new SwingWorker<Void, Void>() {
@@ -75,8 +71,8 @@ public class GameView {
                 while (!isCancelled()) {
                     Thread.sleep(10);
                     if (field.getText() != "") {
-                        int index = getIndexPrefix(field.getText(), word.getContent());
-                        System.out.println(index);
+                        int index = getIndexPrefix(field.getText().toUpperCase(), word.getContent());
+                        //System.out.println(index);
                         label.setText("<html> <font color = 'green'> " +
                             word.getContent().substring(0, index + 1) + "</font>" +
                             "<font color = 'red'>" + word.getContent().substring(index + 1) +

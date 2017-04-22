@@ -25,13 +25,14 @@ public class MainModel {
     static public float score_multiplier;
     private Vector<Pair<Items, Integer>> item;
     private Pair<String, Integer> leaderboard[];
-    private Vector<String> word_bank;
+    static public Vector<String> word_bank;
 
     public MainModel(){
         item = new Vector<Pair<Items, Integer>>();
+        word_bank = new Vector<String>();
         leaderboard = new Pair[5];
         loadData("asset/data.txt");
-        //loadWord("asset/word.txt");
+        loadWord("asset/word.txt");
         //nunggu word.txt nya ada
         System.out.println(health_maximum);
         System.out.println(coin);
@@ -74,8 +75,9 @@ public class MainModel {
     public void loadWord(String input_file) {
         try {
             Scanner scanner = new Scanner(new File(input_file));
-            while (scanner.hasNext()) {
-                word_bank.add(scanner.next());
+            while (scanner.hasNextLine()) {
+                //System.out.println(scanner.nextLine());
+                word_bank.add(scanner.nextLine().toUpperCase());
             }
         } catch (IOException e)
         {
