@@ -27,7 +27,10 @@ public class MainFrame {
         System.out.println(width);
         mainframe.getContentPane().setBackground(DARK_GRAY);
         mainframe.setSize(width,height);
-        MainFrame.mainframe.add(new JLabel(new ImageIcon(ImageLoader.splash.getScaledInstance(960,540,Image.SCALE_SMOOTH))));
+        int splash_width = widthToPx(60);
+        int splash_heiht = splash_width*ImageLoader.splash.getHeight()/ImageLoader.splash.getWidth();
+        MainFrame.mainframe.add(new JLabel(
+                new ImageIcon(ImageLoader.splash.getScaledInstance(splash_width,splash_heiht,Image.SCALE_SMOOTH))));
         mainframe.setVisible(true);
         device.setFullScreenWindow(mainframe);
     }

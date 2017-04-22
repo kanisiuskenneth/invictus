@@ -58,6 +58,7 @@ public class MainModel {
                 int second_value = scanner.nextInt();
                 item.add(new Pair(first_value, second_value));
             }
+            scanner.next();
             while (scanner.hasNext()) {
                 String first_value = scanner.next();
                 int second_value = scanner.nextInt();
