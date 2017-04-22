@@ -1,24 +1,24 @@
 package model.goods;
 
 /**
- * File: SlowSpell.java
+ * File: HealthUpgrade.java
  * Author: 13515063 - Kezia Suhendra
  */
 
 /**
- * Kelas SlowSpell
+ * Kelas HealthUpgrade
  */
-public class SlowSpell extends Items {
+public class HealthUpgrade extends PowerUp {
     /**
      * Constructor
      */
 
-    public SlowSpell() {
-        super(10, 0);
+    public HealthUpgrade() {
+        super(20, 0);
     }
     /**
      * Getter id
-     * @return id dari SlowSpell
+     * @return id dari HealthUpgrade
      */
 
     public int getID() {
@@ -26,7 +26,7 @@ public class SlowSpell extends Items {
     }
     /**
      * Getter price
-     * @return price dari SlowSpell
+     * @return price dari HealthUpgrade
      */
 
     public int getPrice() {
@@ -34,18 +34,14 @@ public class SlowSpell extends Items {
     }
     /**
      * Getter description
-     * @return description dari SlowSpell
+     * @return description dari HealthUpgrade
      */
-    public void buy(int id) {
-
-    }
-
 
     public String getDescription() {
-        return "decrease the speed of the words by 0.5.";
+        return "increase the maximum of health points by one heart.";
     }
     /**
-     * Buy SlowSpell
+     * Buy HealthUpgrade
      * @param id
      */
 

@@ -1,24 +1,24 @@
 package model.goods;
 
 /**
- * File: SlowSpell.java
+ * File: ScoreMultiplier.java
  * Author: 13515063 - Kezia Suhendra
  */
 
 /**
- * Kelas SlowSpell
+ * Kelas ScoreMultiplier
  */
-public class SlowSpell extends Items {
+public class ScoreMultiplier extends PowerUp {
     /**
      * Constructor
      */
 
-    public SlowSpell() {
-        super(10, 0);
+    public ScoreMultiplier() {
+        super(21, 0);
     }
     /**
      * Getter id
-     * @return id dari SlowSpell
+     * @return id dari ScoreMultiplier
      */
 
     public int getID() {
@@ -26,7 +26,7 @@ public class SlowSpell extends Items {
     }
     /**
      * Getter price
-     * @return price dari SlowSpell
+     * @return price dari ScoreMultiplier
      */
 
     public int getPrice() {
@@ -34,18 +34,14 @@ public class SlowSpell extends Items {
     }
     /**
      * Getter description
-     * @return description dari SlowSpell
+     * @return description dari ScoreMultiplier
      */
-    public void buy(int id) {
-
-    }
-
 
     public String getDescription() {
-        return "decrease the speed of the words by 0.5.";
+        return "increase the scores multiplier by 0.1 from the base multiplier.";
     }
     /**
-     * Buy SlowSpell
+     * Buy ScoreMultiplier
      * @param id
      */
 
