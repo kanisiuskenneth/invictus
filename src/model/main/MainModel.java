@@ -23,13 +23,8 @@ public class MainModel {
     static public int coin;
     static public float coin_multiplier;
     static public float score_multiplier;
-<<<<<<< HEAD
     static public Vector<Pair<Items, Integer>> item;
     static public Pair<String, Integer> leaderboard[];
-=======
-    private Vector<Pair<Items, Integer>> item;
-    private Pair<String, Integer> leaderboard[];
->>>>>>> origin/develop
     static public Vector<String> word_bank;
 
     public MainModel(){
