@@ -23,9 +23,9 @@ public class MainModel {
     static public int coin;
     static public float coin_multiplier;
     static public float score_multiplier;
-    private Vector<Pair<Items, Integer>> item;
-    private Pair<String, Integer> leaderboard[];
-    private Vector<String> word_bank;
+    static public Vector<Pair<Items, Integer>> item;
+    static public Pair<String, Integer> leaderboard[];
+    static public Vector<String> word_bank;
 
     public MainModel(){
         item = new Vector<Pair<Items, Integer>>();

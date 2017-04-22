@@ -17,6 +17,9 @@ import java.io.File;
  */
 public class Menu extends Container {
     public Menu() {
+        Container temp = MainFrame.mainframe.getContentPane();
+        temp.removeAll();
+        MainFrame.mainframe.remove(temp);
         JPanel main_panel = new JPanel();
         MainFrame.mainframe.setContentPane(main_panel);
         main_panel.setBackground(MainFrame.DARK_GRAY);
@@ -31,17 +34,17 @@ public class Menu extends Container {
         main_panel.add(gamelogo,BorderLayout.NORTH);
         JPanel menu_panel = new JPanel();
         main_panel.add(menu_panel,BorderLayout.CENTER);
-        int content_rows = content_height/100;
+        int content_rows = content_height/90;
         menu_panel.setLayout(new GridLayout(content_rows,1));
         menu_panel.setBackground(MainFrame.DARK_GRAY);
         JButton play = new JButton(new ImageIcon(
-                ImageLoader.play_button.getScaledInstance(400,80,Image.SCALE_FAST)));
+                ImageLoader.play_button.getScaledInstance(350,70,Image.SCALE_DEFAULT)));
         JButton quit = new JButton(new ImageIcon(
-                ImageLoader.quit_button.getScaledInstance(400,80,Image.SCALE_FAST)));
+                ImageLoader.quit_button.getScaledInstance(350,70,Image.SCALE_DEFAULT)));
         JButton leaderboard = new JButton(new ImageIcon(
-                ImageLoader.leaderboard_button.getScaledInstance(400,80,Image.SCALE_FAST)));
+                ImageLoader.leaderboard_button.getScaledInstance(350,70,Image.SCALE_DEFAULT)));
         JButton shop = new JButton(new ImageIcon(
-                ImageLoader.shop_button.getScaledInstance(400,80,Image.SCALE_FAST)));
+                ImageLoader.shop_button.getScaledInstance(350,70,Image.SCALE_DEFAULT)));
         menu_panel.add(play);
         menu_panel.add(shop);
         menu_panel.add(leaderboard);
@@ -65,8 +68,6 @@ public class Menu extends Container {
         menu_panel.setVisible(true);
         MainFrame.mainframe.setVisible(true);
 
-
-
         quit.addActionListener(
                 new ActionListener() {
                     @Override
@@ -77,6 +78,16 @@ public class Menu extends Container {
                 }
         );
         leaderboard.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        LeaderboardView ld = new LeaderboardView();
+                        //ld.close();
+                    }
+                }
+        );
+
+        shop.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
