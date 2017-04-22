@@ -11,7 +11,6 @@ import view.GameView;
 
 import javax.swing.*;
 import java.util.HashMap;
-import java.util.Vector;
 
 /**
  * Kelas GameController untuk mengatur kerja game
@@ -49,7 +48,7 @@ public class GameController {
         while (map_of_thread.containsKey(str)) {
             str = str + "A";
         }
-        Word new_word = new Word(str);
+        Word new_word = new Word("DIKAGANTENGBANGET");
         //harusnya ngeloop terus sampe content nya ga ada di map
         SwingWorker<Void, Void> worker = null;
         worker = game_view.viewWord(new_word, worker);
@@ -58,16 +57,7 @@ public class GameController {
 
     public void deleteWord(String content) {
         if (map_of_thread.containsKey(content)) {
-            //map_of_thread.get(content).cancel(true);
-            SwingWorker<Void, Void> worker = map_of_thread.get(content);
-            if (worker == null) {
-
-            }
-            else {
-                System.out.println("Mau stio thread");
-                worker.cancel(true);
-            }
-            //worker.cancel(true);
+            map_of_thread.get(content).cancel(true);
             map_of_thread.remove(content);
         }
     }
@@ -81,7 +71,7 @@ public class GameController {
             {
 
             }
-            deleteWord("AAAA");
+            //deleteWord("AAAA");
             addWord();
         }
     }
