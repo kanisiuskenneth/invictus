@@ -29,6 +29,10 @@ public class Player {
         return current_health;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public void reducedHealth() {
         --current_health;
     }

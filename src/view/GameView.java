@@ -15,8 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.lang.reflect.Executable;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 /**
  * File: GameView.java
@@ -43,7 +42,7 @@ public class GameView {
         field = new JTextField("");
         player = new Player();
         health_label = new JLabel("<html> <font color = 'red' size = '20'> " + player.getCurrent_health() + "</font></html>");
-        health_label.setLocation(50,0);
+        health_label.setLocation(50, 0);
         health_label.setVisible(true);
         panel.add(health_label, BorderLayout.NORTH);
         submit = new JButton("Submit");
@@ -53,7 +52,7 @@ public class GameView {
         panel.add(submit, BorderLayout.WEST);
         random = new Random();
         panel.setVisible(true);
-        panel.setSize(MainFrame.width,MainFrame.height);
+        panel.setSize(MainFrame.width, MainFrame.height);
         panel.setBackground(Color.BLUE);
         field.setSize(100, 20);
         field.setVisible(true);
@@ -71,10 +70,16 @@ public class GameView {
                     } catch (Exception e) {
 
                     }
-                    SwingWorker<Void, Void>  worker = null;
+                    SwingWorker<Void, Void> worker = null;
                     worker = viewWord(new Word(""), worker);
                     if (player.getCurrent_health() <= 0) {
-                        cancel(true);
+                        System.out.println("DIE");
+                        for (Map.Entry<String, SwingWorker<Void, Void>> entry : map_of_thread.entrySet()) {
+                            System.out.println(entry.getKey());
+                            entry.getValue().cancel(true);
+                        }
+                        map_of_thread.clear();
+                        System.out.println(player.getScore());
                     }
                     try {
                         Thread.sleep(2000);
@@ -82,13 +87,19 @@ public class GameView {
 
                     }
                 }
+                System.out.println("keluar loop");
                 return null;
+            }
+
+            @Override
+            protected void done() {
+
             }
         };
         word_worker.execute();
     }
 
-    public void reduceHP(){
+    public void reduceHP() {
         player.reducedHealth();
         health_label.setText("<html> <font color = 'red' size = '20'> " + player.getCurrent_health() + "</font></html>");
     }
@@ -128,11 +139,11 @@ public class GameView {
     }
 
 
-    private int getIndexPrefix (String first_string, String second_string) {
+    private int getIndexPrefix(String first_string, String second_string) {
         if (first_string.length() > second_string.length()) {
             return -1;
         } else {
-            if (first_string.equals(second_string.substring(0,first_string.length()))) {
+            if (first_string.equals(second_string.substring(0, first_string.length()))) {
                 return first_string.length() - 1;
             } else {
                 return -1;
@@ -161,7 +172,7 @@ public class GameView {
                         label.setText("<html><font color = 'blue'> " + word.getContent() + "</font></html>");
                     }
                     //
-                    Thread.sleep(100);
+                    Thread.sleep(30);
                     if (field.getText() != "") {
                         int index = getIndexPrefix(field.getText().toUpperCase(), word.getContent());
                         //System.out.println(index);
