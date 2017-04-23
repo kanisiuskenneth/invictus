@@ -25,7 +25,7 @@ public class MainModel {
   public static Vector<Pair<Items, Integer>> item;
   public static Pair<String, Integer>[] leaderboard;
   public static Vector<String> word_bank;
-
+  public static final String VERSION = "UT alpha v1.0";
   /**
    * Constructor.
    */

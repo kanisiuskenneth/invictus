@@ -36,7 +36,7 @@ public class GameView {
     field = new JTextField("");
     player = new Player();
     healthLabel = new JLabel("<html> <font color = 'red' size = '20'> "
-        + player.getCurrent_health() + "</font></html>");
+        + player.getCurrentHealth() + "</font></html>");
     healthLabel.setLocation(50, 0);
     healthLabel.setVisible(true);
     panel.add(healthLabel, BorderLayout.NORTH);
@@ -67,7 +67,7 @@ public class GameView {
           }
           SwingWorker<Void, Void> worker = null;
           worker = viewWord(new Word(""), worker);
-          if (player.getCurrent_health() <= 0) {
+          if (player.getCurrentHealth() <= 0) {
             System.out.println("DIE");
             for (Map.Entry<String, SwingWorker<Void, Void>> entry : mapOfThread.entrySet()) {
               System.out.println(entry.getKey());
@@ -97,7 +97,7 @@ public class GameView {
   private void reduceHealth() {
     player.reducedHealth();
     healthLabel.setText("<html> <font color = 'red' size = '20'> "
-        + player.getCurrent_health() + "</font></html>");
+        + player.getCurrentHealth() + "</font></html>");
   }
 
   private void addScore(int score) {
@@ -130,7 +130,7 @@ public class GameView {
           System.out.println("");
         }
         healthLabel.setText("<html> <font color = 'red' size = '20'> "
-            + player.getCurrent_health() + "</font></html>");
+            + player.getCurrentHealth() + "</font></html>");
       }
     }
   }
