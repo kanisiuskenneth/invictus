@@ -4,6 +4,8 @@ import java.awt.*;
 
 import util.Pair;
 
+import javax.swing.*;
+
 /**
  * File: Word.java
  * Author: 13515063 - Kezia Suhendra
@@ -14,6 +16,7 @@ import util.Pair;
  */
 public class Word {
   private String content;
+  private JLabel label;
   private Pair<Integer, Integer> position;
 
   /**
@@ -24,6 +27,7 @@ public class Word {
 
   public Word(String content) {
     this.content = content;
+    label = new JLabel(content);
   }
 
   /**
@@ -38,6 +42,10 @@ public class Word {
    * Getter position.
    * @return position dari word.
    */
+
+  public JLabel getLabel() {
+    return label;
+  }
   public Pair<Integer, Integer> getPosition() {
     return position;
   }
