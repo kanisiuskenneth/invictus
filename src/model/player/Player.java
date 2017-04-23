@@ -11,33 +11,35 @@ import model.main.MainModel;
  * Kelas Player
  */
 public class Player {
-    private int current_health;
-    private int score;
-    /**
-     * Constructor
-     */
+  private int currentHealth;
+  private int score;
 
-    public Player() {
-        current_health = MainModel.health_maximum;
-        score = 0;
-    }
-    /**
-     *  Mengurangi current health points player.
-     */
+  /**
+   * Constructor
+   */
 
-    public int getCurrent_health() {
-        return current_health;
-    }
+  public Player() {
+    currentHealth = MainModel.health_maximum;
+    score = 0;
+  }
 
-    public int getScore() {
-        return score;
-    }
+  /**
+   * Mengurangi current health points player.
+   */
 
-    public void reducedHealth() {
-        --current_health;
-    }
+  public int getCurrentHealth() {
+    return currentHealth;
+  }
 
-    public void increaseScore(int score) {
-        this.score += score;
-    }
+  public int getScore() {
+    return score;
+  }
+
+  public void reducedHealth() {
+    --currentHealth;
+  }
+
+  public void increaseScore(int score) {
+    this.score += score;
+  }
 }
