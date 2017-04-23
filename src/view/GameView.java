@@ -27,6 +27,7 @@ public class GameView {
   private JPanel gamePanel;
   private JTextField field;
   //private JButton submit;
+  private boolean flag;
   private JLabel healthLabel;
   private JLabel scoreLabel;
   private SwingWorker<Void, Void> wordWorker;
@@ -34,6 +35,7 @@ public class GameView {
 
   public GameView() {
     System.out.println("Starting game");
+    flag = false;
     gameController = new GameController();
     updateWorker = null;
     wordWorker = null;
@@ -112,6 +114,7 @@ public class GameView {
     field.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
+        while (flag) {}
         gameController.deleteWord(field.getText(), true);
         field.setText("");
       }
@@ -181,7 +184,9 @@ public class GameView {
         while (!isCancelled()) {
           // cek updating
           System.out.println("JUMLAH" + gameController.gameModel.mapOfThread.size());
-          Thread.sleep(50);
+          flag = false;
+          Thread.sleep(100);
+          flag = true;
           updateHealth();
           updateScore();
           HashMap<Word, SwingWorker<Void, Void>> mapOfThread = gameController.gameModel.mapOfThread;
@@ -189,7 +194,6 @@ public class GameView {
             System.out.println("UPDATE" + entry.getKey().getContent());
             Word word = entry.getKey();
             word.getLabel().setLocation(word.getPosition().first, word.getPosition().second);
-            word.getLabel().setVisible(true);
             if (word.getPosition().second > 500) {
               //gameController.deleteWord(word.getContent(), false);
               word.getLabel().setText("");
@@ -202,7 +206,7 @@ public class GameView {
               */
             } else {
               if (word.getContent().equals(word.getLabel().getText())) {
-                word.getLabel().setText("<html><font color = 'white'> " + word.getContent() + "</font></html>");
+                word.getLabel().setText("<html><font color = 'blue'> " + word.getContent() + "</font></html>");
                 word.getLabel().setVisible(true);
                 gamePanel.add(word.getLabel(), BorderLayout.NORTH);
               }
