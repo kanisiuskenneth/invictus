@@ -79,6 +79,7 @@ public class GameView {
                             entry.getValue().cancel(true);
                         }
                         map_of_thread.clear();
+                        System.out.println(player.getScore());
                     }
                     try {
                         Thread.sleep(2000);
