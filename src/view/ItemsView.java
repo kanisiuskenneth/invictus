@@ -24,9 +24,11 @@ public class ItemsView {
     itemsPanel.setBackground(MainFrame.DARK_GRAY);
     itemsPanel.setLayout(new BorderLayout());
     itemsPanel.setSize(MainFrame.width, MainFrame.height);
+    int itemBannerWidth = 800;
+    int itemBannerHeight = ImageLoader.itemsBanner.getHeight() * itemBannerWidth/ImageLoader.itemsBanner.getWidth();
     MainFrame.mainframe.setContentPane(itemsPanel);
     JLabel headBanner = new JLabel(new ImageIcon(
-            ImageLoader.itemsBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
+            ImageLoader.itemsBanner.getScaledInstance(itemBannerWidth, itemBannerHeight, Image.SCALE_DEFAULT)));
     itemsPanel.add(headBanner, BorderLayout.NORTH);
 
     JPanel menuPanel = new JPanel();
