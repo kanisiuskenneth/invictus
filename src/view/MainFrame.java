@@ -17,7 +17,7 @@ public class MainFrame {
           .getLocalGraphicsEnvironment().getScreenDevices()[0];
   static int height;
   static int width;
-  static JFrame mainframe;
+  public static JFrame mainframe;
   static final Color DARK_GRAY = new Color(30, 30, 30);
 
   /**

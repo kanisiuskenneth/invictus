@@ -9,6 +9,7 @@ import view.MainFrame;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
 
 /**
@@ -19,9 +20,11 @@ import java.util.Random;
 public class GameModel {
   public Player player;
   public Random random;
+  public HashSet<Word> wordSet;
   public HashMap<Word, SwingWorker<Void, Void>> mapOfThread;
 
   public GameModel() {
+    wordSet = new HashSet<Word>();
     player = new Player();
     mapOfThread = new HashMap<Word, SwingWorker<Void, Void>>();
     random = new Random();

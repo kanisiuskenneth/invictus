@@ -36,17 +36,19 @@ public class Menu extends Container {
         main_panel.add(gamelogo,BorderLayout.NORTH);
         JPanel menu_panel = new JPanel();
         main_panel.add(menu_panel,BorderLayout.CENTER);
-        int content_rows = content_height/90;
+        int buttonWidth = MainFrame.widthToPx(24);
+        int buttonHeigth = buttonWidth*1/5;
+        int content_rows = content_height/(buttonHeigth+10);
         menu_panel.setLayout(new GridLayout(content_rows,1));
         menu_panel.setBackground(MainFrame.DARK_GRAY);
         JButton play = new JButton(new ImageIcon(
-                ImageLoader.play_button.getScaledInstance(350,70,Image.SCALE_DEFAULT)));
+                ImageLoader.play_button.getScaledInstance(buttonWidth,buttonHeigth,Image.SCALE_DEFAULT)));
         JButton quit = new JButton(new ImageIcon(
-                ImageLoader.quit_button.getScaledInstance(350,70,Image.SCALE_DEFAULT)));
+                ImageLoader.quit_button.getScaledInstance( buttonWidth,buttonHeigth,Image.SCALE_DEFAULT)));
         JButton leaderboard = new JButton(new ImageIcon(
-                ImageLoader.leaderboard_button.getScaledInstance(350,70,Image.SCALE_DEFAULT)));
+                ImageLoader.leaderboard_button.getScaledInstance(buttonWidth,buttonHeigth,Image.SCALE_DEFAULT)));
         JButton shop = new JButton(new ImageIcon(
-                ImageLoader.shop_button.getScaledInstance(350,70,Image.SCALE_DEFAULT)));
+                ImageLoader.shop_button.getScaledInstance(buttonWidth,buttonHeigth,Image.SCALE_DEFAULT)));
         menu_panel.add(play);
         menu_panel.add(shop);
         menu_panel.add(leaderboard);

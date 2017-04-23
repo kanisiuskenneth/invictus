@@ -11,95 +11,96 @@ import model.player.Player;
 import model.word.Word;
 import util.Pair;
 import view.GameView;
+import view.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
 
 /**
  * Kelas GameController untuk mengatur kerja game
  */
 public class GameController {
+  private int updateTic = 15;
+  private int spawnTic = 1;
   public GameModel gameModel;
-
-  public GameController() {
-    gameModel = new GameModel();
+  public Container gamePanel;
+  public GameController(GameModel gameModel, JLayeredPane gamePanel) {
+    this.gameModel = gameModel;
+    this.gamePanel = gamePanel;
+    startGame();
   }
 
-  /**
-   * Prosedur useItem untuk menggunakan item pada saat game
-   *
-   * @param id id item yang akan digunakan
-   */
-  public void useItem(int id) {
-    // masih belum
+  public void startGame() {
+    addWord();
+    updateWord();
   }
-  
-  public void addWord() {
-    String content = MainModel.word_bank.get(gameModel.random.nextInt(MainModel.word_bank.size()));
-    while (gameModel.mapOfThread.containsKey(content)) {
-      content = MainModel.word_bank.get(gameModel.random.nextInt(MainModel.word_bank.size()));
-    }
-    Word newWord = new Word(content);
-    SwingWorker<Void, Void> worker = null;
-    //
-    //worker = gameModel.viewWord(newWord, worker);
-    //
-    // masih ada bug nyangkut di atas gatau kenapa
-    int positionX = gameModel.random.nextInt(1000);
-    int positionY = -20; // y position dari paling atas
-    newWord.setPosition(new Pair(positionX, positionY));
-    worker = new SwingWorker<Void, Void>() {
+
+  private void updateWord() {
+    SwingWorker<Void, Boolean> wordUpdater = new SwingWorker<Void, Boolean>() {
       @Override
       protected Void doInBackground() throws Exception {
         while (!isCancelled()) {
-          try {
-            Thread.sleep(100);
-          } catch (Exception e) {
-            System.out.println("");
+          for(Word word : gameModel.wordSet) {
+            word.setPosition(new Pair<>(word.getPosition().first,word.getPosition().second+1));
           }
-          newWord.setPosition(new Pair(newWord.getPosition().first, newWord.getPosition().second + 2));
-          if (newWord.getPosition().second > 500) {
-            //gameModel.mapOfThread.get(newWord.getContent()).cancel(true);
-            //gameModel.mapOfThread.remove(newWord.getContent());
-            reduceHealth();
-            cancel(true);
-          }
+          System.out.print("Word Updated");
+          publish(true);
+          Thread.sleep(1000/updateTic);
         }
         return null;
       }
 
       @Override
-      protected void done() {
-
+      protected void process(List<Boolean> chunks) {
+        if(chunks.get(chunks.size()-1)) {
+          for(Word word : gameModel.wordSet) {
+            word.getLabel().setLocation(word.getPosition().first,word.getPosition().second);
+          }
+        }
       }
     };
-    worker.execute();
-    gameModel.mapOfThread.put(newWord, worker);
-    System.out.println("ADD DARI CONTROLLER" + gameModel.mapOfThread.size());
+    wordUpdater.execute();
+  }
+
+  public void addWord() {
+
+    SwingWorker<Void, Word> wordSpawner = new SwingWorker<Void, Word>() {
+      @Override
+      protected Void doInBackground() throws Exception {
+        while (!isCancelled()) {
+          Word temp = new Word(MainModel.word_bank.elementAt(gameModel.random.nextInt(MainModel.word_bank.size())));
+          temp.setPosition(new Pair(gameModel.random.nextInt(gamePanel.getWidth()-50),-10));
+          gameModel.wordSet.add(temp);
+          publish(temp);
+          System.out.println("Word Spawned");
+          Thread.sleep(1000/spawnTic);
+        }
+        return null;
+      }
+      @Override
+      protected void process(List<Word> chunks) {
+        Word word = chunks.get(chunks.size()-1);
+        JLabel temp = word.getLabel();
+        temp.setSize(100,30);
+        temp.setLocation(word.getPosition().first,word.getPosition().second);
+        temp.setForeground(Color.WHITE);
+        gamePanel.add(temp);
+        temp.setVisible(true);
+        gamePanel.setVisible(true);
+        MainFrame.mainframe.setVisible(true);
+        System.out.print(temp.getText());
+      }
+    };
+    wordSpawner.execute();
+
   }
 
   public void deleteWord(String content, boolean typed) {
-    content = content.toUpperCase();
-    Word word = null;
-    for (Map.Entry<Word, SwingWorker<Void, Void>> entry : gameModel.mapOfThread.entrySet()) {
-      if (entry.getKey().getContent().equals(content)) {
-        word = entry.getKey();
-        break;
-      }
-    }
-    if (gameModel.mapOfThread.containsKey(word)) {
-      word.getLabel().setText("");
-      gameModel.mapOfThread.get(word).cancel(true);
-      gameModel.mapOfThread.remove(word);
-      if (typed) {
-        addScore(10 * content.length());
-      } else {
-        reduceHealth();
-      }
-    }
+
   }
 
   public void reduceHealth() {
