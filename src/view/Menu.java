@@ -3,6 +3,7 @@ package view;
 
 import controller.GameController;
 import controller.ImageLoader;
+import model.main.MainModel;
 import sun.applet.Main;
 
 import javax.imageio.ImageIO;
@@ -63,8 +64,16 @@ public class Menu extends Container {
         quit.setBorder(BorderFactory.createEmptyBorder());
         quit.setContentAreaFilled(false);
 
-        JLabel footer = new JLabel("<html><font color=white size=5>Invictus Team \u00a92017</font></html>");
-        footer.setVisible(true);
+        JPanel footer = new JPanel();
+        footer.setLayout(new BorderLayout());
+        JLabel copy = new JLabel("Invictus Team \u00a92017");
+        JLabel version = new JLabel(MainModel.VERSION);
+        footer.setBackground(MainFrame.DARK_GRAY);
+        copy.setForeground(Color.WHITE);
+        version.setForeground(Color.WHITE);
+        copy.setVisible(true);
+        footer.add(copy,BorderLayout.WEST);
+        footer.add(version,BorderLayout.EAST);
         main_panel.add(footer,BorderLayout.SOUTH);
         menu_panel.setVisible(true);
         MainFrame.mainframe.setVisible(true);
