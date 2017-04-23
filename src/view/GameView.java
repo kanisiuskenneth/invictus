@@ -1,13 +1,19 @@
 package view;
 
+import controller.GameController;
+import controller.ImageLoader;
 import controller.SubmitButton;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
 
+import model.game.GameModel;
 import model.main.MainModel;
-import model.player.Player;
 import model.word.Word;
 import util.Pair;
 
@@ -17,64 +23,126 @@ import util.Pair;
  */
 
 public class GameView {
-  private Player player;
-  private JPanel panel;
+  public GameController gameController;
+  private JPanel gamePanel;
   private JTextField field;
-  private JButton submit;
-  private Random random;
+  //private JButton submit;
   private JLabel healthLabel;
-  private HashMap<String, SwingWorker<Void, Void>> mapOfThread;
+  private JLabel scoreLabel;
   private SwingWorker<Void, Void> wordWorker;
+  private SwingWorker<Void, Void> updateWorker;
 
   public GameView() {
-    mapOfThread = new HashMap<String, SwingWorker<Void, Void>>();
-    //MainFrame.mainframe.remove(MainFrame.mainframe.getContentPane());
-    panel = new JPanel();
     System.out.println("Starting game");
+    gameController = new GameController();
+    updateWorker = null;
+    wordWorker = null;
+    /*
     MainFrame.mainframe.setContentPane(panel);
     MainFrame.mainframe.getRootPane().setDefaultButton(submit);
-    field = new JTextField("");
-    player = new Player();
-    healthLabel = new JLabel("<html> <font color = 'red' size = '20'> "
-        + player.getCurrentHealth() + "</font></html>");
-    healthLabel.setLocation(50, 0);
-    healthLabel.setVisible(true);
-    panel.add(healthLabel, BorderLayout.NORTH);
-    submit = new JButton("Submit");
     submit.addActionListener(new SubmitButton(this, field));
     submit.addKeyListener(new SubmitButton(this, field));
     submit.setVisible(true);
-    panel.add(submit, BorderLayout.WEST);
-    random = new Random();
-    panel.setVisible(true);
-    panel.setSize(MainFrame.width, MainFrame.height);
-    panel.setBackground(Color.BLUE);
+    */
+    gamePanel = new JPanel();
+    gamePanel.setVisible(true);
+    gamePanel.setSize(MainFrame.width, MainFrame.height);
+    gamePanel.setBackground(Color.BLUE);
+    /*
     field.setSize(100, 20);
     field.setVisible(true);
-    panel.setLayout(new BorderLayout());
-    panel.add(field, BorderLayout.SOUTH);
+    */
+    gamePanel.setLayout(new BorderLayout());
+    /*
     MainFrame.mainframe.getRootPane().setDefaultButton(submit);
     field.requestFocusInWindow();
+    */
+    Container prevPanel = MainFrame.mainframe.getContentPane();
+    JPanel mainPanel = new JPanel();
+    mainPanel.setLayout(new BorderLayout());
+    MainFrame.mainframe.setContentPane(mainPanel);
+    mainPanel.setBackground(MainFrame.DARK_GRAY);
+    mainPanel.setSize(MainFrame.width,MainFrame.height);
+
+    JPanel topPanel = new JPanel();
+    JPanel bottomPanel = new JPanel();
+    //JPanel middlePanel = new JPanel();
+    healthLabel = new JLabel();
+    updateHealth();
+    scoreLabel = new JLabel();
+    updateScore();
+    gamePanel.setBackground(Color.BLUE);
+    topPanel.setLayout(new BorderLayout());
+    topPanel.setBackground(MainFrame.DARK_GRAY);
+    bottomPanel.setBackground(MainFrame.DARK_GRAY);
+    int logo_height = MainFrame.heightToPx(12);
+    int logo_width = logo_height* ImageLoader.game_banner.getWidth()/ImageLoader.game_banner.getHeight();
+    JLabel logo = new JLabel(
+        new ImageIcon(ImageLoader.game_banner.getScaledInstance(logo_width,logo_height,Image.SCALE_DEFAULT)));
+    topPanel.add(logo,BorderLayout.NORTH);
+
+    field = new JTextField();
+    field.setOpaque(false);
+    field.setBackground(null);
+    field.setBorder(null);
+    field.setHorizontalAlignment(SwingConstants.CENTER);
+    field.setFont(new Font("Courier New",Font.PLAIN,30));
+    healthLabel.setForeground(Color.WHITE);
+    healthLabel.setFont(new Font("Serif",Font.PLAIN,30));
+    healthLabel.setBorder(new EmptyBorder(0,30,30,0));
+    field.setBorder(new MatteBorder(2,0,2,0,Color.WHITE));
+    field.setForeground(Color.WHITE);
+    scoreLabel.setForeground(Color.WHITE);
+    scoreLabel.setFont(new Font("Serif",Font.PLAIN,30));
+    scoreLabel.setBorder(new EmptyBorder(0,0,30,30));
+
+    topPanel.add(healthLabel,BorderLayout.WEST);
+    topPanel.add(scoreLabel,BorderLayout.EAST);
+    mainPanel.add(topPanel,BorderLayout.NORTH);
+
+    bottomPanel.setLayout(new BorderLayout());
+    bottomPanel.add(field,BorderLayout.NORTH);
+    mainPanel.add(gamePanel,BorderLayout.CENTER);
+    mainPanel.add(bottomPanel,BorderLayout.SOUTH);
+    field.requestFocus();
+    mainPanel.setVisible(true);
+    MainFrame.mainframe.setVisible(true);
+
+
+    field.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        gameController.deleteWord(field.getText(), true);
+        field.setText("");
+      }
+    });
+    startWordWorker();
+    startUpdateWorker();
+  }
+
+  public void startWordWorker() {
     wordWorker = new SwingWorker<Void, Void>() {
       @Override
       protected Void doInBackground() throws Exception {
         while (!isCancelled()) {
-          addWord();
+          System.out.println("ADD DARI VIEW");
+          gameController.addWord();
           try {
             Thread.sleep(100);
           } catch (Exception e) {
             System.out.println("");
           }
-          SwingWorker<Void, Void> worker = null;
-          worker = viewWord(new Word(""), worker);
-          if (player.getCurrentHealth() <= 0) {
+          //SwingWorker<Void, Void> worker = null;
+          //worker = viewWord(new Word(""), worker);
+          if (gameController.gameModel.player.getCurrentHealth() <= 0) {
             System.out.println("DIE");
-            for (Map.Entry<String, SwingWorker<Void, Void>> entry : mapOfThread.entrySet()) {
-              System.out.println(entry.getKey());
+            for (Map.Entry<Word, SwingWorker<Void, Void>> entry : gameController.gameModel.mapOfThread.entrySet()) {
+              entry.getKey().getLabel().setText("");
               entry.getValue().cancel(true);
             }
-            mapOfThread.clear();
-            System.out.println(player.getScore());
+            gameController.gameModel.mapOfThread.clear();
+            System.out.println(gameController.gameModel.player.getScore());
+            cancel(true);
           }
           try {
             Thread.sleep(2000);
@@ -88,53 +156,11 @@ public class GameView {
 
       @Override
       protected void done() {
-
+        updateWorker.cancel(true);
       }
     };
     wordWorker.execute();
   }
-
-  private void reduceHealth() {
-    player.reducedHealth();
-    healthLabel.setText("<html> <font color = 'red' size = '20'> "
-        + player.getCurrentHealth() + "</font></html>");
-  }
-
-  private void addScore(int score) {
-    player.increaseScore(score);
-  }
-
-  public void addWord() {
-    String content = MainModel.word_bank.get(random.nextInt(MainModel.word_bank.size()));
-    while (mapOfThread.containsKey(content)) {
-      content = MainModel.word_bank.get(random.nextInt(MainModel.word_bank.size()));
-    }
-    Word newWord = new Word(content);
-    SwingWorker<Void, Void> worker = null;
-    worker = viewWord(newWord, worker);
-    mapOfThread.put(newWord.getContent(), worker);
-  }
-
-  public void deleteWord(String content, boolean typed) {
-    content = content.toUpperCase();
-    if (mapOfThread.containsKey(content)) {
-      mapOfThread.get(content).cancel(true);
-      mapOfThread.remove(content);
-      if (typed) {
-        addScore(10 * content.length());
-      } else {
-        reduceHealth();
-        try {
-          Thread.sleep(10);
-        } catch (Exception e) {
-          System.out.println("");
-        }
-        healthLabel.setText("<html> <font color = 'red' size = '20'> "
-            + player.getCurrentHealth() + "</font></html>");
-      }
-    }
-  }
-
 
   private int getIndexPrefix(String firstString, String secondString) {
     if (firstString.length() > secondString.length()) {
@@ -148,56 +174,74 @@ public class GameView {
     }
   }
 
-  public SwingWorker<Void, Void> viewWord(Word word, SwingWorker<Void, Void> worker) {
-    //field.getText();
-    JLabel label = new JLabel("<html> <font color = 'blue'> "
-        + word.getContent() + " </font></html>");
-    // masih ada bug nyangkut di atas gatau kenapa
-    int positionX = random.nextInt(1000);
-    int positionY = 0; // y position dari paling atas
-    label.setLocation(positionX, positionY);
-    label.setVisible(true);
-    panel.add(label, BorderLayout.NORTH);
-    panel.setVisible(true);
-    MainFrame.mainframe.setVisible(true);
-    worker = new SwingWorker<Void, Void>() {
+  private void startUpdateWorker() {
+    updateWorker = new SwingWorker<Void, Void>() {
       @Override
       protected Void doInBackground() throws Exception {
         while (!isCancelled()) {
-          //
-          if (label.getLocation().y <= 50) {
-            label.setText("<html><font color = 'blue'> " + word.getContent() + "</font></html>");
-          }
-          //
-          Thread.sleep(30);
-          if (field.getText() != "") {
-            int index = getIndexPrefix(field.getText().toUpperCase(), word.getContent());
-            //System.out.println(index);
-            label.setText("<html> <font color = 'green'> "
-                + word.getContent().substring(0, index + 1) + "</font>"
-                + "<font color = 'red'>" + word.getContent().substring(index + 1)
-                + " </font></html>"
-            );
-            label.setLocation(positionX, label.getLocation().y);
-          }
-          Point cr = label.getLocation();
-          cr.y += 2;
-          label.setLocation(positionX, cr.y);
-          word.setPosition(new Pair(positionX, cr.y));
-          if (cr.y > 500) {
-            deleteWord(word.getContent(), false);
-            cancel(true);
+          // cek updating
+          System.out.println("JUMLAH" + gameController.gameModel.mapOfThread.size());
+          Thread.sleep(50);
+          updateHealth();
+          updateScore();
+          HashMap<Word, SwingWorker<Void, Void>> mapOfThread = gameController.gameModel.mapOfThread;
+          for (Map.Entry<Word, SwingWorker<Void, Void>> entry : mapOfThread.entrySet()) {
+            System.out.println("UPDATE" + entry.getKey().getContent());
+            Word word = entry.getKey();
+            word.getLabel().setLocation(word.getPosition().first, word.getPosition().second);
+            word.getLabel().setVisible(true);
+            if (word.getPosition().second > 500) {
+              //gameController.deleteWord(word.getContent(), false);
+              word.getLabel().setText("");
+              //gameController.gameModel.mapOfThread.get(word.getContent()).cancel(true);
+              //gameController.gameModel.mapOfThread.remove(word.getContent());
+              //gameController.reduceHealth();
+              /*
+              gameController.deleteWord(word.getContent(), false);
+              gameController.gameModel.player.reducedHealth();
+              */
+            } else {
+              if (word.getContent().equals(word.getLabel().getText())) {
+                word.getLabel().setText("<html><font color = 'white'> " + word.getContent() + "</font></html>");
+                word.getLabel().setVisible(true);
+                gamePanel.add(word.getLabel(), BorderLayout.NORTH);
+              }
+              System.out.println("loop1");
+              if (field.getText() != "") {
+                int index = getIndexPrefix(field.getText().toUpperCase(), word.getContent());
+                //System.out.println(index);
+                word.getLabel().setText("<html> <font color = 'green'> "
+                    + word.getContent().substring(0, index + 1) + "</font>"
+                    + "<font color = 'red'>" + word.getContent().substring(index + 1)
+                    + " </font></html>"
+                );
+                word.getLabel().setLocation(word.getPosition().first, word.getPosition().second);
+              }
+            }
+            System.out.println("loop");
           }
         }
+        System.out.println("UPDATE DONE");
         return null;
       }
 
       @Override
       protected void done() {
-        label.setText("");
+
       }
     };
-    worker.execute();
-    return worker;
+    updateWorker.execute();
+  }
+
+  void updateHealth() {
+    String health = "";
+    for(int i =0;i<gameController.gameModel.player.getCurrentHealth();i++) {
+      health += "\u2665";
+    }
+    healthLabel.setText(health);
+  }
+
+  void updateScore() {
+    scoreLabel.setText(""+gameController.gameModel.player.getScore());
   }
 }
