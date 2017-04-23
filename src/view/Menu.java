@@ -101,8 +101,10 @@ public class Menu extends Container {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-
-                        new GameController();
+                        //MainFrame.mainframe.removeAll();
+                        //new Menu();
+                        new GameView();
+                        //new GameController();
                     }
                 }
         );

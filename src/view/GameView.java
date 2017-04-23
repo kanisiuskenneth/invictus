@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.lang.reflect.Executable;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -30,10 +31,11 @@ public class GameView {
     private Random random;
     private JLabel health_label;
     private HashMap<String, SwingWorker<Void, Void>> map_of_thread;
+    private SwingWorker<Void, Void> word_worker;
 
     public GameView() {
         map_of_thread = new HashMap<String, SwingWorker<Void, Void>>();
-        MainFrame.mainframe.remove(MainFrame.mainframe.getContentPane());
+        //MainFrame.mainframe.remove(MainFrame.mainframe.getContentPane());
         panel = new JPanel();
         System.out.println("Starting game");
         MainFrame.mainframe.setContentPane(panel);
@@ -41,12 +43,13 @@ public class GameView {
         field = new JTextField("");
         player = new Player();
         health_label = new JLabel("<html> <font color = 'red' size = '20'> " + player.getCurrent_health() + "</font></html>");
-        health_label.setLocation(20,0);
+        health_label.setLocation(50,0);
+        health_label.setVisible(true);
         panel.add(health_label, BorderLayout.NORTH);
         submit = new JButton("Submit");
         submit.addActionListener(new SubmitButton(this, field));
         submit.addKeyListener(new SubmitButton(this, field));
-        submit.setVisible(false);
+        submit.setVisible(true);
         panel.add(submit, BorderLayout.WEST);
         random = new Random();
         panel.setVisible(true);
@@ -56,11 +59,38 @@ public class GameView {
         field.setVisible(true);
         panel.setLayout(new BorderLayout());
         panel.add(field, BorderLayout.SOUTH);
+        MainFrame.mainframe.getRootPane().setDefaultButton(submit);
         field.requestFocusInWindow();
+        word_worker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws Exception {
+                while (!isCancelled()) {
+                    addWord();
+                    try {
+                        Thread.sleep(100);
+                    } catch (Exception e) {
+
+                    }
+                    SwingWorker<Void, Void>  worker = null;
+                    worker = viewWord(new Word(""), worker);
+                    if (player.getCurrent_health() <= 0) {
+                        cancel(true);
+                    }
+                    try {
+                        Thread.sleep(2000);
+                    } catch (Exception e) {
+
+                    }
+                }
+                return null;
+            }
+        };
+        word_worker.execute();
     }
 
     public void reduceHP(){
         player.reducedHealth();
+        health_label.setText("<html> <font color = 'red' size = '20'> " + player.getCurrent_health() + "</font></html>");
     }
 
     public void addScore(int score) {
@@ -90,7 +120,7 @@ public class GameView {
                 try {
                     Thread.sleep(10);
                 } catch (Exception e) {
-                    
+
                 }
                 health_label.setText("<html> <font color = 'red' size = '20'> " + player.getCurrent_health() + "</font></html>");
             }
@@ -112,8 +142,9 @@ public class GameView {
 
     public SwingWorker<Void, Void> viewWord(Word word, SwingWorker<Void, Void> worker) {
         //field.getText();
-        JLabel label = new JLabel("<html> <font color = 'white'> " +
+        JLabel label = new JLabel("<html> <font color = 'blue'> " +
             word.getContent() + " </font></html>");
+        // masih ada bug nyangkut di atas gatau kenapa
         int position_x = random.nextInt(1000);
         int position_y = 0; // y position dari paling atas
         label.setLocation(position_x, position_y);
@@ -125,7 +156,12 @@ public class GameView {
             @Override
             protected Void doInBackground() throws Exception {
                 while (!isCancelled()) {
-                    Thread.sleep(10);
+                    //
+                    if (label.getLocation().y <= 50) {
+                        label.setText("<html><font color = 'blue'> " + word.getContent() + "</font></html>");
+                    }
+                    //
+                    Thread.sleep(100);
                     if (field.getText() != "") {
                         int index = getIndexPrefix(field.getText().toUpperCase(), word.getContent());
                         //System.out.println(index);

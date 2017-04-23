@@ -22,7 +22,6 @@ public class GameController {
 
     public GameController() {
         game_view = new GameView();
-        startGame();
     }
     /**
      * Prosedur useItem untuk menggunakan item pada saat game
@@ -32,26 +31,4 @@ public class GameController {
         // masih belum
     }
 
-    public void startGame() {
-        while (true) {
-            try
-            {
-                Thread.sleep(1000);
-            } catch (Exception e)
-            {
-
-            }
-            game_view.addWord();
-            // adding dummy word to prevent bugs
-            try
-            {
-                Thread.sleep(10);
-            } catch (Exception e)
-            {
-
-            }
-            SwingWorker<Void, Void>  worker = null;
-            worker = game_view.viewWord(new Word(""), worker);
-        }
-    }
 }
