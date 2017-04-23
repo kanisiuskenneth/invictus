@@ -6,47 +6,55 @@ package model.goods;
  */
 
 /**
- * Kelas SlowSpell
+ * Kelas SlowSpell.
  */
 public class SlowSpell extends Items {
-    /**
-     * Constructor
-     */
+  /**
+   * Constructor.
+   */
 
-    public SlowSpell() {
-        super(10, 0);
-    }
-    /**
-     * Getter id
-     * @return id dari SlowSpell
-     */
+  public SlowSpell() {
+    super(10, 0);
+  }
 
-    public int getID() {
-        return id;
-    }
-    /**
-     * Getter price
-     * @return price dari SlowSpell
-     */
+  /**
+   * Getter id.
+   *
+   * @return id dari SlowSpell.
+   */
 
-    public int getPrice() {
-        return price;
-    }
-    /**
-     * Getter description
-     * @return description dari SlowSpell
-     */
+  public int getId() {
+    return id;
+  }
 
-    public String getDescription() {
-        return "decrease the speed of the words by 0.5.";
-    }
-    /**
-     * Buy SlowSpell
-     * @param id
-     */
+  /**
+   * Getter price.
+   *
+   * @return price dari SlowSpell.
+   */
 
-    @Override
-    public void buy(int id) {
+  public int getPrice() {
+    return price;
+  }
 
-    }
+  /**
+   * Getter description.
+   *
+   * @return description dari SlowSpell.
+   */
+
+  public String getDescription() {
+    return "decrease the speed of the words by 0.5.";
+  }
+
+  /**
+   * Buy SlowSpell.
+   *
+   * @param id dari SlowSpell.
+   */
+
+  @Override
+  public void buy(int id) {
+
+  }
 }

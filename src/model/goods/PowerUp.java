@@ -5,19 +5,23 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+/**
+ * Kelas abstrak PowerUp.
+ */
 public abstract class PowerUp extends Goods {
-    /**
-     * Constructor
-     */
+  /**
+   * Constructor.
+   */
 
-    public PowerUp(int id, int price) {
-        super(id, price);
-    }
-    /**
-     *
-     */
+  public PowerUp(int id, int price) {
+    super(id, price);
+  }
+  /**
+   * Getter description.
+   * @return Description dari PowerUp.
+   */
 
-    public String getDescription() {
-        return "";
-    }
+  public String getDescription() {
+    return "";
+  }
 }
