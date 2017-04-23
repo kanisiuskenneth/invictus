@@ -32,6 +32,12 @@ public class ImageLoader {
   public static BufferedImage potionButton;
   public static BufferedImage lightningButton;
   public static BufferedImage shieldButton;
+  public static BufferedImage descriptionBanner;
+  public static BufferedImage buyButton;
+  public static BufferedImage dummyImg;
+  public static BufferedImage homeButton;
+  public static BufferedImage arrowButton;
+  public static BufferedImage coin;
 
   public ImageLoader() {
     try {
@@ -55,7 +61,13 @@ public class ImageLoader {
       freezeButton = ImageIO.read(new File("img/freeze.png"));
       potionButton = ImageIO.read(new File("img/potion.png"));
       lightningButton = ImageIO.read(new File("img/lightning.png"));
-      shieldButton = ImageIO.read(new File("img/shieldbutton.png"));
+      shieldButton = ImageIO.read(new File("img/shield.png"));
+      descriptionBanner = ImageIO.read(new File("img/description.png"));
+      buyButton = ImageIO.read(new File("img/buybutton.png"));
+      dummyImg = ImageIO.read(new File("img/dummy.png"));
+      homeButton = ImageIO.read(new File("img/home.png"));
+      arrowButton = ImageIO.read(new File("img/arrow.png"));
+      coin = ImageIO.read(new File("img/coin.png"));
     } catch (Exception e) {
       System.out.println("File not Found Exception");
     }
