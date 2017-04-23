@@ -5,19 +5,23 @@ package model.goods;
  * Author: 13515070 - Sylvia Juliana
  */
 
+/**
+ * Kelas abstrak Items.
+ */
 public abstract class Items extends Goods {
-    /**
-     * Constructor
-     */
+  /**
+   * Constructor.
+   */
 
-    public Items(int id, int price) {
-        super(id, price);
-    }
-    /**
-     *
-     */
+  public Items(int id, int price) {
+    super(id, price);
+  }
+  /**
+   * Getter description.
+   * @return Description dari items.
+   */
 
-    public String getDescription() {
-        return "";
-    }
+  public String getDescription() {
+    return "";
+  }
 }

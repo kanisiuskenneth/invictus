@@ -5,6 +5,14 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+/**
+ * Interface Shoppable.
+ */
 public interface Shoppable {
-    public void buy(int id);
+  /**
+   * Buy Items atau PowerUp.
+   *
+   * @param id dari Items atau PowerUp.
+   */
+  public void buy(int id);
 }

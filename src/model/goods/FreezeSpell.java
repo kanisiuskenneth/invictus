@@ -6,47 +6,55 @@ package model.goods;
  */
 
 /**
- * Kelas FreezeSpell
+ * Kelas FreezeSpell.
  */
 public class FreezeSpell extends Items {
-    /**
-     * Constructor
-     */
+  /**
+   * Constructor.
+   */
 
-    public FreezeSpell() {
-        super(11, 0);
-    }
-    /**
-     * Getter id
-     * @return id dari FreezeSpell
-     */
+  public FreezeSpell() {
+    super(11, 0);
+  }
 
-    public int getID() {
-        return id;
-    }
-    /**
-     * Getter price
-     * @return price dari FreezeSpell
-     */
+  /**
+   * Getter id.
+   *
+   * @return id dari FreezeSpell.
+   */
 
-    public int getPrice() {
-        return price;
-    }
-    /**
-     * Getter description
-     * @return description dari FreezeSpell
-     */
+  public int getId() {
+    return id;
+  }
 
-    public String getDescription() {
-        return "stop all of the words on the screen for 10 seconds.";
-    }
-    /**
-     * Buy FreezeSpell
-     * @param id
-     */
+  /**
+   * Getter price.
+   *
+   * @return price dari FreezeSpell.
+   */
 
-    @Override
-    public void buy(int id) {
+  public int getPrice() {
+    return price;
+  }
 
-    }
+  /**
+   * Getter description.
+   *
+   * @return description dari FreezeSpell.
+   */
+
+  public String getDescription() {
+    return "stop all of the words on the screen for 10 seconds.";
+  }
+
+  /**
+   * Buy FreezeSpell.
+   *
+   * @param id dari FreezeSpell.
+   */
+
+  @Override
+  public void buy(int id) {
+
+  }
 }

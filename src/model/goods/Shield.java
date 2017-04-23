@@ -6,47 +6,55 @@ package model.goods;
  */
 
 /**
- * Kelas Shield
+ * Kelas Shield.
  */
 public class Shield extends Items {
-    /**
-     * Constructor
-     */
+  /**
+   * Constructor.
+   */
 
-    public Shield() {
-        super(14, 0);
-    }
-    /**
-     * Getter id
-     * @return id dari Shield
-     */
+  public Shield() {
+    super(14, 0);
+  }
 
-    public int getID() {
-        return id;
-    }
-    /**
-     * Getter price
-     * @return price dari Shield
-     */
+  /**
+   * Getter id.
+   *
+   * @return id dari Shield.
+   */
 
-    public int getPrice() {
-        return price;
-    }
-    /**
-     * Getter description
-     * @return description dari Shield
-     */
+  public int getId() {
+    return id;
+  }
 
-    public String getDescription() {
-        return "prevents the health points from reducing for 10 seconds.";
-    }
-    /**
-     * Buy Shield
-     * @param id
-     */
+  /**
+   * Getter price.
+   *
+   * @return price dari Shield.
+   */
 
-    @Override
-    public void buy(int id) {
+  public int getPrice() {
+    return price;
+  }
 
-    }
+  /**
+   * Getter description.
+   *
+   * @return description dari Shield.
+   */
+
+  public String getDescription() {
+    return "prevents the health points from reducing for 10 seconds.";
+  }
+
+  /**
+   * Buy Shield.
+   *
+   * @param id dari Shield.
+   */
+
+  @Override
+  public void buy(int id) {
+
+  }
 }

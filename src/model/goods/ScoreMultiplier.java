@@ -6,47 +6,55 @@ package model.goods;
  */
 
 /**
- * Kelas ScoreMultiplier
+ * Kelas ScoreMultiplier.
  */
 public class ScoreMultiplier extends PowerUp {
-    /**
-     * Constructor
-     */
+  /**
+   * Constructor.
+   */
 
-    public ScoreMultiplier() {
-        super(21, 0);
-    }
-    /**
-     * Getter id
-     * @return id dari ScoreMultiplier
-     */
+  public ScoreMultiplier() {
+    super(21, 0);
+  }
 
-    public int getID() {
-        return id;
-    }
-    /**
-     * Getter price
-     * @return price dari ScoreMultiplier
-     */
+  /**
+   * Getter id.
+   *
+   * @return id dari ScoreMultiplier.
+   */
 
-    public int getPrice() {
-        return price;
-    }
-    /**
-     * Getter description
-     * @return description dari ScoreMultiplier
-     */
+  public int getId() {
+    return id;
+  }
 
-    public String getDescription() {
-        return "increase the scores multiplier by 0.1 from the base multiplier.";
-    }
-    /**
-     * Buy ScoreMultiplier
-     * @param id
-     */
+  /**
+   * Getter price.
+   *
+   * @return price dari ScoreMultiplier.
+   */
 
-    @Override
-    public void buy(int id) {
+  public int getPrice() {
+    return price;
+  }
 
-    }
+  /**
+   * Getter description.
+   *
+   * @return description dari ScoreMultiplier.
+   */
+
+  public String getDescription() {
+    return "increase the scores multiplier by 0.1 from the base multiplier.";
+  }
+
+  /**
+   * Buy ScoreMultiplier.
+   *
+   * @param id dari ScoreMultiplier.
+   */
+
+  @Override
+  public void buy(int id) {
+
+  }
 }

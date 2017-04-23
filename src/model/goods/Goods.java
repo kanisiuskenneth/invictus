@@ -5,12 +5,20 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
-abstract public class Goods implements Shoppable {
-    protected int id;
-    protected int price;
+/**
+ * Kelas abstrak Goods.
+ */
+public abstract class Goods implements Shoppable {
+  protected int id;
+  protected int price;
 
-    public Goods(int id, int price) {
-        this.id = id;
-        this.price = price;
-    }
+  /**
+   * Constructor.
+   * @param id dari Items atau PowerUp.
+   * @param price dari Items atau PowerUp.
+   */
+  public Goods(int id, int price) {
+    this.id = id;
+    this.price = price;
+  }
 }

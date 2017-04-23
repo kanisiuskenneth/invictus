@@ -6,47 +6,55 @@ package model.goods;
  */
 
 /**
- * Kelas HealthUpgrade
+ * Kelas HealthUpgrade.
  */
 public class HealthUpgrade extends PowerUp {
-    /**
-     * Constructor
-     */
+  /**
+   * Constructor.
+   */
 
-    public HealthUpgrade() {
-        super(20, 0);
-    }
-    /**
-     * Getter id
-     * @return id dari HealthUpgrade
-     */
+  public HealthUpgrade() {
+    super(20, 0);
+  }
 
-    public int getID() {
-        return id;
-    }
-    /**
-     * Getter price
-     * @return price dari HealthUpgrade
-     */
+  /**
+   * Getter id.
+   *
+   * @return id dari HealthUpgrade.
+   */
 
-    public int getPrice() {
-        return price;
-    }
-    /**
-     * Getter description
-     * @return description dari HealthUpgrade
-     */
+  public int getId() {
+    return id;
+  }
 
-    public String getDescription() {
-        return "increase the maximum of health points by one heart.";
-    }
-    /**
-     * Buy HealthUpgrade
-     * @param id
-     */
+  /**
+   * Getter price.
+   *
+   * @return price dari HealthUpgrade.
+   */
 
-    @Override
-    public void buy(int id) {
+  public int getPrice() {
+    return price;
+  }
 
-    }
+  /**
+   * Getter description.
+   *
+   * @return description dari HealthUpgrade.
+   */
+
+  public String getDescription() {
+    return "increase the maximum of health points by one heart.";
+  }
+
+  /**
+   * Buy HealthUpgrade.
+   *
+   * @param id dari HealthUpgrade.
+   */
+
+  @Override
+  public void buy(int id) {
+
+  }
 }
