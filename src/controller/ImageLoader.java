@@ -27,6 +27,11 @@ public class ImageLoader {
   public static BufferedImage powerUpButton;
   public static BufferedImage itemsButton;
   public static BufferedImage menuButton;
+  public static BufferedImage slowButton;
+  public static BufferedImage freezeButton;
+  public static BufferedImage potionButton;
+  public static BufferedImage lightningButton;
+  public static BufferedImage shieldButton;
 
   public ImageLoader() {
     try {
@@ -46,6 +51,11 @@ public class ImageLoader {
       powerUpButton = ImageIO.read(new File("img/powerupbutton.png"));
       itemsButton = ImageIO.read(new File("img/itemsbutton.png"));
       menuButton = ImageIO.read(new File("img/menubutton.png"));
+      slowButton = ImageIO.read(new File("img/slow.png"));
+      freezeButton = ImageIO.read(new File("img/freeze.png"));
+      potionButton = ImageIO.read(new File("img/potion.png"));
+      lightningButton = ImageIO.read(new File("img/lightning.png"));
+      shieldButton = ImageIO.read(new File("img/shieldbutton.png"));
     } catch (Exception e) {
       System.out.println("File not Found Exception");
     }
