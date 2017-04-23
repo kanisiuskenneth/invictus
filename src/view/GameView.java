@@ -28,6 +28,7 @@ public class GameView {
   private JLayeredPane gamePanel;
   private JTextField field;
   //private JButton submit;
+  private boolean flag;
   private JLabel healthLabel;
   private JLabel scoreLabel;
   private SwingWorker<Void, Void> wordWorker;
@@ -40,6 +41,14 @@ public class GameView {
     gameModel = new GameModel();
 
     gamePanel = new JLayeredPane();
+    flag = false;
+    /*
+    MainFrame.mainframe.setContentPane(panel);
+    MainFrame.mainframe.getRootPane().setDefaultButton(submit);
+    submit.addActionListener(new SubmitButton(this, field));
+    submit.addKeyListener(new SubmitButton(this, field));
+    submit.setVisible(true);
+    */
     gamePanel.setVisible(true);
     gamePanel.setSize(500, 500);
     gamePanel.setBackground(new Color(90,90,90));
@@ -105,6 +114,7 @@ public class GameView {
     field.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
+        while (flag) {}
         gameController.deleteWord(field.getText(), true);
         field.setText("");
       }
@@ -113,8 +123,76 @@ public class GameView {
 
   }
 
-  void refreshScreen() {
-    
+  private int getIndexPrefix(String firstString, String secondString) {
+    if (firstString.length() > secondString.length()) {
+      return -1;
+    } else {
+      if (firstString.equals(secondString.substring(0, firstString.length()))) {
+        return firstString.length() - 1;
+      } else {
+        return -1;
+      }
+    }
+  }
+
+  private void startUpdateWorker() {
+    updateWorker = new SwingWorker<Void, Void>() {
+      @Override
+      protected Void doInBackground() throws Exception {
+        while (!isCancelled()) {
+          // cek updating
+          System.out.println("JUMLAH" + gameController.gameModel.mapOfThread.size());
+          flag = false;
+          Thread.sleep(100);
+          flag = true;
+          updateHealth();
+          updateScore();
+          HashMap<Word, SwingWorker<Void, Void>> mapOfThread = gameController.gameModel.mapOfThread;
+          for (Map.Entry<Word, SwingWorker<Void, Void>> entry : mapOfThread.entrySet()) {
+            System.out.println("UPDATE" + entry.getKey().getContent());
+            Word word = entry.getKey();
+            word.getLabel().setLocation(word.getPosition().first, word.getPosition().second);
+            if (word.getPosition().second > 500) {
+              //gameController.deleteWord(word.getContent(), false);
+              word.getLabel().setText("");
+              //gameController.gameModel.mapOfThread.get(word.getContent()).cancel(true);
+              //gameController.gameModel.mapOfThread.remove(word.getContent());
+              //gameController.reduceHealth();
+              /*
+              gameController.deleteWord(word.getContent(), false);
+              gameController.gameModel.player.reducedHealth();
+              */
+            } else {
+              if (word.getContent().equals(word.getLabel().getText())) {
+                word.getLabel().setText("<html><font color = 'blue'> " + word.getContent() + "</font></html>");
+                word.getLabel().setVisible(true);
+                gamePanel.add(word.getLabel(), BorderLayout.NORTH);
+              }
+              System.out.println("loop1");
+              if (field.getText() != "") {
+                int index = getIndexPrefix(field.getText().toUpperCase(), word.getContent());
+                //System.out.println(index);
+                word.getLabel().setText("<html> <font color = 'green'> "
+                    + word.getContent().substring(0, index + 1) + "</font>"
+                    + "<font color = 'red'>" + word.getContent().substring(index + 1)
+                    + " </font></html>"
+                );
+                word.getLabel().setLocation(word.getPosition().first, word.getPosition().second);
+              }
+            }
+            System.out.println("loop");
+          }
+        }
+        System.out.println("UPDATE DONE");
+        return null;
+      }
+
+      @Override
+      protected void done() {
+
+      }
+    };
+    updateWorker.execute();
   }
   void updateHealth() {
     String health = "";
