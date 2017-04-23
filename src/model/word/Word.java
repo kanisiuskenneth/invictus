@@ -1,6 +1,7 @@
 package model.word;
 
 import java.awt.*;
+
 import util.Pair;
 
 /**
@@ -9,29 +10,43 @@ import util.Pair;
  */
 
 /**
- * Kelas Word
+ * Kelas Word.
  */
 public class Word {
-    private String content;
-    private Pair<Integer, Integer> position;
-    /**
-     * Constructor
-     * @param content atau word yang akan muncul
-     */
+  private String content;
+  private Pair<Integer, Integer> position;
 
-    public Word(String content) {
-        this.content = content;
-    }
+  /**
+   * Constructor.
+   *
+   * @param content atau word yang akan muncul.
+   */
 
-    public String getContent() {
-        return content;
-    }
+  public Word(String content) {
+    this.content = content;
+  }
 
-    public Pair<Integer, Integer> getPosition() {
-        return position;
-    }
+  /**
+   * Getter content.
+   * @return content dari word.
+   */
+  public String getContent() {
+    return content;
+  }
 
-    public void setPosition(Pair<Integer, Integer> position) {
-        this.position = position;
-    }
+  /**
+   * Getter position.
+   * @return position dari word.
+   */
+  public Pair<Integer, Integer> getPosition() {
+    return position;
+  }
+
+  /**
+   * Setter position.
+   * @param position dari word.
+   */
+  public void setPosition(Pair<Integer, Integer> position) {
+    this.position = position;
+  }
 }
