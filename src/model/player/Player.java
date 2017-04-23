@@ -8,14 +8,14 @@ import model.main.MainModel;
  */
 
 /**
- * Kelas Player
+ * Kelas Player.
  */
 public class Player {
   private int currentHealth;
   private int score;
 
   /**
-   * Constructor
+   * Constructor.
    */
 
   public Player() {
@@ -24,21 +24,34 @@ public class Player {
   }
 
   /**
-   * Mengurangi current health points player.
+   * Getter currentHealth.
+   * @return currenHealth dari player.
    */
 
   public int getCurrentHealth() {
     return currentHealth;
   }
 
+  /**
+   * Getter score.
+   * @return score dari player.
+   */
+
   public int getScore() {
     return score;
   }
 
+  /**
+   * Mengurangi current health points player.
+   */
   public void reducedHealth() {
     --currentHealth;
   }
 
+  /**
+   * Menambah score dari player.
+   * @param score dari player.
+   */
   public void increaseScore(int score) {
     this.score += score;
   }
