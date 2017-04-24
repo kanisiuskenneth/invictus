@@ -27,7 +27,7 @@ public class MainModel {
   public static Pair<String, Integer>[] leaderboard;
   public static Vector<String> word_bank;
   public static final String VERSION = "UT alpha v1.0";
-
+  private static final String DATA_PATH = ".ut/data.txt";
   /**
    * Constructor.
    */
@@ -35,8 +35,8 @@ public class MainModel {
     item = new HashMap<Integer, Pair<Items, Integer>>();
     word_bank = new Vector<String>();
     leaderboard = new Pair[5];
-    loadData("asset/data.txt");
-    loadWord("asset/word.txt");
+    loadData(DATA_PATH);
+    loadWord("/asset/word.txt");
     saveData();
     //nunggu word.txt nya ada
     System.out.println(health_maximum);
@@ -84,8 +84,9 @@ public class MainModel {
         leaderboard[i] = new Pair(firstValue, secondValue);
         i++;
       }
-    } catch (IOException e) {
-      System.out.println("File I/O error!");
+    } catch (Exception e) {
+      System.out.println("No Data File to Loaded");
+      createDataFile();
     }
   }
 
@@ -93,7 +94,7 @@ public class MainModel {
    * Save data player dari file eksternal.
    */
   public static void saveData() {
-    File outFile = new File("asset/data.txt");
+    File outFile = new File(DATA_PATH);
     try {
       PrintWriter fileWriter = new PrintWriter(outFile);
       fileWriter.println(health_maximum + " " + coin + " " + coin_multiplier + " "
@@ -119,13 +120,38 @@ public class MainModel {
    */
   public void loadWord(String inputFile) {
     try {
-      Scanner scanner = new Scanner(new File(inputFile));
+      Scanner scanner = new Scanner(getClass().getResourceAsStream(inputFile));
       while (scanner.hasNextLine()) {
         //System.out.println(scanner.nextLine());
         word_bank.add(scanner.nextLine().toUpperCase());
       }
-    } catch (IOException e) {
+    } catch (Exception e) {
       System.out.println("File I/O error!");
+    }
+  }
+
+  private void createDataFile() {
+    InputStream is = null;
+    OutputStream os = null;
+    try {
+      is = getClass().getResourceAsStream("/asset/template.txt");
+      System.out.println("HERE");
+      File dir = new File(".ut");
+      dir.mkdir();
+      File file = new File(DATA_PATH);
+      file.createNewFile();
+      os = new FileOutputStream(file);
+      byte[] buffer = new byte[1024];
+      int length;
+      while ((length = is.read(buffer)) > 0) {
+        os.write(buffer, 0, length);
+      }
+      is.close();
+      os.close();
+      loadData(DATA_PATH);
+    } catch (IOException e) {
+      e.printStackTrace();
+      System.exit(3);
     }
   }
 }

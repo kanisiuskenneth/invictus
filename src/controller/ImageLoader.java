@@ -52,41 +52,42 @@ public class ImageLoader {
    */
   public ImageLoader() {
     try {
-      splash = ImageIO.read(new File("img/comlogo.png"));
-      playButton = ImageIO.read(new File("img/playbutton.png"));
-      quitButton = ImageIO.read(new File("img/quitbutton.png"));
-      leaderboard_button = ImageIO.read(new File("img/leaderboardbutton.png"));
-      gameLogo = ImageIO.read(new File("img/gamelogo.png"));
-      gameBanner = ImageIO.read(new File("img/gamebanner.png"));
-      shopButton = ImageIO.read(new File("img/shopbutton.png"));
-      leaderboardBanner = ImageIO.read(new File("img/leaderboardbanner.png"));
-      SPACER = ImageIO.read(new File("img/spacer.png"));
-      backButton = ImageIO.read(new File("img/backbutton.png"));
-      shopBanner = ImageIO.read(new File("img/shopbanner.png"));
-      powerUpBanner = ImageIO.read(new File("img/powerupbanner.png"));
-      itemsBanner = ImageIO.read(new File("img/itemsbanner.png"));
-      powerUpButton = ImageIO.read(new File("img/powerupbutton.png"));
-      itemsButton = ImageIO.read(new File("img/itemsbutton.png"));
-      menuButton = ImageIO.read(new File("img/menubutton.png"));
-      slowButton = ImageIO.read(new File("img/slow.png"));
-      freezeButton = ImageIO.read(new File("img/freeze.png"));
-      potionButton = ImageIO.read(new File("img/potion.png"));
-      lightningButton = ImageIO.read(new File("img/lightning.png"));
-      shieldButton = ImageIO.read(new File("img/shield.png"));
-      descriptionBanner = ImageIO.read(new File("img/description.png"));
-      buyButton = ImageIO.read(new File("img/buybutton.png"));
-      dummyImg = ImageIO.read(new File("img/dummy.png"));
-      homeButton = ImageIO.read(new File("img/home.png"));
-      arrowButton = ImageIO.read(new File("img/arrow.png"));
-      coin = ImageIO.read(new File("img/coin.png"));
-      heartIcon = ImageIO.read(new File("img/heart.png"));
-      scoreIcon = ImageIO.read(new File("img/score.png"));
-      inventoryIcon = ImageIO.read(new File("img/chest.png"));
-      creditsBanner = ImageIO.read(new File("img/creditsbanner.png"));
-      gameoverBanner = ImageIO.read(new File("img/gameover.png"));
-      enterName = ImageIO.read(new File("img/entername.png"));
+      splash = ImageIO.read(getClass().getResource("/img/comlogo.png"));
+      playButton = ImageIO.read(getClass().getResource("/img/playbutton.png"));
+      quitButton = ImageIO.read(getClass().getResource("/img/quitbutton.png"));
+      leaderboard_button = ImageIO.read(getClass().getResource("/img/leaderboardbutton.png"));
+      gameLogo = ImageIO.read(getClass().getResource("/img/gamelogo.png"));
+      gameBanner = ImageIO.read(getClass().getResource("/img/gamebanner.png"));
+      shopButton = ImageIO.read(getClass().getResource("/img/shopbutton.png"));
+      leaderboardBanner = ImageIO.read(getClass().getResource("/img/leaderboardbanner.png"));
+      SPACER = ImageIO.read(getClass().getResource("/img/spacer.png"));
+      backButton = ImageIO.read(getClass().getResource("/img/backbutton.png"));
+      shopBanner = ImageIO.read(getClass().getResource("/img/shopbanner.png"));
+      powerUpBanner = ImageIO.read(getClass().getResource("/img/powerupbanner.png"));
+      itemsBanner = ImageIO.read(getClass().getResource("/img/itemsbanner.png"));
+      powerUpButton = ImageIO.read(getClass().getResource("/img/powerupbutton.png"));
+      itemsButton = ImageIO.read(getClass().getResource("/img/itemsbutton.png"));
+      menuButton = ImageIO.read(getClass().getResource("/img/menubutton.png"));
+      slowButton = ImageIO.read(getClass().getResource("/img/slow.png"));
+      freezeButton = ImageIO.read(getClass().getResource("/img/freeze.png"));
+      potionButton = ImageIO.read(getClass().getResource("/img/potion.png"));
+      lightningButton = ImageIO.read(getClass().getResource("/img/lightning.png"));
+      shieldButton = ImageIO.read(getClass().getResource("/img/shield.png"));
+      descriptionBanner = ImageIO.read(getClass().getResource("/img/description.png"));
+      buyButton = ImageIO.read(getClass().getResource("/img/buybutton.png"));
+      dummyImg = ImageIO.read(getClass().getResource("/img/dummy.png"));
+      homeButton = ImageIO.read(getClass().getResource("/img/home.png"));
+      arrowButton = ImageIO.read(getClass().getResource("/img/arrow.png"));
+      coin = ImageIO.read(getClass().getResource("/img/coin.png"));
+      heartIcon = ImageIO.read(getClass().getResource("/img/heart.png"));
+      scoreIcon = ImageIO.read(getClass().getResource("/img/score.png"));
+      inventoryIcon = ImageIO.read(getClass().getResource("/img/chest.png"));
+      creditsBanner = ImageIO.read(getClass().getResource("/img/creditsbanner.png"));
+      gameoverBanner = ImageIO.read(getClass().getResource("/img/gameover.png"));
+      enterName = ImageIO.read(getClass().getResource("/img/entername.png"));
     } catch (Exception e) {
       System.out.println("File not Found Exception");
+      System.exit(1);
     }
   }
 }
