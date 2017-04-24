@@ -11,8 +11,6 @@ package model.goods;
 public interface Shoppable {
   /**
    * Buy Items atau PowerUp.
-   *
-   * @param id dari Items atau PowerUp.
    */
-  public void buy(int id);
+  public void buy();
 }

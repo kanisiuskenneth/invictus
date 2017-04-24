@@ -5,6 +5,8 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+import model.main.MainModel;
+
 /**
  * Kelas SlowSpell.
  */
@@ -49,12 +51,11 @@ public class SlowSpell extends Items {
 
   /**
    * Buy SlowSpell.
-   *
-   * @param id dari SlowSpell.
    */
 
   @Override
-  public void buy(int id) {
-
+  public void buy() {
+    MainModel.item.get(id).second++;
+    MainModel.coin -= price;
   }
 }

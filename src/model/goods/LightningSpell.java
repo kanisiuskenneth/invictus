@@ -5,6 +5,8 @@ package model.goods;
  * Author: 13515070 - Sylvia Juliana
  */
 
+import model.main.MainModel;
+
 /**
  * Kelas LightningSpell.
  */
@@ -49,12 +51,11 @@ public class LightningSpell extends Items {
 
   /**
    * Buy LightningSpell.
-   *
-   * @param id dari LightningSpell.
    */
 
   @Override
-  public void buy(int id) {
-
+  public void buy() {
+    MainModel.item.get(id).second++;
+    MainModel.coin -= price;
   }
 }

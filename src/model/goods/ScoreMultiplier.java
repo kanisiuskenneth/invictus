@@ -5,6 +5,8 @@ package model.goods;
  * Author: 13515070 - Sylvia Juliana
  */
 
+import model.main.MainModel;
+
 /**
  * Kelas ScoreMultiplier.
  */
@@ -49,12 +51,11 @@ public class ScoreMultiplier extends PowerUp {
 
   /**
    * Buy ScoreMultiplier.
-   *
-   * @param id dari ScoreMultiplier.
    */
 
   @Override
-  public void buy(int id) {
-
+  public void buy() {
+    MainModel.coin -= price * (MainModel.score_multiplier - 0.9) * 10;
+    MainModel.score_multiplier += 0.1;
   }
 }
