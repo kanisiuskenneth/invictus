@@ -8,7 +8,7 @@ package model.goods;
 /**
  * Kelas abstrak Items.
  */
-public abstract class Items extends Goods {
+public abstract class Items extends Goods implements Usable{
   /**
    * Constructor.
    */

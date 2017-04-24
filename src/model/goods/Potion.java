@@ -5,6 +5,7 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+import model.game.GameModel;
 import model.main.MainModel;
 import model.player.Player;
 
@@ -58,5 +59,14 @@ public class Potion extends Items {
   public void buy() {
     MainModel.item.get(id).second++;
     MainModel.coin -= price;
+  }
+
+  @Override
+  public void use(GameModel gameModel) {
+    if (gameModel.player.getCurrentHealth() < MainModel.health_maximum) {
+      gameModel.player.increaseHealth();
+      gameModel.updateHealth();
+    }
+    MainModel.item.get(id).second--;
   }
 }

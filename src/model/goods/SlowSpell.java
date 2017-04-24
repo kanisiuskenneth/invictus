@@ -5,7 +5,10 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+import model.game.GameModel;
 import model.main.MainModel;
+
+import javax.swing.*;
 
 /**
  * Kelas SlowSpell.
@@ -57,5 +60,27 @@ public class SlowSpell extends Items {
   public void buy() {
     MainModel.item.get(id).second++;
     MainModel.coin -= price;
+  }
+
+  @Override
+  public void use(GameModel gameModel) {
+    SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+      @Override
+      protected Void doInBackground() throws Exception {
+        gameModel.spawnTic *= 2;
+        gameModel.updateTic *= 2;
+        gameModel.mutex = false;
+        try {
+          Thread.sleep(10000);
+        } catch (Exception e) {
+          System.out.println("");
+        }
+        gameModel.spawnTic /= 2;
+        gameModel.updateTic /= 2;
+        return null;
+      }
+    };
+    worker.execute();
+    MainModel.item.get(id).second--;
   }
 }

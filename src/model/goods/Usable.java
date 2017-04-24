@@ -1,7 +1,12 @@
 package model.goods;
 
+import model.game.GameModel;
+
 /**
- * Created by ASUS INDONESIA on 4/24/2017.
+ * File: GameModel.java
+ * Author: 13515033 - Andika Kusuma
  */
-public class Usable {
+
+public interface Usable {
+  void use(GameModel gameModel);
 }

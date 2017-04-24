@@ -117,6 +117,7 @@ public class GameView {
             String buffer = gameModel.field.getText();
             gameModel.field.setText("");
             gameController.attemptToDeleteWord(buffer);
+            gameController.useItem(buffer);
           }
         }
 

@@ -14,6 +14,7 @@ import util.Pair;
 
 import javax.swing.*;
 import java.util.Map;
+
 import view.GameOverView;
 import view.GameView;
 import view.LeaderboardView;
@@ -34,7 +35,7 @@ public class GameController {
   public Container gamePanel;
   SwingWorker<Void, Word> wordSpawner;
   SwingWorker<Void, Boolean> wordUpdater;
-  private volatile boolean mutex;
+
   public GameController(GameModel gameModel) {
     JLayeredPane gamePanel = gameModel.gamePanel;
     this.gameModel = gameModel;
@@ -43,7 +44,7 @@ public class GameController {
   }
 
   public void startGame() {
-    mutex = false;
+    gameModel.mutex = false;
     refreshScreen();
     addWord();
     updateWord();
@@ -51,20 +52,24 @@ public class GameController {
   }
 
   private void updateWord() {
-      wordUpdater = new SwingWorker<Void, Boolean>() {
+    wordUpdater = new SwingWorker<Void, Boolean>() {
       @Override
       protected Void doInBackground() throws Exception {
         while (!isCancelled()) {
-          while(mutex){};
-          mutex =true;
-          for(Word word : gameModel.wordSet) {
-            word.setPosition(new Pair<>(word.getPosition().first,word.getPosition().second+1));
-            if(word.getPosition().second>=(gamePanel.getHeight()-40))
+          while (gameModel.mutex) {
+          }
+          ;
+          gameModel.mutex = true;
+          for (Word word : gameModel.wordSet) {
+            word.setPosition(new Pair<>(word.getPosition().first, word.getPosition().second + 1));
+            if (word.getPosition().second >= (gamePanel.getHeight() - 40))
 
-              deleteWord(word,false);
+            {
+              deleteWord(word, false);
+            }
           }
           gamePanel.repaint();
-          mutex= false;
+          gameModel.mutex = false;
           publish(true);
           Thread.sleep(gameModel.updateTic);
         }
@@ -73,13 +78,15 @@ public class GameController {
 
       @Override
       protected void process(List<Boolean> chunks) {
-        if(chunks.get(chunks.size()-1)) {
-          while (mutex){};
-          mutex = true;
-          for(Word word : gameModel.wordSet) {
-            word.getLabel().setLocation(word.getPosition().first,word.getPosition().second);
+        if (chunks.get(chunks.size() - 1)) {
+          while (gameModel.mutex) {
           }
-          mutex = false;
+          ;
+          gameModel.mutex = true;
+          for (Word word : gameModel.wordSet) {
+            word.getLabel().setLocation(word.getPosition().first, word.getPosition().second);
+          }
+          gameModel.mutex = false;
         }
       }
     };
@@ -89,39 +96,42 @@ public class GameController {
 
   public void addWord() {
 
-   wordSpawner = new SwingWorker<Void, Word>() {
+    wordSpawner = new SwingWorker<Void, Word>() {
       @Override
       protected Void doInBackground() throws Exception {
         while (!isCancelled()) {
-          while(mutex) {}
-          mutex = true;
+          while (gameModel.mutex) {
+          }
+          gameModel.mutex = true;
           Word temp = new Word(MainModel.word_bank.elementAt(gameModel.random.nextInt(MainModel.word_bank.size())));
-          temp.setPosition(new Pair(gameModel.random.nextInt(gamePanel.getWidth()-300)+100,-20));
+          temp.setPosition(new Pair(gameModel.random.nextInt(gamePanel.getWidth() - 300) + 100, -20));
           gameModel.wordSet.add(temp);
           publish(temp);
           System.out.print("Word Spawned");
-          mutex = false;
-          Thread.sleep( gameModel.spawnTic);
+          gameModel.mutex = false;
+          Thread.sleep(gameModel.spawnTic);
         }
         return null;
       }
+
       @Override
       protected void process(List<Word> chunks) {
-        Word word = chunks.get(chunks.size()-1);
+        Word word = chunks.get(chunks.size() - 1);
         JLabel temp = word.getLabel();
-        temp.setSize(500,50);
-        temp.setLocation(word.getPosition().first,word.getPosition().second);
+        temp.setSize(500, 50);
+        temp.setLocation(word.getPosition().first, word.getPosition().second);
         temp.setForeground(Color.WHITE);
-        temp.setFont(new Font("Courier New",Font.BOLD,24));
+        temp.setFont(new Font("Courier New", Font.BOLD, 24));
         gamePanel.add(temp);
         temp.setVisible(true);
         gamePanel.setVisible(true);
         MainFrame.mainframe.setVisible(true);
         System.out.println(temp.getText());
       }
+
       @Override
-     protected void done() {
-        
+      protected void done() {
+
       }
     };
     wordSpawner.execute();
@@ -136,8 +146,10 @@ public class GameController {
         word.getLabel().setVisible(false);
         gameModel.wordSet.remove(word);
         if (!typed) {
-          reduceHealth();
-          if(gameModel.player.getCurrentHealth() == 0) {
+          if (!gameModel.shieldFlag) {
+            reduceHealth();
+          }
+          if (gameModel.player.getCurrentHealth() == 0) {
             stopGame();
           }
         } else {
@@ -151,7 +163,7 @@ public class GameController {
   }
 
   private void stopGame() {
-    SwingWorker<Void,Void> stopper = new SwingWorker<Void, Void>() {
+    SwingWorker<Void, Void> stopper = new SwingWorker<Void, Void>() {
       @Override
       protected Void doInBackground() throws Exception {
         wordSpawner.cancel(true);
@@ -180,17 +192,18 @@ public class GameController {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
       public void run() {
-        while(mutex) {}
-        mutex =true;
-        System.out.println("Attempt to delete "+content );
-        for(Word word : gameModel.wordSet) {
-          if(word.getContent().toLowerCase().equals(content.toLowerCase())) {
+        while (gameModel.mutex) {
+        }
+        gameModel.mutex = true;
+        System.out.println("Attempt to delete " + content);
+        for (Word word : gameModel.wordSet) {
+          if (word.getContent().toLowerCase().equals(content.toLowerCase())) {
             System.out.println("Word Deleted");
-            deleteWord(word,true);
+            deleteWord(word, true);
           }
         }
 
-        mutex=false;
+        gameModel.mutex = false;
       }
     });
   }
@@ -199,21 +212,54 @@ public class GameController {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
       public void run() {
-        while(mutex) {}
-        mutex = true;
-        for(Word word : gameModel.wordSet) {
+        while (gameModel.mutex) {
+        }
+        gameModel.mutex = true;
+        for (Word word : gameModel.wordSet) {
           String currString = gameModel.field.getText();
           int idx = getIndexPrefix(currString, word.getContent());
-          String newLabel = "<html><font color =green>" + word.getContent().substring(0,idx+1) + "</font>" +
-                  word.getContent().substring(idx+1);
-          if(!word.getLabel().getText().equals(newLabel))
+          String newLabel = "<html><font color =green>" + word.getContent().substring(0, idx + 1) + "</font>" +
+              word.getContent().substring(idx + 1);
+          if (!word.getLabel().getText().equals(newLabel)) {
             word.getLabel().setText(newLabel);
+          }
 
         }
         gamePanel.repaint();
-        mutex = false;
+        gameModel.mutex = false;
       }
     });
+  }
+
+  public void useItem(String id) {
+    while (gameModel.mutex) {
+    }
+    gameModel.mutex = true;
+    if (id.equals("1")) {
+      if (MainModel.item.get(1).second > 0) {
+        gameModel.slowSpell.use(gameModel);
+      }
+    } else if (id.equals("2")) {
+      if (MainModel.item.get(2).second > 0) {
+        gameModel.freezeSpell.use(gameModel);
+      }
+
+    } else if (id.equals("3")) {
+      if (MainModel.item.get(3).second > 0) {
+        gameModel.potion.use(gameModel);
+      }
+
+    } else if (id.equals("4")) {
+      if (MainModel.item.get(4).second > 0) {
+        gameModel.lightningSpell.use(gameModel);
+      }
+
+    } else if (id.equals("5")) {
+      if (MainModel.item.get(5).second > 0) {
+        gameModel.shield.use(gameModel);
+      }
+    }
+    gameModel.mutex = false;
   }
 
   private int getIndexPrefix(String firstString, String secondString) {

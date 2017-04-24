@@ -5,7 +5,10 @@ package model.goods;
  * Author: 13515070 - Sylvia Juliana
  */
 
+import model.game.GameModel;
 import model.main.MainModel;
+
+import javax.swing.*;
 
 /**
  * Kelas Shield.
@@ -57,5 +60,25 @@ public class Shield extends Items {
   public void buy() {
     MainModel.item.get(id).second++;
     MainModel.coin -= price;
+  }
+
+  @Override
+  public void use(GameModel gameModel) {
+    SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+      @Override
+      protected Void doInBackground() throws Exception {
+        gameModel.shieldFlag = true;
+        gameModel.mutex = false;
+        try {
+          Thread.sleep(10000);
+        } catch (Exception e) {
+          System.out.println("");
+        }
+        gameModel.shieldFlag = false;
+        return null;
+      }
+    };
+    worker.execute();
+    MainModel.item.get(id).second--;
   }
 }
