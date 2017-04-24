@@ -1,9 +1,9 @@
-5 0 1.0 1.0
-10 model.goods.SlowSpell 2
-13 model.goods.LightningSpell 3
-11 model.goods.FreezeSpell 2
-14 model.goods.Shield 0
-12 model.goods.Potion 24
+3 1745887 1.0 1.0
+1 18
+2 11
+3 27
+4 8
+5 9
 -
 KanisiusKenneth 135
 AndikaKusuma 135

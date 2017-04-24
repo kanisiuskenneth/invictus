@@ -23,7 +23,7 @@ public class MainModel {
   public static int coin;
   public static float coin_multiplier;
   public static float score_multiplier;
-  public static HashMap<Items, Integer> item;
+  public static HashMap<Integer, Pair<Items, Integer>> item;
   public static Pair<String, Integer>[] leaderboard;
   public static Vector<String> word_bank;
   public static final String VERSION = "UT alpha v1.0";
@@ -31,7 +31,7 @@ public class MainModel {
    * Constructor.
    */
   public MainModel() {
-    item = new HashMap<Items, Integer>();
+    item = new HashMap<Integer, Pair<Items, Integer>>();
     word_bank = new Vector<String>();
     leaderboard = new Pair[5];
     loadData("asset/data.txt");
@@ -61,22 +61,19 @@ public class MainModel {
       score_multiplier = scanner.nextFloat();
       while (scanner.hasNextInt()) {
         int firstValue = scanner.nextInt();
-        String itemClass = scanner.next();
         int secondValue = scanner.nextInt();
-        try {
-          Class cls = Class.forName(itemClass);
-          Class parameterTypes[] = null;
-          //Items items =
-          java.lang.reflect.Constructor ct = cls.getConstructor(parameterTypes);
-          Object argList[] = null;
-          Object items = ct.newInstance(argList);
-          System.out.println("jing");
-          System.out.println(" " + cls.getName());
-          item.put((Items) items, secondValue);
-        } catch (Throwable e) {
-          System.out.println("TOD");
-          System.err.println(e);
+        if (firstValue == 1) {
+          item.put(firstValue, new Pair(new SlowSpell(), secondValue));
+        } else if (firstValue == 2) {
+          item.put(firstValue, new Pair(new FreezeSpell(), secondValue));
+        } else if (firstValue == 3) {
+          item.put(firstValue, new Pair(new Potion(), secondValue));
+        } else if (firstValue == 4) {
+          item.put(firstValue, new Pair(new LightningSpell(), secondValue));
+        } else {
+          item.put(firstValue, new Pair(new Shield(), secondValue));
         }
+        System.out.println("SAIDJASDJASD " + item.get(firstValue).second);
       }
       scanner.next();
       while (scanner.hasNext()) {
@@ -98,8 +95,8 @@ public class MainModel {
     try {
       PrintWriter fileWriter = new PrintWriter(outFile);
       fileWriter.println(health_maximum + " " + coin + " " + coin_multiplier + " " + score_multiplier);
-      for (Map.Entry<Items, Integer> entry : item.entrySet()) {
-        fileWriter.println(entry.getKey().getId() + " " + entry.getKey().getClass().getName() + " " + entry.getValue());
+      for (Map.Entry<Integer, Pair<Items, Integer>> entry : item.entrySet()) {
+        fileWriter.println(entry.getKey() + " " + entry.getValue().second);
       }
       fileWriter.println("-");
       for (int i = 0; i < 5; i++) {

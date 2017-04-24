@@ -5,6 +5,7 @@ import model.goods.*;
 import model.main.MainModel;
 import sun.applet.Main;
 
+import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -161,7 +162,7 @@ public class ItemsView {
             ImageLoader.inventoryIcon.getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
     header.add(bag);
     JLabel inventory = new JLabel();
-    inventory.setText("0");
+    inventory.setText("" + MainModel.item.get(currentId).second);
     inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
     inventory.setForeground(Color.GREEN);
     header.add(inventory);
@@ -181,7 +182,7 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemSlow.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
-                inventory.setText("0");
+                inventory.setText("" + MainModel.item.get(currentId).second);
                 inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -197,7 +198,7 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemFreeze.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
-                inventory.setText("0");
+                inventory.setText("" + MainModel.item.get(currentId).second);
                 inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -213,7 +214,7 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemPotion.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
-                inventory.setText("0");
+                inventory.setText("" + MainModel.item.get(currentId).second);
                 inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -229,7 +230,7 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemLightning.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
-                inventory.setText("0");
+                inventory.setText("" + MainModel.item.get(currentId).second);
                 inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -245,7 +246,7 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemShield.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
-                inventory.setText("0");
+                inventory.setText("" + MainModel.item.get(currentId).second);
                 inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -273,32 +274,37 @@ public class ItemsView {
                 if (currentId == 1) {
                   System.out.println(itemSlow.getPrice());
                   if (MainModel.coin >= itemSlow.getPrice()) {
-                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.item.get(currentId).second++;
                     MainModel.coin -= itemSlow.getPrice();
+                    inventory.setText("" + MainModel.item.get(currentId).second);
                   }
                 } else if (currentId == 2) {
                   System.out.println(itemFreeze.getPrice());
                   if (MainModel.coin >= itemFreeze.getPrice()) {
-                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.item.get(currentId).second++;
                     MainModel.coin -= itemFreeze.getPrice();
+                    inventory.setText("" + MainModel.item.get(currentId).second);
                   }
                 } else if (currentId == 3) {
                   System.out.println(itemPotion.getPrice());
                   if (MainModel.coin >= itemPotion.getPrice()) {
-                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.item.get(currentId).second++;
                     MainModel.coin -= itemPotion.getPrice();
+                    inventory.setText("" + MainModel.item.get(currentId).second);
                   }
                 } else if (currentId == 4) {
                   System.out.println(itemLightning.getPrice());
                   if (MainModel.coin >= itemLightning.getPrice()) {
-                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.item.get(currentId).second++;
                     MainModel.coin -= itemLightning.getPrice();
+                    inventory.setText("" + MainModel.item.get(currentId).second);
                   }
                 } else {
                   System.out.println(itemShield.getPrice());
                   if (MainModel.coin >= itemShield.getPrice()) {
-                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.item.get(currentId).second++;
                     MainModel.coin -= itemShield.getPrice();
+                    inventory.setText("" + MainModel.item.get(currentId).second);
                   }
                 }
                 money.setText("" + MainModel.coin);
