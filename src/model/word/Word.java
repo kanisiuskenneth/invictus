@@ -32,6 +32,7 @@ public class Word {
 
   /**
    * Getter content.
+   *
    * @return content dari word.
    */
   public String getContent() {
@@ -40,18 +41,21 @@ public class Word {
 
   /**
    * Getter position.
+   *
    * @return position dari word.
    */
 
   public JLabel getLabel() {
     return label;
   }
+
   public Pair<Integer, Integer> getPosition() {
     return position;
   }
 
   /**
    * Setter position.
+   *
    * @param position dari word.
    */
   public void setPosition(Pair<Integer, Integer> position) {

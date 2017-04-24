@@ -23,7 +23,7 @@ public class ShopView {
     shopPanel.setSize(MainFrame.width, MainFrame.height);
     MainFrame.mainframe.setContentPane(shopPanel);
     JLabel headBanner = new JLabel(new ImageIcon(
-      ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
+        ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
     shopPanel.add(headBanner, BorderLayout.NORTH);
     JPanel menuPanel = new JPanel();
     shopPanel.add(menuPanel, BorderLayout.CENTER);
@@ -31,11 +31,11 @@ public class ShopView {
     menuPanel.setBackground(MainFrame.DARK_GRAY);
 
     JButton powerUp = new JButton(new ImageIcon(
-      ImageLoader.powerUpButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
+        ImageLoader.powerUpButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
     JButton items = new JButton(new ImageIcon(
-      ImageLoader.itemsButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
+        ImageLoader.itemsButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
     JButton menu = new JButton(new ImageIcon(
-      ImageLoader.menuButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
+        ImageLoader.menuButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
     menuPanel.add(powerUp, BorderLayout.NORTH);
     menuPanel.add(items, BorderLayout.CENTER);
     menuPanel.add(menu, BorderLayout.SOUTH);
@@ -52,31 +52,31 @@ public class ShopView {
     menuPanel.setVisible(true);
 
     menu.addActionListener(
-      new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          Menu mainMenu = new Menu();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            Menu mainMenu = new Menu();
 
+          }
         }
-      }
     );
     powerUp.addActionListener(
-      new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          PowerUpsView pwrUp = new PowerUpsView();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            PowerUpsView pwrUp = new PowerUpsView();
 
+          }
         }
-      }
     );
     items.addActionListener(
-      new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          ItemsView itemsV = new ItemsView();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            ItemsView itemsV = new ItemsView();
 
+          }
         }
-      }
     );
   }
 }

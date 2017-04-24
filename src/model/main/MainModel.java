@@ -27,6 +27,7 @@ public class MainModel {
   public static Pair<String, Integer>[] leaderboard;
   public static Vector<String> word_bank;
   public static final String VERSION = "UT alpha v1.0";
+
   /**
    * Constructor.
    */
@@ -49,6 +50,7 @@ public class MainModel {
 
   /**
    * Load data player dari file eksternal.
+   *
    * @param inputFile berisi data player.
    */
   public void loadData(String inputFile) {
@@ -94,7 +96,8 @@ public class MainModel {
     File outFile = new File("asset/data.txt");
     try {
       PrintWriter fileWriter = new PrintWriter(outFile);
-      fileWriter.println(health_maximum + " " + coin + " " + coin_multiplier + " " + score_multiplier);
+      fileWriter.println(health_maximum + " " + coin + " " + coin_multiplier + " "
+          + score_multiplier);
       for (Map.Entry<Integer, Pair<Items, Integer>> entry : item.entrySet()) {
         fileWriter.println(entry.getKey() + " " + entry.getValue().second);
       }
@@ -111,6 +114,7 @@ public class MainModel {
 
   /**
    * Load data word dari file eksternal.
+   *
    * @param inputFile berisi data word.
    */
   public void loadWord(String inputFile) {
