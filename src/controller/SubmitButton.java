@@ -13,7 +13,7 @@ import view.GameView;
  * File: SubmitButton.java
  * Author: 13515033 - Andika Kusuma
  */
-
+/*
 public class SubmitButton implements ActionListener, KeyListener {
 
   private JTextField inputText;
@@ -50,3 +50,4 @@ public class SubmitButton implements ActionListener, KeyListener {
 
   }
 }
+*/

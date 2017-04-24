@@ -10,6 +10,7 @@ import model.main.MainModel;
 import model.player.Player;
 import model.word.Word;
 import util.Pair;
+import view.GameOverView;
 import view.GameView;
 import view.MainFrame;
 
@@ -24,32 +25,45 @@ import java.util.List;
  * Kelas GameController untuk mengatur kerja game
  */
 public class GameController {
-  private int updateTic = 15;
-  private int spawnTic = 1;
   public GameModel gameModel;
   public Container gamePanel;
-  public GameController(GameModel gameModel, JLayeredPane gamePanel) {
+  SwingWorker<Void, Word> wordSpawner;
+  SwingWorker<Void, Boolean> wordUpdater;
+
+  public GameController(GameModel gameModel) {
+    JLayeredPane gamePanel = gameModel.gamePanel;
     this.gameModel = gameModel;
     this.gamePanel = gamePanel;
     startGame();
   }
 
+
+  private volatile boolean mutex;
   public void startGame() {
+    mutex = false;
+    refreshScreen();
     addWord();
     updateWord();
+
   }
 
   private void updateWord() {
-    SwingWorker<Void, Boolean> wordUpdater = new SwingWorker<Void, Boolean>() {
+      wordUpdater = new SwingWorker<Void, Boolean>() {
       @Override
       protected Void doInBackground() throws Exception {
         while (!isCancelled()) {
+          while(mutex){};
+          mutex =true;
           for(Word word : gameModel.wordSet) {
             word.setPosition(new Pair<>(word.getPosition().first,word.getPosition().second+1));
+            if(word.getPosition().second>=(gamePanel.getHeight()-40))
+
+              deleteWord(word,false);
           }
-          System.out.print("Word Updated");
+          gamePanel.repaint();
+          mutex= false;
           publish(true);
-          Thread.sleep(1000/updateTic);
+          Thread.sleep(gameModel.updateTic);
         }
         return null;
       }
@@ -57,27 +71,34 @@ public class GameController {
       @Override
       protected void process(List<Boolean> chunks) {
         if(chunks.get(chunks.size()-1)) {
+          while (mutex){};
+          mutex = true;
           for(Word word : gameModel.wordSet) {
             word.getLabel().setLocation(word.getPosition().first,word.getPosition().second);
           }
+          mutex = false;
         }
       }
     };
     wordUpdater.execute();
+
   }
 
   public void addWord() {
 
-    SwingWorker<Void, Word> wordSpawner = new SwingWorker<Void, Word>() {
+   wordSpawner = new SwingWorker<Void, Word>() {
       @Override
       protected Void doInBackground() throws Exception {
         while (!isCancelled()) {
+          while(mutex) {}
+          mutex = true;
           Word temp = new Word(MainModel.word_bank.elementAt(gameModel.random.nextInt(MainModel.word_bank.size())));
-          temp.setPosition(new Pair(gameModel.random.nextInt(gamePanel.getWidth()-50),-10));
+          temp.setPosition(new Pair(gameModel.random.nextInt(gamePanel.getWidth()-300)+100,-20));
           gameModel.wordSet.add(temp);
           publish(temp);
-          System.out.println("Word Spawned");
-          Thread.sleep(1000/spawnTic);
+          System.out.print("Word Spawned");
+          mutex = false;
+          Thread.sleep( gameModel.spawnTic);
         }
         return null;
       }
@@ -85,22 +106,57 @@ public class GameController {
       protected void process(List<Word> chunks) {
         Word word = chunks.get(chunks.size()-1);
         JLabel temp = word.getLabel();
-        temp.setSize(100,30);
+        temp.setSize(500,50);
         temp.setLocation(word.getPosition().first,word.getPosition().second);
         temp.setForeground(Color.WHITE);
+        temp.setFont(new Font("Courier New",Font.BOLD,24));
         gamePanel.add(temp);
         temp.setVisible(true);
         gamePanel.setVisible(true);
         MainFrame.mainframe.setVisible(true);
-        System.out.print(temp.getText());
+        System.out.println(temp.getText());
+      }
+      @Override
+     protected void done() {
+        
       }
     };
     wordSpawner.execute();
 
   }
 
-  public void deleteWord(String content, boolean typed) {
+  public void deleteWord(Word word, boolean typed) {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        gamePanel.remove(word.getLabel());
+        word.getLabel().setVisible(false);
+        gameModel.wordSet.remove(word);
+        if (!typed) {
+          reduceHealth();
+          if(gameModel.player.getCurrentHealth() == 0) {
+            stopGame();
+          }
+        } else {
+          addScore(word.getContent().length() * 10);
+        }
+        gameModel.updateHealth();
+        gameModel.updateScore();
+      }
+    });
 
+  }
+
+  private void stopGame() {
+    wordSpawner.cancel(true);
+    wordUpdater.cancel(true);
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        System.out.println("JING AYO MASUKs");
+        new Menu();
+      }
+    });
   }
 
   public void reduceHealth() {
@@ -110,4 +166,57 @@ public class GameController {
   public void addScore(int score) {
     gameModel.player.increaseScore(score);
   }
+
+  public void attemptToDeleteWord(String content) {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        while(mutex) {}
+        mutex =true;
+        System.out.println("Attempt to delete "+content );
+        for(Word word : gameModel.wordSet) {
+          if(word.getContent().toLowerCase().equals(content.toLowerCase())) {
+            System.out.println("Word Deleted");
+            deleteWord(word,true);
+          }
+        }
+
+        mutex=false;
+      }
+    });
+  }
+
+  public void refreshScreen() {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        while(mutex) {}
+        mutex = true;
+        for(Word word : gameModel.wordSet) {
+          String currString = gameModel.field.getText();
+          int idx = getIndexPrefix(currString, word.getContent());
+          String newLabel = "<html><font color =green>" + word.getContent().substring(0,idx+1) + "</font>" +
+                  word.getContent().substring(idx+1);
+          if(!word.getLabel().getText().equals(newLabel))
+            word.getLabel().setText(newLabel);
+
+        }
+        gamePanel.repaint();
+        mutex = false;
+      }
+    });
+  }
+
+  private int getIndexPrefix(String firstString, String secondString) {
+    if (firstString.length() > secondString.length()) {
+      return -1;
+    } else {
+      if (firstString.equals(secondString.substring(0, firstString.length()))) {
+        return firstString.length() - 1;
+      } else {
+        return -1;
+      }
+    }
+  }
+
 }
