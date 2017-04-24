@@ -15,7 +15,7 @@ import model.game.GameModel;
 
 /**
  * File: GameView.java
- * Author: 13515033 - Andika Kusuma
+ * Author: 13515008 - Kanisius Kenneth Halim
  */
 
 public class GameView {
