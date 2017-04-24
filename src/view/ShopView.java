@@ -1,11 +1,10 @@
 package view;
 
 import controller.ImageLoader;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 /**
  * File: ShopView.java
@@ -15,6 +14,9 @@ public class ShopView {
   Container temp;
   JPanel shopPanel;
 
+  /**
+   * Constructor.
+   */
   public ShopView() {
     temp = MainFrame.mainframe.getContentPane();
     shopPanel = new JPanel();
