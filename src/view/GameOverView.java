@@ -32,12 +32,33 @@ import javax.swing.JPanel;
  * Kelas GameOverView.
  */
 public class GameOverView {
-  Container old;
   GameModel gameModel;
   JPanel currentPanel;
   JTextField enterNameField;
   long score;
   long coin;
+  private ActionListener saveAndQuit = new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      if (score > MainModel.leaderboard[4].second) {
+        String name = enterNameField.getText();
+        int i = 4;
+        while (i > 0) {
+          if (score > MainModel.leaderboard[i - 1].second) {
+            MainModel.leaderboard[i].first = MainModel.leaderboard[i - 1].first;
+            MainModel.leaderboard[i].second = MainModel.leaderboard[i - 1].second;
+            i--;
+          } else {
+            break;
+          }
+        }
+        MainModel.leaderboard[i].first = name;
+        MainModel.leaderboard[i].second = (int) score;
+      }
+      MainModel.saveData();
+      MainFrame.mainframe.setContentPane(gameModel.menupanel);
+    }
+  };
 
   /**
    * Constructor
@@ -45,7 +66,6 @@ public class GameOverView {
    * @param gameModel GameModel yang telah selesai berjalan saat Constructor dipanggil
    */
   public GameOverView(GameModel gameModel) {
-      old = MainFrame.mainframe.getContentPane();
       this.gameModel = gameModel;
       currentPanel = new JPanel();
       currentPanel.setLayout(new BorderLayout());
@@ -132,6 +152,7 @@ public class GameOverView {
     enterNameField.setForeground(Color.WHITE);
     enterNamePanel.setBorder(new EmptyBorder(30, 0, 100, 0));
     enterNameField.setBorder(new MatteBorder(2, 0, 2, 0, Color.WHITE));
+    enterNameField.addActionListener(saveAndQuit);
     enterNamePanel.setBackground(MainFrame.DARK_GRAY);
 
     JPanel bottomPanel = new JPanel();
@@ -148,28 +169,7 @@ public class GameOverView {
     bottomPanel.setBorder(new EmptyBorder(0, 0, 60, 0));
     bottomPanel.add(back, BorderLayout.SOUTH);
     currentPanel.add(bottomPanel, BorderLayout.SOUTH);
-    back.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        if (score > MainModel.leaderboard[4].second) {
-          String name = enterNameField.getText();
-          int i = 4;
-          while (i > 0) {
-            if (score > MainModel.leaderboard[i - 1].second) {
-              MainModel.leaderboard[i].first = MainModel.leaderboard[i - 1].first;
-              MainModel.leaderboard[i].second = MainModel.leaderboard[i - 1].second;
-              i--;
-            }
-          }
-          MainModel.leaderboard[i].first = name;
-          MainModel.leaderboard[i].second = (int) score;
-        }
-        MainModel.saveData();
-        currentPanel.removeAll();
-        MainFrame.mainframe.remove(currentPanel);
-        MainFrame.mainframe.setContentPane(gameModel.menupanel);
-      }
-    });
+    back.addActionListener(saveAndQuit);
     if (score > MainModel.leaderboard[4].second) {
       bottomPanel.add(enterNamePanel, BorderLayout.NORTH);
     } else {
