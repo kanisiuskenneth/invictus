@@ -6,6 +6,7 @@ package model.goods;
  */
 
 import model.main.MainModel;
+import sun.applet.Main;
 
 /**
  * Kelas ScoreMultiplier.

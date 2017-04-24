@@ -3,6 +3,7 @@ package view;
 import controller.ImageLoader;
 import model.game.GameModel;
 import model.main.MainModel;
+import util.Pair;
 
 
 import java.awt.Container;
@@ -159,6 +160,8 @@ public class GameOverView {
               MainModel.leaderboard[i].first = MainModel.leaderboard[i - 1].first;
               MainModel.leaderboard[i].second = MainModel.leaderboard[i - 1].second;
               i--;
+            } else {
+              break;
             }
           }
           MainModel.leaderboard[i].first = name;
