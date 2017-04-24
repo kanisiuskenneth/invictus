@@ -14,15 +14,32 @@ import util.Pair;
 
 import javax.swing.*;
 import java.util.Map;
+import view.GameOverView;
+import view.GameView;
+import view.LeaderboardView;
+import view.MainFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
 
 /**
  * Kelas GameController untuk mengatur kerja game
  */
 public class GameController {
   public GameModel gameModel;
-
-  public GameController() {
-    gameModel = new GameModel();
+  public Container gamePanel;
+  SwingWorker<Void, Word> wordSpawner;
+  SwingWorker<Void, Boolean> wordUpdater;
+  private volatile boolean mutex;
+  public GameController(GameModel gameModel) {
+    JLayeredPane gamePanel = gameModel.gamePanel;
+    this.gameModel = gameModel;
+    this.gamePanel = gamePanel;
+    startGame();
   }
 
   /**
@@ -31,71 +48,132 @@ public class GameController {
    * @param input id item yang akan digunakan
    */
   public void useItem(String input) {
+
+  private volatile boolean mutex;
+  public void startGame() {
+    mutex = false;
+    refreshScreen();
+    addWord();
+    updateWord();
+
   }
-  
-  public void addWord() {
-    String content = MainModel.word_bank.get(gameModel.random.nextInt(MainModel.word_bank.size()));
-    while (gameModel.mapOfThread.containsKey(content)) {
-      content = MainModel.word_bank.get(gameModel.random.nextInt(MainModel.word_bank.size()));
-    }
-    Word newWord = new Word(content);
-    SwingWorker<Void, Void> worker = null;
-    //
-    //worker = gameModel.viewWord(newWord, worker);
-    //
-    // masih ada bug nyangkut di atas gatau kenapa
-    int positionX = gameModel.random.nextInt(1000);
-    int positionY = -20; // y position dari paling atas
-    newWord.setPosition(new Pair(positionX, positionY));
-    worker = new SwingWorker<Void, Void>() {
+
+  private void updateWord() {
+      wordUpdater = new SwingWorker<Void, Boolean>() {
       @Override
       protected Void doInBackground() throws Exception {
         while (!isCancelled()) {
-          try {
-            Thread.sleep(100);
-          } catch (Exception e) {
-            System.out.println("");
+          while(mutex){};
+          mutex =true;
+          for(Word word : gameModel.wordSet) {
+            word.setPosition(new Pair<>(word.getPosition().first,word.getPosition().second+1));
+            if(word.getPosition().second>=(gamePanel.getHeight()-40))
+
+              deleteWord(word,false);
           }
-          newWord.setPosition(new Pair(newWord.getPosition().first, newWord.getPosition().second + 2));
-          if (newWord.getPosition().second > 500) {
-            //gameModel.mapOfThread.get(newWord.getContent()).cancel(true);
-            //gameModel.mapOfThread.remove(newWord.getContent());
-            reduceHealth();
-            cancel(true);
-          }
+          gamePanel.repaint();
+          mutex= false;
+          publish(true);
+          Thread.sleep(gameModel.updateTic);
         }
         return null;
       }
 
       @Override
-      protected void done() {
-
+      protected void process(List<Boolean> chunks) {
+        if(chunks.get(chunks.size()-1)) {
+          while (mutex){};
+          mutex = true;
+          for(Word word : gameModel.wordSet) {
+            word.getLabel().setLocation(word.getPosition().first,word.getPosition().second);
+          }
+          mutex = false;
+        }
       }
     };
-    worker.execute();
-    gameModel.mapOfThread.put(newWord, worker);
-    System.out.println("ADD DARI CONTROLLER" + gameModel.mapOfThread.size());
+    wordUpdater.execute();
+
   }
 
-  public void deleteWord(String content, boolean typed) {
-    content = content.toUpperCase();
-    Word word = null;
-    for (Map.Entry<Word, SwingWorker<Void, Void>> entry : gameModel.mapOfThread.entrySet()) {
-      if (entry.getKey().getContent().equals(content)) {
-        word = entry.getKey();
-        break;
+  public void addWord() {
+
+   wordSpawner = new SwingWorker<Void, Word>() {
+      @Override
+      protected Void doInBackground() throws Exception {
+        while (!isCancelled()) {
+          while(mutex) {}
+          mutex = true;
+          Word temp = new Word(MainModel.word_bank.elementAt(gameModel.random.nextInt(MainModel.word_bank.size())));
+          temp.setPosition(new Pair(gameModel.random.nextInt(gamePanel.getWidth()-300)+100,-20));
+          gameModel.wordSet.add(temp);
+          publish(temp);
+          System.out.print("Word Spawned");
+          mutex = false;
+          Thread.sleep( gameModel.spawnTic);
+        }
+        return null;
       }
-    }
-    if (gameModel.mapOfThread.containsKey(word)) {
-      word.getLabel().setText("");
-      gameModel.mapOfThread.get(word).cancel(true);
-      gameModel.mapOfThread.remove(word);
-      if (typed) {
-        addScore(10 * content.length());
-      } else {
-        reduceHealth();
+      @Override
+      protected void process(List<Word> chunks) {
+        Word word = chunks.get(chunks.size()-1);
+        JLabel temp = word.getLabel();
+        temp.setSize(500,50);
+        temp.setLocation(word.getPosition().first,word.getPosition().second);
+        temp.setForeground(Color.WHITE);
+        temp.setFont(new Font("Courier New",Font.BOLD,24));
+        gamePanel.add(temp);
+        temp.setVisible(true);
+        gamePanel.setVisible(true);
+        MainFrame.mainframe.setVisible(true);
+        System.out.println(temp.getText());
       }
-    }
+      @Override
+     protected void done() {
+        
+      }
+    };
+    wordSpawner.execute();
+
+  }
+
+  public void deleteWord(Word word, boolean typed) {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        gamePanel.remove(word.getLabel());
+        word.getLabel().setVisible(false);
+        gameModel.wordSet.remove(word);
+        if (!typed) {
+          reduceHealth();
+          if(gameModel.player.getCurrentHealth() == 0) {
+            stopGame();
+          }
+        } else {
+          addScore(word.getContent().length() * 10);
+        }
+        gameModel.updateHealth();
+        gameModel.updateScore();
+      }
+    });
+
+  }
+
+  private void stopGame() {
+    SwingWorker<Void,Void> stopper = new SwingWorker<Void, Void>() {
+      @Override
+      protected Void doInBackground() throws Exception {
+        wordSpawner.cancel(true);
+        wordUpdater.cancel(true);
+        gameModel.wordSet.clear();
+        return null;
+      }
+
+      @Override
+      protected void done() {
+        new GameOverView(gameModel);
+      }
+    };
+    stopper.execute();
   }
 
   public void reduceHealth() {
@@ -105,4 +183,57 @@ public class GameController {
   public void addScore(int score) {
     gameModel.player.increaseScore(score);
   }
+
+  public void attemptToDeleteWord(String content) {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        while(mutex) {}
+        mutex =true;
+        System.out.println("Attempt to delete "+content );
+        for(Word word : gameModel.wordSet) {
+          if(word.getContent().toLowerCase().equals(content.toLowerCase())) {
+            System.out.println("Word Deleted");
+            deleteWord(word,true);
+          }
+        }
+
+        mutex=false;
+      }
+    });
+  }
+
+  public void refreshScreen() {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        while(mutex) {}
+        mutex = true;
+        for(Word word : gameModel.wordSet) {
+          String currString = gameModel.field.getText();
+          int idx = getIndexPrefix(currString, word.getContent());
+          String newLabel = "<html><font color =green>" + word.getContent().substring(0,idx+1) + "</font>" +
+                  word.getContent().substring(idx+1);
+          if(!word.getLabel().getText().equals(newLabel))
+            word.getLabel().setText(newLabel);
+
+        }
+        gamePanel.repaint();
+        mutex = false;
+      }
+    });
+  }
+
+  private int getIndexPrefix(String firstString, String secondString) {
+    if (firstString.length() > secondString.length()) {
+      return -1;
+    } else {
+      if (firstString.equals(secondString.substring(0, firstString.length()))) {
+        return firstString.length() - 1;
+      } else {
+        return -1;
+      }
+    }
+  }
+
 }

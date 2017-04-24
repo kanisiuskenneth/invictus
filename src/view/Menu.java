@@ -18,7 +18,7 @@ import java.io.File;
  * File: Menu.java
  * Created by kennethhalim on 4/20/17.
  */
-public class Menu extends Container {
+public class Menu {
   public Menu() {
     Container temp = MainFrame.mainframe.getContentPane();
     temp.removeAll();

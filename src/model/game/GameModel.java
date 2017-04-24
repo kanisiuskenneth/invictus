@@ -1,6 +1,5 @@
 package model.game;
 
-import controller.SubmitButton;
 import model.player.Player;
 import model.word.Word;
 import util.Pair;
@@ -9,6 +8,7 @@ import view.MainFrame;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
 
 /**
@@ -19,11 +19,35 @@ import java.util.Random;
 public class GameModel {
   public Player player;
   public Random random;
-  public HashMap<Word, SwingWorker<Void, Void>> mapOfThread;
-
+  public HashSet<Word> wordSet;
+  public JLayeredPane gamePanel;
+  public JTextField field;
+  public JLabel healthLabel;
+  public JLabel scoreLabel;
+  public int updateTic = 20;
+  public int spawnTic = 2000;
+  public Container menupanel;
   public GameModel() {
+    wordSet = new HashSet<Word>();
     player = new Player();
-    mapOfThread = new HashMap<Word, SwingWorker<Void, Void>>();
     random = new Random();
+    healthLabel = new JLabel();
+    updateHealth();
+    scoreLabel = new JLabel();
+    updateScore();
+
   }
+
+  public void updateHealth() {
+    String health = "";
+    for(int i =0;i<player.getCurrentHealth();i++) {
+      health += "\u2665";
+    }
+    healthLabel.setText(health);
+  }
+
+  public void updateScore() {
+    scoreLabel.setText(""+player.getScore());
+  }
+
 }
