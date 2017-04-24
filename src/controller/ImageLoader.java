@@ -1,11 +1,8 @@
 package controller;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.lang.reflect.Executable;
-import java.nio.Buffer;
 
 /**
  * File: ImageLoader.java
@@ -18,10 +15,10 @@ public class ImageLoader {
   public static BufferedImage leaderboard_button;
   public static BufferedImage game_logo;
   public static BufferedImage game_banner;
-  public static BufferedImage leaderboard_banner;
+  public static BufferedImage leaderboardBanner;
   public static BufferedImage shop_button;
   public static BufferedImage SPACER;
-  public static BufferedImage back_button;
+  public static BufferedImage backButton;
   public static BufferedImage shopBanner;
   public static BufferedImage powerUpBanner;
   public static BufferedImage itemsBanner;
@@ -55,9 +52,9 @@ public class ImageLoader {
       game_logo = ImageIO.read(new File("img/gamelogo.png"));
       game_banner = ImageIO.read(new File("img/gamebanner.png"));
       shop_button = ImageIO.read(new File("img/shopbutton.png"));
-      leaderboard_banner = ImageIO.read(new File("img/leaderboardbanner.png"));
+      leaderboardBanner = ImageIO.read(new File("img/leaderboardbanner.png"));
       SPACER = ImageIO.read(new File("img/spacer.png"));
-      back_button = ImageIO.read(new File("img/backbutton.png"));
+      backButton = ImageIO.read(new File("img/backbutton.png"));
       shopBanner = ImageIO.read(new File("img/shopbanner.png"));
       powerUpBanner = ImageIO.read(new File("img/powerupbanner.png"));
       itemsBanner = ImageIO.read(new File("img/itemsbanner.png"));
