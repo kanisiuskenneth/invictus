@@ -14,7 +14,7 @@ public class CoinMultiplier extends PowerUp {
    */
 
   public CoinMultiplier() {
-    super(20, 0);
+    super(6, 100);
   }
 
   /**

@@ -14,7 +14,7 @@ public class ScoreMultiplier extends PowerUp {
    */
 
   public ScoreMultiplier() {
-    super(21, 0);
+    super(7, 80);
   }
 
   /**

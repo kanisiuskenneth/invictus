@@ -14,7 +14,7 @@ public class HealthUpgrade extends PowerUp {
    */
 
   public HealthUpgrade() {
-    super(20, 0);
+    super(8, 90);
   }
 
   /**

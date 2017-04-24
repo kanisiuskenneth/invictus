@@ -69,6 +69,7 @@ public class ImageLoader {
       homeButton = ImageIO.read(new File("img/home.png"));
       arrowButton = ImageIO.read(new File("img/arrow.png"));
       coin = ImageIO.read(new File("img/coin.png"));
+
     } catch (Exception e) {
       System.out.println("File not Found Exception");
     }

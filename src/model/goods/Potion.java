@@ -16,7 +16,7 @@ public class Potion extends Items {
    */
 
   public Potion() {
-    super(12, 3);
+    super(3, 75);
   }
 
   /**
@@ -46,7 +46,7 @@ public class Potion extends Items {
    */
 
   public String getDescription() {
-    return "stop all of the words on the screen for 10 seconds.";
+    return "increase the current health points by one heart.";
   }
 
   /**

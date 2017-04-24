@@ -14,7 +14,7 @@ public class FreezeSpell extends Items {
    */
 
   public FreezeSpell() {
-    super(11, 2);
+    super(2, 85);
   }
 
   /**
