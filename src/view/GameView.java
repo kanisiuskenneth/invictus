@@ -5,21 +5,13 @@ import controller.ImageLoader;
 //import controller.SubmitButton;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.*;
 import javax.swing.*;
-import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import model.game.GameModel;
-import model.main.MainModel;
-import model.word.Word;
-import sun.applet.Main;
-import util.Pair;
 
 /**
  * File: GameView.java
@@ -69,9 +61,9 @@ public class GameView {
     topPanel.setBackground(MainFrame.DARK_GRAY);
     bottomPanel.setBackground(MainFrame.DARK_GRAY);
     int logo_height = (MainFrame.height-600)/2;
-    int logo_width = logo_height* ImageLoader.game_banner.getWidth()/ImageLoader.game_banner.getHeight();
+    int logo_width = logo_height* ImageLoader.gameBanner.getWidth()/ImageLoader.gameBanner.getHeight();
     JLabel logo = new JLabel(
-        new ImageIcon(ImageLoader.game_banner.getScaledInstance(logo_width,logo_height,Image.SCALE_DEFAULT)));
+        new ImageIcon(ImageLoader.gameBanner.getScaledInstance(logo_width,logo_height,Image.SCALE_DEFAULT)));
     topPanel.add(logo,BorderLayout.NORTH);
 
     gameModel.field = new JTextField();

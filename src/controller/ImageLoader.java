@@ -1,22 +1,26 @@
 package controller;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import javax.imageio.ImageIO;
 
 /**
  * File: ImageLoader.java
  * Created by kennethhalim on 4/22/17.
  */
+
+/**
+ * Kelas Singleton ImageLoader.
+ */
 public class ImageLoader {
   public static BufferedImage splash;
-  public static BufferedImage play_button;
-  public static BufferedImage quit_button;
+  public static BufferedImage playButton;
+  public static BufferedImage quitButton;
   public static BufferedImage leaderboard_button;
-  public static BufferedImage game_logo;
-  public static BufferedImage game_banner;
+  public static BufferedImage gameLogo;
+  public static BufferedImage gameBanner;
   public static BufferedImage leaderboardBanner;
-  public static BufferedImage shop_button;
+  public static BufferedImage shopButton;
   public static BufferedImage SPACER;
   public static BufferedImage backButton;
   public static BufferedImage shopBanner;
@@ -43,15 +47,18 @@ public class ImageLoader {
   public static BufferedImage gameover_banner;
   public static BufferedImage enterName;
 
+  /**
+   * Constructor ImageLoader.
+   */
   public ImageLoader() {
     try {
       splash = ImageIO.read(new File("img/comlogo.png"));
-      play_button = ImageIO.read(new File("img/playbutton.png"));
-      quit_button = ImageIO.read(new File("img/quitbutton.png"));
+      playButton = ImageIO.read(new File("img/playbutton.png"));
+      quitButton = ImageIO.read(new File("img/quitbutton.png"));
       leaderboard_button = ImageIO.read(new File("img/leaderboardbutton.png"));
-      game_logo = ImageIO.read(new File("img/gamelogo.png"));
-      game_banner = ImageIO.read(new File("img/gamebanner.png"));
-      shop_button = ImageIO.read(new File("img/shopbutton.png"));
+      gameLogo = ImageIO.read(new File("img/gamelogo.png"));
+      gameBanner = ImageIO.read(new File("img/gamebanner.png"));
+      shopButton = ImageIO.read(new File("img/shopbutton.png"));
       leaderboardBanner = ImageIO.read(new File("img/leaderboardbanner.png"));
       SPACER = ImageIO.read(new File("img/spacer.png"));
       backButton = ImageIO.read(new File("img/backbutton.png"));
