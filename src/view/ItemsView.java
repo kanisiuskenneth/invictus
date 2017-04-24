@@ -154,6 +154,17 @@ public class ItemsView {
     money.setForeground(Color.GREEN);
     header.add(money);
 
+    JLabel dummySpace = new JLabel(new ImageIcon(
+            ImageLoader.dummyImg.getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+    header.add(dummySpace);
+    JLabel bag = new JLabel(new ImageIcon(
+            ImageLoader.inventoryIcon.getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+    header.add(bag);
+    JLabel inventory = new JLabel("0");
+    inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
+    inventory.setForeground(Color.GREEN);
+    header.add(inventory);
+
     header.setVisible(true);
 
     menuPanel.setVisible(true);

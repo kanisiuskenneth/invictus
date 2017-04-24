@@ -16,10 +16,10 @@ class MainModelTest {
     assertEquals(0, main.coin);
     assertEquals(1.0, main.coin_multiplier);
     assertEquals(1.0, main.score_multiplier);
-    assertEquals(new Integer(1), main.item.firstElement().first);
+    /*assertEquals(new Integer(1), main.item.firstElement().first);
     assertEquals(new Integer(0), main.item.firstElement().second);
     assertEquals(new Integer(4), main.item.lastElement().first);
-    assertEquals(new Integer(3), main.item.lastElement().second);
+    assertEquals(new Integer(3), main.item.lastElement().second);*/
     assertEquals("KanisiusKenneth", main.leaderboard[0].first);
     assertEquals(new Integer(135), main.leaderboard[0].second);
   }

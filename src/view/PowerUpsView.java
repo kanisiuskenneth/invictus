@@ -32,13 +32,56 @@ public class PowerUpsView {
 
     JPanel menuPanel = new JPanel();
     powerUpPanel.add(menuPanel, BorderLayout.CENTER);
-    menuPanel.setLayout(new GridLayout(5,3));
+    menuPanel.setLayout(new GridLayout(3,1));
     menuPanel.setBackground(GRAY);
 
     JPanel descPanel = new JPanel();
     descPanel.setLayout(new GridLayout(7,1));
     powerUpPanel.add(descPanel, BorderLayout.EAST);
     descPanel.setBackground(LIGHT_GRAY);
+
+    JPanel coinM = new JPanel();
+    coinM.setLayout(new GridLayout(1,2));
+    coinM.setBackground(Color.YELLOW);
+    menuPanel.add(coinM);
+
+    JPanel scoreM = new JPanel();
+    scoreM.setLayout(new GridLayout(1,2));
+    scoreM.setBackground(GRAY);
+    menuPanel.add(scoreM);
+
+    JPanel healthU = new JPanel();
+    healthU.setLayout(new GridLayout(1,2));
+    healthU.setBackground(Color.RED);
+    menuPanel.add(healthU);
+
+    JButton coinMultiplier = new JButton(new ImageIcon(
+            ImageLoader.coin.getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+    JButton scoreMultiplier = new JButton(new ImageIcon(
+            ImageLoader.scoreIcon.getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+    JButton healthUpgrade = new JButton(new ImageIcon(
+            ImageLoader.heartIcon.getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+
+    JLabel coinBar = new JLabel("\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588");
+    coinBar.setFont(new Font("Courier New",Font.PLAIN,35));
+    JLabel scoreBar = new JLabel("\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588");
+    JLabel healthBar = new JLabel("\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588");
+
+    coinM.add(coinMultiplier);
+    coinM.add(coinBar);
+    scoreM.add(scoreMultiplier);
+    scoreM.add(scoreBar);
+    healthU.add(healthUpgrade);
+    healthU.add(healthBar);
+
+    coinMultiplier.setBorder(BorderFactory.createEmptyBorder());
+    coinMultiplier.setContentAreaFilled(false);
+
+    scoreMultiplier.setBorder(BorderFactory.createEmptyBorder());
+    scoreMultiplier.setContentAreaFilled(false);
+
+    healthUpgrade.setBorder(BorderFactory.createEmptyBorder());
+    healthUpgrade.setContentAreaFilled(false);
 
     JLabel descBanner = new JLabel(new ImageIcon(
             ImageLoader.descriptionBanner.getScaledInstance(300, 50, Image.SCALE_DEFAULT)));
@@ -49,21 +92,11 @@ public class PowerUpsView {
     JLabel desc = new JLabel("",SwingConstants.CENTER);
     descPanel.add(desc);
 
-    /*JButton dummy = new JButton(new ImageIcon(
-            ImageLoader.dummyImg.getScaledInstance(10, 10, Image.SCALE_DEFAULT)));
-    dummy.setBorder(BorderFactory.createEmptyBorder());
-    dummy.setContentAreaFilled(false);
-    descPanel.add(dummy);*/
 
     JPanel pricePanel = new JPanel();
-    pricePanel.setLayout(new GridLayout(1, 1));
+    //pricePanel.setLayout(new GridLayout(1, 1));
     pricePanel.setBackground(LIGHT_GRAY);
     descPanel.add(pricePanel);
-    /*JLabel coin = new JLabel(new ImageIcon(
-            ImageLoader.coin.getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-    pricePanel.add(coin);
-    JLabel price = new JLabel("",SwingConstants.CENTER);
-    pricePanel.add(price);*/
 
     JLabel coin = new JLabel(new ImageIcon(
             ImageLoader.coin.getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
@@ -71,17 +104,15 @@ public class PowerUpsView {
     JLabel price = new JLabel("", SwingConstants.CENTER);
     price.setText("0");
     pricePanel.setBackground(LIGHT_GRAY);
-    price.setFont(new Font("Courier New",Font.PLAIN,20));
+    price.setFont(new Font("Courier New",Font.PLAIN,30));
     pricePanel.add(price);
     name.setForeground(Color.WHITE);
     desc.setForeground(Color.YELLOW);
     price.setForeground(Color.GREEN);
     name.setText("Coin Multiplier");
     name.setFont(new Font("Courier New",Font.PLAIN,35));
-    desc.setText("<html>increase the coins <br> multiplier by 0.1 <br> from the base <br> multiplier.<br></html>");
+    desc.setText("<html>increase the coins <br> multiplier by 0.1 from <br> the base multiplier.<br></html>");
     desc.setFont(new Font("Courier New",Font.PLAIN,24));
-
-
 
     JButton buy = new JButton(new ImageIcon(
             ImageLoader.buyButton.getScaledInstance(80, 40, Image.SCALE_DEFAULT)));
@@ -120,15 +151,15 @@ public class PowerUpsView {
     header.setVisible(true);
 
     menuPanel.setVisible(true);
-/*
+
     coinMultiplier.addActionListener(
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
-                name.setText("<html>Slow Spell<br></html>");
-                name.setFont(new Font("Courier New",Font.PLAIN,40));
-                desc.setText("<html>decrease the speed <br> of the words <br> by 0.5.<br></html>");
-                desc.setFont(new Font("Courier New",Font.PLAIN,30));
+                name.setText("Coin Multiplier");
+                name.setFont(new Font("Courier New",Font.PLAIN,35));
+                desc.setText("<html>increase the coins <br> multiplier by 0.1 from <br> the base multiplier.<br></html>");
+                desc.setFont(new Font("Courier New",Font.PLAIN,24));
                 price.setText("0");
                 price.setFont(new Font("Courier New",Font.PLAIN,30));
               }
@@ -138,10 +169,10 @@ public class PowerUpsView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
-                name.setText("<html>Freeze Spell<br></html>");
-                name.setFont(new Font("Courier New",Font.PLAIN,40));
-                desc.setText("<html>stop all of the <br> words on the screen <br> for 10 seconds.<br></html>");
-                desc.setFont(new Font("Courier New",Font.PLAIN,30));
+                name.setText("Score Multiplier");
+                name.setFont(new Font("Courier New",Font.PLAIN,35));
+                desc.setText("<html>increase the scores <br> multiplier by 0.1 from <br> the base multiplier.<br></html>");
+                desc.setFont(new Font("Courier New",Font.PLAIN,24));
                 price.setText("0");
                 price.setFont(new Font("Courier New",Font.PLAIN,30));
               }
@@ -151,16 +182,15 @@ public class PowerUpsView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
-                name.setText("<html>Potion<br></html>");
-                name.setFont(new Font("Courier New",Font.PLAIN,40));
-                desc.setText("<html>increase the current <br> health points by <br> one heart.<br></html>");
-                desc.setFont(new Font("Courier New",Font.PLAIN,30));
+                name.setText("Health Upgrade");
+                name.setFont(new Font("Courier New",Font.PLAIN,35));
+                desc.setText("<html>increase the maximum <br> of health points <br> by one heart.<br></html>");
+                desc.setFont(new Font("Courier New",Font.PLAIN,24));
                 price.setText("0");
                 price.setFont(new Font("Courier New",Font.PLAIN,30));
               }
             }
     );
-   */
     back.addActionListener(
             new ActionListener() {
               @Override

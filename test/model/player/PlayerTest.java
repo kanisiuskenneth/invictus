@@ -28,7 +28,7 @@ class PlayerTest {
     MainModel main = new MainModel();
     main.loadData("data.txt");
     Player me = new Player();
-    me.reducedHealth();
+    me.reduceHealth();
     assertEquals(4, me.getCurrentHealth());
   }
 
