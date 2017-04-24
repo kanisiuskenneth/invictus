@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 /**
  * File: ShopView.java
- * Created by 13515063 - Kezia Suhendra, 13515070 - Sylvia Juliana.
+ * Created by 13515063 - Kezia Suhendra.
  */
 public class ShopView {
   Container temp;

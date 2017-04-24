@@ -3,9 +3,7 @@ package view;
 import controller.ImageLoader;
 import model.goods.*;
 import model.main.MainModel;
-import sun.applet.Main;
 
-import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
