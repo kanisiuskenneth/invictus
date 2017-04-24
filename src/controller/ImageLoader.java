@@ -42,6 +42,7 @@ public class ImageLoader {
   public static BufferedImage heartIcon;
   public static BufferedImage scoreIcon;
   public static BufferedImage inventoryIcon;
+  public static BufferedImage creditsBanner;
 
   public ImageLoader() {
     try {
@@ -75,6 +76,7 @@ public class ImageLoader {
       heartIcon = ImageIO.read(new File("img/heart.png"));
       scoreIcon = ImageIO.read(new File("img/score.png"));
       inventoryIcon = ImageIO.read(new File("img/chest.png"));
+      creditsBanner = ImageIO.read(new File("img/creditsbanner.png"));
     } catch (Exception e) {
       System.out.println("File not Found Exception");
     }
