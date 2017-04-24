@@ -51,9 +51,9 @@ public class Menu {
    */
   private void addGameBanner() {
     int bannerHeight = MainFrame.heightToPx(30);
-    int bannerWidth = bannerHeight * ImageLoader.game_banner.getWidth()
-        / ImageLoader.game_banner.getHeight();
-    JLabel gamelogo = new JLabel(new ImageIcon(ImageLoader.game_banner
+    int bannerWidth = bannerHeight * ImageLoader.gameBanner.getWidth()
+        / ImageLoader.gameBanner.getHeight();
+    JLabel gamelogo = new JLabel(new ImageIcon(ImageLoader.gameBanner
         .getScaledInstance(bannerWidth, bannerHeight, Image.SCALE_SMOOTH)));
     mainPanel.add(gamelogo, BorderLayout.NORTH);
   }
@@ -65,10 +65,10 @@ public class Menu {
 
     menuPanel = new JPanel();
     mainPanel.add(menuPanel, BorderLayout.CENTER);
-    JButton play = addMenuButton(ImageLoader.play_button);
+    JButton play = addMenuButton(ImageLoader.playButton);
     JButton shop = addMenuButton(ImageLoader.menuButton);
     JButton leaderboard = addMenuButton(ImageLoader.leaderboard_button);
-    JButton quit = addMenuButton(ImageLoader.quit_button);
+    JButton quit = addMenuButton(ImageLoader.quitButton);
     int contentHeight = MainFrame.heightToPx(65);
     int contentRows = contentHeight / 90;
     menuPanel.setLayout(new GridLayout(contentRows, 1));

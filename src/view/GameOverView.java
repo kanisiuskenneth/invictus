@@ -3,11 +3,8 @@ package view;
 import controller.ImageLoader;
 import model.game.GameModel;
 import model.main.MainModel;
-import sun.applet.Main;
-import sun.swing.SwingAccessor;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
@@ -75,12 +72,12 @@ public class GameOverView {
     enterNameField.setBorder(new MatteBorder(2, 0, 2, 0, Color.WHITE));
     enterNamePanel.setBackground(MainFrame.DARK_GRAY);
     int back_width = MainFrame.widthToPx(30);
-    int back_height = back_width * ImageLoader.back_button.getHeight() / ImageLoader.back_button.getWidth();
+    int back_height = back_width * ImageLoader.backButton.getHeight() / ImageLoader.backButton.getWidth();
     JPanel bottomPanel = new JPanel();
 
     bottomPanel.setBackground(MainFrame.DARK_GRAY);
     bottomPanel.setLayout(new BorderLayout());
-    JButton back = new JButton(new ImageIcon(ImageLoader.back_button.getScaledInstance(
+    JButton back = new JButton(new ImageIcon(ImageLoader.backButton.getScaledInstance(
         back_width, back_height, Image.SCALE_DEFAULT
     )));
     enterNamePanel.add(enterNameField, BorderLayout.SOUTH);

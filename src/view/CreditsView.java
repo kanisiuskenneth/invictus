@@ -56,8 +56,8 @@ public class CreditsView {
     credits.add(nama4);
 
     int back_width = MainFrame.widthToPx(30);
-    int back_height = back_width * ImageLoader.back_button.getHeight() / ImageLoader.back_button.getWidth();
-    JButton back = new JButton(new ImageIcon(ImageLoader.back_button.getScaledInstance(
+    int back_height = back_width * ImageLoader.backButton.getHeight() / ImageLoader.backButton.getWidth();
+    JButton back = new JButton(new ImageIcon(ImageLoader.backButton.getScaledInstance(
       back_width, back_height, Image.SCALE_DEFAULT
     )));
 
