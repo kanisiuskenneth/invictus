@@ -45,13 +45,17 @@ public class LeaderboardView {
         MainFrame.heightToPx(100), Image.SCALE_DEFAULT));
     currentPanel.add(new JLabel(spacer), BorderLayout.WEST);
     currentPanel.add(new JLabel(spacer), BorderLayout.EAST);
-
+    addBanner();
+    addBackButton();
+    printLeaderboard();
+    currentPanel.setVisible(true);
+    MainFrame.mainframe.setVisible(true);
   }
 
   /**
    * Menambahkan banner pada bagian atas dari LeaderboardView.
    */
-  private addBanner() {
+  private void addBanner() {
     int headWidth = MainFrame.widthToPx(60);
     int headHeight = headWidth * ImageLoader.leaderboardBanner.getHeight()
         / ImageLoader.leaderboardBanner.getWidth();
