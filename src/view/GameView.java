@@ -41,7 +41,7 @@ public class GameView {
     gameModel.gamePanel.setBackground(new Color(35,35,35));
     gameModel.gamePanel.setOpaque(true);
 
-    Container prevPanel = MainFrame.mainframe.getContentPane();
+    gameModel.menupanel = MainFrame.mainframe.getContentPane();
     JPanel mainPanel = new JPanel();
     mainPanel.setLayout(new BorderLayout());
     MainFrame.mainframe.setContentPane(mainPanel);
@@ -107,6 +107,7 @@ public class GameView {
     gameModel.field.addKeyListener(new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
+
         }
 
         @Override

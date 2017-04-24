@@ -24,9 +24,9 @@ public class GameModel {
   public JTextField field;
   public JLabel healthLabel;
   public JLabel scoreLabel;
-  public int updateTic = 20;
-  public int spawnTic = 2000;
-
+  public int updateTic = 10;
+  public int spawnTic = 100;
+  public Container menupanel;
   public GameModel() {
     wordSet = new HashSet<Word>();
     player = new Player();

@@ -38,6 +38,7 @@ public class ImageLoader {
   public static BufferedImage homeButton;
   public static BufferedImage arrowButton;
   public static BufferedImage coin;
+  public static BufferedImage gameover_banner;
 
   public ImageLoader() {
     try {
@@ -68,6 +69,7 @@ public class ImageLoader {
       homeButton = ImageIO.read(new File("img/home.png"));
       arrowButton = ImageIO.read(new File("img/arrow.png"));
       coin = ImageIO.read(new File("img/coin.png"));
+      gameover_banner = ImageIO.read(new File("img/gameover.png"));
     } catch (Exception e) {
       System.out.println("File not Found Exception");
     }

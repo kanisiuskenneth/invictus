@@ -12,6 +12,7 @@ import model.word.Word;
 import util.Pair;
 import view.GameOverView;
 import view.GameView;
+import view.LeaderboardView;
 import view.MainFrame;
 
 import javax.swing.*;
@@ -148,15 +149,21 @@ public class GameController {
   }
 
   private void stopGame() {
-    wordSpawner.cancel(true);
-    wordUpdater.cancel(true);
-    SwingUtilities.invokeLater(new Runnable() {
+    SwingWorker<Void,Void> stopper = new SwingWorker<Void, Void>() {
       @Override
-      public void run() {
-        System.out.println("JING AYO MASUKs");
-        new Menu();
+      protected Void doInBackground() throws Exception {
+        wordSpawner.cancel(true);
+        wordUpdater.cancel(true);
+        gameModel.wordSet.clear();
+        return null;
       }
-    });
+
+      @Override
+      protected void done() {
+        new GameOverView(gameModel);
+      }
+    };
+    stopper.execute();
   }
 
   public void reduceHealth() {
