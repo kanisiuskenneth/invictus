@@ -5,6 +5,7 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+import model.main.MainModel;
 import model.player.Player;
 
 /**
@@ -51,12 +52,11 @@ public class Potion extends Items {
 
   /**
    * Buy Potion.
-   *
-   * @param id dari Potion.
    */
 
   @Override
-  public void buy(int id) {
-
+  public void buy() {
+    MainModel.item.get(id).second++;
+    MainModel.coin -= price;
   }
 }

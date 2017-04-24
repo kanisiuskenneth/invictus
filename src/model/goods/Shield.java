@@ -5,6 +5,8 @@ package model.goods;
  * Author: 13515070 - Sylvia Juliana
  */
 
+import model.main.MainModel;
+
 /**
  * Kelas Shield.
  */
@@ -49,12 +51,11 @@ public class Shield extends Items {
 
   /**
    * Buy Shield.
-   *
-   * @param id dari Shield.
    */
 
   @Override
-  public void buy(int id) {
-
+  public void buy() {
+    MainModel.item.get(id).second++;
+    MainModel.coin -= price;
   }
 }

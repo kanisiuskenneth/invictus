@@ -21,8 +21,8 @@ import util.Pair;
 public class MainModel {
   public static int health_maximum;
   public static int coin;
-  public static float coin_multiplier;
-  public static float score_multiplier;
+  public static double coin_multiplier;
+  public static double score_multiplier;
   public static HashMap<Integer, Pair<Items, Integer>> item;
   public static Pair<String, Integer>[] leaderboard;
   public static Vector<String> word_bank;

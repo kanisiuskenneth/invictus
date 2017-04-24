@@ -5,6 +5,8 @@ package model.goods;
  * Author: 13515070 - Sylvia Juliana
  */
 
+import model.main.MainModel;
+
 /**
  * Kelas CoinMultiplier.
  */
@@ -49,12 +51,11 @@ public class CoinMultiplier extends PowerUp {
 
   /**
    * Buy CoinMultiplier.
-   *
-   * @param id dari CoinMultiplier.
    */
 
   @Override
-  public void buy(int id) {
-
+  public void buy() {
+    MainModel.coin -= price * (MainModel.coin_multiplier - 0.9) * 10;
+    MainModel.coin_multiplier += 0.1;
   }
 }

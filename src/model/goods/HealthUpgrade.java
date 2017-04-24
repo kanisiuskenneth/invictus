@@ -5,6 +5,8 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+import model.main.MainModel;
+
 /**
  * Kelas HealthUpgrade.
  */
@@ -49,12 +51,11 @@ public class HealthUpgrade extends PowerUp {
 
   /**
    * Buy HealthUpgrade.
-   *
-   * @param id dari HealthUpgrade.
    */
 
   @Override
-  public void buy(int id) {
-
+  public void buy() {
+    MainModel.coin -=  price * (MainModel.health_maximum - 2);
+    MainModel.health_maximum += 1;
   }
 }

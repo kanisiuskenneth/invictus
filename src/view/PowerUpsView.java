@@ -72,11 +72,11 @@ public class PowerUpsView {
       ImageLoader.heartIcon.getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
 
     String coinText = "<html> <font color = 'green'>";
-    for (float i = 1; i < MainModel.coin_multiplier; i += 0.1) {
+    for (double i = 1; i < MainModel.coin_multiplier; i += 0.1) {
       coinText += "\u2588 ";
     }
     coinText += "</font><font color = 'white'>";
-    for (float i = MainModel.coin_multiplier; i < 2; i += 0.1) {
+    for (double i = MainModel.coin_multiplier; i < 2; i += 0.1) {
       coinText += "\u2588 ";
     }
     coinText += "</font></html>";
@@ -86,11 +86,11 @@ public class PowerUpsView {
     coinBar.setForeground(Color.WHITE);
 
     String scoreText = "<html> <font color = 'green'>";
-    for (float i = 1; i < MainModel.score_multiplier; i += 0.1) {
+    for (double i = 1; i < MainModel.score_multiplier; i += 0.1) {
       scoreText += "\u2588 ";
     }
     scoreText += "</font><font color = 'white'>";
-    for (float i = MainModel.score_multiplier; i < 2; i += 0.1) {
+    for (double i = MainModel.score_multiplier; i < 2; i += 0.1) {
       scoreText += "\u2588 ";
     }
     scoreText += "</font></html>";
@@ -260,16 +260,15 @@ public class PowerUpsView {
         public void actionPerformed(ActionEvent e) {
           if (currentId == 1) {
             if (MainModel.coin >= itemCoinMultiplier.getPrice() * (MainModel.coin_multiplier - 0.9) * 10 && MainModel.coin_multiplier < 2) {
-              MainModel.coin -= itemCoinMultiplier.getPrice() * (MainModel.coin_multiplier - 0.9) * 10;
-              MainModel.coin_multiplier += 0.1;
+              itemCoinMultiplier.buy();
               price.setText("" + itemCoinMultiplier.getPrice() * Math.round((MainModel.coin_multiplier - 0.9) * 10));
               // set bar
               String coinText = "<html> <font color = 'green'>";
-              for (float i = 1; i < MainModel.coin_multiplier; i += 0.1) {
+              for (double i = 1; i < MainModel.coin_multiplier; i += 0.1) {
                 coinText += "\u2588 ";
               }
               coinText += "</font><font color = 'white'>";
-              for (float i = MainModel.coin_multiplier; i < 2; i += 0.1) {
+              for (double i = MainModel.coin_multiplier; i < 2; i += 0.1) {
                 coinText += "\u2588 ";
               }
               coinText += "</font></html>";
@@ -277,16 +276,15 @@ public class PowerUpsView {
             }
           } else if (currentId == 2) {
             if (MainModel.coin >= itemScoreMultiplier.getPrice() * (MainModel.score_multiplier - 0.9) * 10 && MainModel.score_multiplier < 2) {
-              MainModel.coin -= itemScoreMultiplier.getPrice() * (MainModel.score_multiplier - 0.9) * 10;
-              MainModel.score_multiplier += 0.1;
+              itemScoreMultiplier.buy();
               price.setText("" + itemScoreMultiplier.getPrice() * Math.round((MainModel.score_multiplier - 0.9) * 10));
               // set bar
               String scoreText = "<html> <font color = 'green'>";
-              for (float i = 1; i < MainModel.score_multiplier; i += 0.1) {
+              for (double i = 1; i < MainModel.score_multiplier; i += 0.1) {
                 scoreText += "\u2588 ";
               }
               scoreText += "</font><font color = 'white'>";
-              for (float i = MainModel.score_multiplier; i < 2; i += 0.1) {
+              for (double i = MainModel.score_multiplier; i < 2; i += 0.1) {
                 scoreText += "\u2588 ";
               }
               scoreText += "</font></html>";
@@ -294,8 +292,7 @@ public class PowerUpsView {
             }
           } else {
             if (MainModel.coin >= itemHealthUpgrade.getPrice() * (MainModel.health_maximum - 2) * 10 && MainModel.health_maximum < 13) {
-              MainModel.coin -= itemHealthUpgrade.getPrice() * (MainModel.health_maximum - 2);
-              MainModel.health_maximum += 1;
+              itemHealthUpgrade.buy();
               price.setText("" + itemHealthUpgrade.getPrice() * (MainModel.health_maximum - 2));
               // set bar
               String healthText = "<html> <font color = 'green'>";
