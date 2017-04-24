@@ -1,12 +1,12 @@
-3 1703874 2.000000000000001 2.000000000000001
+3 1703874 2.0 2.0
 1 19
 2 11
 3 27
-4 8
+4 1000
 5 9
 -
-KanisiusKenneth 135
-AndikaKusuma 135
-KeziaSuhendra 135
-SylviaJuliana 135
-InvictusTeam 135
+Kanisius Kenneth 135
+Andika Kusuma 135
+Kezia Suhendra 135
+Sylvia Juliana 135
+Invictus Team 135
