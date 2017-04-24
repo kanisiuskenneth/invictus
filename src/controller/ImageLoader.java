@@ -39,15 +39,12 @@ public class ImageLoader {
   public static BufferedImage homeButton;
   public static BufferedImage arrowButton;
   public static BufferedImage coin;
-<<<<<<< HEAD
   public static BufferedImage heartIcon;
   public static BufferedImage scoreIcon;
   public static BufferedImage inventoryIcon;
   public static BufferedImage creditsBanner;
-=======
   public static BufferedImage gameover_banner;
   public static BufferedImage enterName;
->>>>>>> develop-nope
 
   public ImageLoader() {
     try {

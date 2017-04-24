@@ -42,14 +42,6 @@ public class GameController {
     startGame();
   }
 
-  /**
-   * Prosedur useItem untuk menggunakan item pada saat game
-   *
-   * @param input id item yang akan digunakan
-   */
-  public void useItem(String input) {
-
-  private volatile boolean mutex;
   public void startGame() {
     mutex = false;
     refreshScreen();
