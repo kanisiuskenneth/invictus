@@ -1,6 +1,7 @@
 package view;
 
 import controller.ImageLoader;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -21,9 +22,9 @@ public class CreditsView {
     MainFrame.mainframe.setContentPane(creditsPanel);
     int head_width = MainFrame.widthToPx(60);
     int head_height = head_width * ImageLoader.creditsBanner.getHeight() /
-            ImageLoader.creditsBanner.getWidth();
+      ImageLoader.creditsBanner.getWidth();
     JLabel head_banner = new JLabel(new ImageIcon(
-            ImageLoader.creditsBanner.getScaledInstance(head_width, head_height, Image.SCALE_DEFAULT)));
+      ImageLoader.creditsBanner.getScaledInstance(head_width, head_height, Image.SCALE_DEFAULT)));
     creditsPanel.add(head_banner, BorderLayout.NORTH);
     JPanel credits = new JPanel();
     creditsPanel.add(credits, BorderLayout.CENTER);
@@ -57,21 +58,21 @@ public class CreditsView {
     int back_width = MainFrame.widthToPx(30);
     int back_height = back_width * ImageLoader.back_button.getHeight() / ImageLoader.back_button.getWidth();
     JButton back = new JButton(new ImageIcon(ImageLoader.back_button.getScaledInstance(
-            back_width, back_height, Image.SCALE_DEFAULT
+      back_width, back_height, Image.SCALE_DEFAULT
     )));
 
-    back.setBorder(new EmptyBorder(0,0,30,0));
+    back.setBorder(new EmptyBorder(0, 0, 30, 0));
     back.setContentAreaFilled(false);
     creditsPanel.add(back, BorderLayout.SOUTH);
     creditsPanel.setVisible(true);
     MainFrame.mainframe.setVisible(true);
 
     back.addActionListener(new ActionListener() {
-       @Override
-       public void actionPerformed(ActionEvent e) {
-         Menu mainmenu = new Menu();
-       }
-     }
+                             @Override
+                             public void actionPerformed(ActionEvent e) {
+                               Menu mainmenu = new Menu();
+                             }
+                           }
     );
   }
 }
