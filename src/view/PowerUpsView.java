@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * File: PowerUps.java
+ * File: PowerUpsView.java
  * Created by sylviajuliana on 23-Apr-17.
  */
 public class PowerUpsView {
