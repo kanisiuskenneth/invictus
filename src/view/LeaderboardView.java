@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * File: LeaderboardView.java
  * Created by kennethhalim on 4/22/17.
  */
 public class LeaderboardView {

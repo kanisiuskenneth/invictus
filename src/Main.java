@@ -5,6 +5,7 @@ import model.main.MainModel;
 import view.*;
 
 /**
+ * File: Main.java
  * Created by kennethhalim on 4/20/17.
  */
 public class Main {
@@ -18,5 +19,6 @@ public class Main {
             }
             //new GameController();
             new Menu();
+            //new ShopView();
         }
 }

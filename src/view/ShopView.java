@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * File: ShopView.java
  * Created by 13515063 - Kezia Suhendra, 13515070 - Sylvia Juliana.
  */
 public class ShopView {
@@ -21,8 +22,6 @@ public class ShopView {
     shopPanel.setLayout(new BorderLayout());
     shopPanel.setSize(MainFrame.width, MainFrame.height);
     MainFrame.mainframe.setContentPane(shopPanel);
-    int headWidth = MainFrame.widthToPx(60);
-    int headHeight = MainFrame.heightToPx(50);
     JLabel headBanner = new JLabel(new ImageIcon(
             ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
     shopPanel.add(headBanner, BorderLayout.NORTH);
@@ -65,7 +64,7 @@ public class ShopView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
-                Menu mainMenu = new Menu();
+                PowerUpsView pwrUp = new PowerUpsView();
 
               }
             }
