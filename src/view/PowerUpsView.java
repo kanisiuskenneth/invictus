@@ -76,7 +76,7 @@ public class PowerUpsView {
       coinText += "\u2588 ";
     }
     coinText += "</font><font color = 'white'>";
-    for (double i = MainModel.coin_multiplier; i < 2; i += 0.1) {
+    for (double i = MainModel.coin_multiplier; i < 1.999; i += 0.1) {
       coinText += "\u2588 ";
     }
     coinText += "</font></html>";
@@ -90,7 +90,7 @@ public class PowerUpsView {
       scoreText += "\u2588 ";
     }
     scoreText += "</font><font color = 'white'>";
-    for (double i = MainModel.score_multiplier; i < 2; i += 0.1) {
+    for (double i = MainModel.score_multiplier; i < 1.999; i += 0.1) {
       scoreText += "\u2588 ";
     }
     scoreText += "</font></html>";
@@ -259,7 +259,7 @@ public class PowerUpsView {
         @Override
         public void actionPerformed(ActionEvent e) {
           if (currentId == 1) {
-            if (MainModel.coin >= itemCoinMultiplier.getPrice() * (MainModel.coin_multiplier - 0.9) * 10 && MainModel.coin_multiplier < 2) {
+            if (MainModel.coin >= itemCoinMultiplier.getPrice() * (MainModel.coin_multiplier - 0.9) * 10 && MainModel.coin_multiplier < 1.999) {
               itemCoinMultiplier.buy();
               price.setText("" + itemCoinMultiplier.getPrice() * Math.round((MainModel.coin_multiplier - 0.9) * 10));
               // set bar
@@ -268,14 +268,14 @@ public class PowerUpsView {
                 coinText += "\u2588 ";
               }
               coinText += "</font><font color = 'white'>";
-              for (double i = MainModel.coin_multiplier; i < 2; i += 0.1) {
+              for (double i = MainModel.coin_multiplier; i < 1.999; i += 0.1) {
                 coinText += "\u2588 ";
               }
               coinText += "</font></html>";
               coinBar.setText(coinText);
             }
           } else if (currentId == 2) {
-            if (MainModel.coin >= itemScoreMultiplier.getPrice() * (MainModel.score_multiplier - 0.9) * 10 && MainModel.score_multiplier < 2) {
+            if (MainModel.coin >= itemScoreMultiplier.getPrice() * (MainModel.score_multiplier - 0.9) * 10 && MainModel.score_multiplier < 1.999) {
               itemScoreMultiplier.buy();
               price.setText("" + itemScoreMultiplier.getPrice() * Math.round((MainModel.score_multiplier - 0.9) * 10));
               // set bar
@@ -284,7 +284,7 @@ public class PowerUpsView {
                 scoreText += "\u2588 ";
               }
               scoreText += "</font><font color = 'white'>";
-              for (double i = MainModel.score_multiplier; i < 2; i += 0.1) {
+              for (double i = MainModel.score_multiplier; i < 1.999; i += 0.1) {
                 scoreText += "\u2588 ";
               }
               scoreText += "</font></html>";

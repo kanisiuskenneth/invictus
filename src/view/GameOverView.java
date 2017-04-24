@@ -3,6 +3,7 @@ package view;
 import controller.ImageLoader;
 import model.game.GameModel;
 import model.main.MainModel;
+import util.Pair;
 
 
 import java.awt.Container;
