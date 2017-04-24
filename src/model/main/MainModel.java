@@ -80,6 +80,9 @@ public class MainModel {
       scanner.next();
       while (scanner.hasNext()) {
         String firstValue = scanner.next();
+        while (!scanner.hasNextInt()) {
+          firstValue += " " + scanner.next();
+        }
         int secondValue = scanner.nextInt();
         leaderboard[i] = new Pair(firstValue, secondValue);
         i++;
