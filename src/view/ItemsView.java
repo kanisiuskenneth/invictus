@@ -160,7 +160,8 @@ public class ItemsView {
     JLabel bag = new JLabel(new ImageIcon(
             ImageLoader.inventoryIcon.getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
     header.add(bag);
-    JLabel inventory = new JLabel("0");
+    JLabel inventory = new JLabel();
+    inventory.setText("0");
     inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
     inventory.setForeground(Color.GREEN);
     header.add(inventory);
@@ -180,6 +181,8 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemSlow.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
+                inventory.setText("0");
+                inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
     );
@@ -194,6 +197,8 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemFreeze.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
+                inventory.setText("0");
+                inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
     );
@@ -208,6 +213,8 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemPotion.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
+                inventory.setText("0");
+                inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
     );
@@ -222,6 +229,8 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemLightning.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
+                inventory.setText("0");
+                inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
     );
@@ -236,6 +245,8 @@ public class ItemsView {
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
                 price.setText("" + itemShield.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
+                inventory.setText("0");
+                inventory.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
     );

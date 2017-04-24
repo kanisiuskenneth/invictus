@@ -42,7 +42,7 @@ public class PowerUpsView {
 
     JPanel coinM = new JPanel();
     coinM.setLayout(new GridLayout(1,2));
-    coinM.setBackground(Color.YELLOW);
+    coinM.setBackground(GRAY);
     menuPanel.add(coinM);
 
     JPanel scoreM = new JPanel();
@@ -52,7 +52,7 @@ public class PowerUpsView {
 
     JPanel healthU = new JPanel();
     healthU.setLayout(new GridLayout(1,2));
-    healthU.setBackground(Color.RED);
+    healthU.setBackground(GRAY);
     menuPanel.add(healthU);
 
     JButton coinMultiplier = new JButton(new ImageIcon(
@@ -64,8 +64,13 @@ public class PowerUpsView {
 
     JLabel coinBar = new JLabel("\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588");
     coinBar.setFont(new Font("Courier New",Font.PLAIN,35));
+    coinBar.setForeground(Color.WHITE);
     JLabel scoreBar = new JLabel("\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588");
+    scoreBar.setFont(new Font("Courier New",Font.PLAIN,35));
+    scoreBar.setForeground(Color.WHITE);
     JLabel healthBar = new JLabel("\u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588 \u2588");
+    healthBar.setFont(new Font("Courier New",Font.PLAIN,35));
+    healthBar.setForeground(Color.WHITE);
 
     coinM.add(coinMultiplier);
     coinM.add(coinBar);
