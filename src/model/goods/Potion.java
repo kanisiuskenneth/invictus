@@ -5,6 +5,8 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+import model.player.Player;
+
 /**
  * Kelas Potion.
  */
@@ -14,7 +16,7 @@ public class Potion extends Items {
    */
 
   public Potion() {
-    super(12, 0);
+    super(12, 3);
   }
 
   /**

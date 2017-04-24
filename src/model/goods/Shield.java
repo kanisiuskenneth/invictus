@@ -14,7 +14,7 @@ public class Shield extends Items {
    */
 
   public Shield() {
-    super(14, 0);
+    super(14, 5);
   }
 
   /**

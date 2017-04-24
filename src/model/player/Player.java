@@ -44,8 +44,15 @@ public class Player {
   /**
    * Mengurangi current health points player.
    */
-  public void reducedHealth() {
+  public void reduceHealth() {
     --currentHealth;
+  }
+
+  /**
+   * Menambah current health points player.
+   */
+  public void increaseHealth() {
+    ++currentHealth;
   }
 
   /**

@@ -24,4 +24,12 @@ public abstract class Items extends Goods {
   public String getDescription() {
     return "";
   }
+
+  /**
+   * Getter id.
+   * @return id dari items.
+   */
+  public int getId() {
+    return id;
+  }
 }

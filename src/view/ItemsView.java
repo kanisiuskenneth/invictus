@@ -1,6 +1,10 @@
 package view;
 
 import controller.ImageLoader;
+import model.goods.*;
+import model.main.MainModel;
+import sun.applet.Main;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -13,10 +17,17 @@ import java.awt.event.ActionListener;
  */
 public class ItemsView {
   JPanel itemsPanel;
+  int currentId;
   static final Color GRAY = new Color(35, 35, 35);
   static final Color LIGHT_GRAY = new Color(40, 40, 40);
 
   public ItemsView() {
+    currentId = 1;
+    SlowSpell itemSlow = new SlowSpell();
+    FreezeSpell itemFreeze = new FreezeSpell();
+    Potion itemPotion = new Potion();
+    LightningSpell itemLightning = new LightningSpell();
+    Shield itemShield = new Shield();
     itemsPanel = new JPanel();
     itemsPanel.setBackground(MainFrame.DARK_GRAY);
     itemsPanel.setLayout(new BorderLayout());
@@ -106,7 +117,7 @@ public class ItemsView {
     name.setFont(new Font("Courier New", Font.PLAIN, 40));
     desc.setText("<html>decrease the speed <br> of the words <br> by 0.5.</html>");
     desc.setFont(new Font("Courier New", Font.PLAIN, 30));
-    price.setText("0");
+    price.setText("" + itemSlow.getPrice());
     price.setFont(new Font("Courier New", Font.PLAIN, 30));
 
     JButton buy = new JButton(new ImageIcon(
@@ -137,7 +148,7 @@ public class ItemsView {
     JLabel coin1 = new JLabel(new ImageIcon(
             ImageLoader.coin.getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
     header.add(coin1);
-    JLabel money = new JLabel("0");
+    JLabel money = new JLabel("" + MainModel.coin);
     money.setFont(new Font("Courier New", Font.PLAIN, 30));
     header.setBackground(LIGHT_GRAY);
     money.setForeground(Color.GREEN);
@@ -151,11 +162,12 @@ public class ItemsView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
+                currentId = 1;
                 name.setText("<html>Slow Spell<br></html>");
                 name.setFont(new Font("Courier New", Font.PLAIN, 40));
                 desc.setText("<html>decrease the speed <br> of the words <br> by 0.5.<br></html>");
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
-                price.setText("0");
+                price.setText("" + itemSlow.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -164,11 +176,12 @@ public class ItemsView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
+                currentId = 2;
                 name.setText("<html>Freeze Spell<br></html>");
                 name.setFont(new Font("Courier New", Font.PLAIN, 40));
                 desc.setText("<html>stop all of the <br> words on the screen <br> for 10 seconds.<br></html>");
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
-                price.setText("0");
+                price.setText("" + itemFreeze.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -177,11 +190,12 @@ public class ItemsView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
+                currentId = 3;
                 name.setText("<html>Potion<br></html>");
                 name.setFont(new Font("Courier New", Font.PLAIN, 40));
                 desc.setText("<html>increase the current <br> health points by <br> one heart.<br></html>");
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
-                price.setText("0");
+                price.setText("" + itemPotion.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -190,11 +204,12 @@ public class ItemsView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
+                currentId = 4;
                 name.setText("<html>Lightning Spell<br></html>");
                 name.setFont(new Font("Courier New", Font.PLAIN, 40));
                 desc.setText("<html>destroy all of <br> the words on <br> the screen.<br></html>");
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
-                price.setText("0");
+                price.setText("" + itemLightning.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -203,11 +218,12 @@ public class ItemsView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
+                currentId = 5;
                 name.setText("<html>Shield<br></html>");
                 name.setFont(new Font("Courier New", Font.PLAIN, 40));
                 desc.setText("<html>prevents the health <br> points from reducing <br> for 10 seconds.<br></html>");
                 desc.setFont(new Font("Courier New", Font.PLAIN, 30));
-                price.setText("0");
+                price.setText("" + itemShield.getPrice());
                 price.setFont(new Font("Courier New", Font.PLAIN, 30));
               }
             }
@@ -232,7 +248,39 @@ public class ItemsView {
             new ActionListener() {
               @Override
               public void actionPerformed(ActionEvent e) {
-
+                if (currentId == 1) {
+                  System.out.println(itemSlow.getPrice());
+                  if (MainModel.coin >= itemSlow.getPrice()) {
+                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.coin -= itemSlow.getPrice();
+                  }
+                } else if (currentId == 2) {
+                  System.out.println(itemFreeze.getPrice());
+                  if (MainModel.coin >= itemFreeze.getPrice()) {
+                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.coin -= itemFreeze.getPrice();
+                  }
+                } else if (currentId == 3) {
+                  System.out.println(itemPotion.getPrice());
+                  if (MainModel.coin >= itemPotion.getPrice()) {
+                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.coin -= itemPotion.getPrice();
+                  }
+                } else if (currentId == 4) {
+                  System.out.println(itemLightning.getPrice());
+                  if (MainModel.coin >= itemLightning.getPrice()) {
+                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.coin -= itemLightning.getPrice();
+                  }
+                } else {
+                  System.out.println(itemShield.getPrice());
+                  if (MainModel.coin >= itemShield.getPrice()) {
+                    //MainModel.item.replace(currentId, MainModel.item.get(currentId) + 1);
+                    MainModel.coin -= itemShield.getPrice();
+                  }
+                }
+                money.setText("" + MainModel.coin);
+                MainModel.saveData();
               }
             }
     );

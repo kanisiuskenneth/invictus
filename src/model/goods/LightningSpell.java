@@ -14,7 +14,7 @@ public class LightningSpell extends Items {
    */
 
   public LightningSpell() {
-    super(13, 0);
+    super(13, 4);
   }
 
   /**

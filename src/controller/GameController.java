@@ -6,17 +6,14 @@ package controller;
  */
 
 import model.game.GameModel;
+import model.goods.Potion;
 import model.main.MainModel;
-import model.player.Player;
 import model.word.Word;
+import sun.applet.Main;
 import util.Pair;
-import view.GameView;
 
 import javax.swing.*;
-import java.awt.*;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * Kelas GameController untuk mengatur kerja game
@@ -31,10 +28,9 @@ public class GameController {
   /**
    * Prosedur useItem untuk menggunakan item pada saat game
    *
-   * @param id id item yang akan digunakan
+   * @param input id item yang akan digunakan
    */
-  public void useItem(int id) {
-    // masih belum
+  public void useItem(String input) {
   }
   
   public void addWord() {
@@ -103,7 +99,7 @@ public class GameController {
   }
 
   public void reduceHealth() {
-    gameModel.player.reducedHealth();
+    gameModel.player.reduceHealth();
   }
 
   public void addScore(int score) {

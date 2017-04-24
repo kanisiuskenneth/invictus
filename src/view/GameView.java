@@ -115,6 +115,7 @@ public class GameView {
       @Override
       public void actionPerformed(ActionEvent e) {
         while (flag) {}
+        gameController.useItem(field.getText());
         gameController.deleteWord(field.getText(), true);
         field.setText("");
       }
@@ -132,6 +133,16 @@ public class GameView {
           gameController.addWord();
           try {
             Thread.sleep(100);
+          } catch (Exception e) {
+            System.out.println("");
+          }
+          // add dummy word
+          Word dummyWord = new Word("JINGJING");
+          dummyWord.getLabel().setVisible(true);
+          dummyWord.getLabel().setLocation(0, 0);
+          gamePanel.add(dummyWord.getLabel(), BorderLayout.NORTH);
+          try {
+            Thread.sleep(10);
           } catch (Exception e) {
             System.out.println("");
           }
@@ -202,13 +213,13 @@ public class GameView {
               //gameController.reduceHealth();
               /*
               gameController.deleteWord(word.getContent(), false);
-              gameController.gameModel.player.reducedHealth();
+              gameController.gameModel.player.reduceHealth();
               */
             } else {
               if (word.getContent().equals(word.getLabel().getText())) {
                 word.getLabel().setText("<html><font color = 'blue'> " + word.getContent() + "</font></html>");
                 word.getLabel().setVisible(true);
-                gamePanel.add(word.getLabel(), BorderLayout.NORTH);
+                gamePanel.add(word.getLabel(), BorderLayout.PAGE_START);
               }
               System.out.println("loop1");
               if (field.getText() != "") {

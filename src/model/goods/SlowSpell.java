@@ -14,7 +14,7 @@ public class SlowSpell extends Items {
    */
 
   public SlowSpell() {
-    super(10, 0);
+    super(10, 1);
   }
 
   /**
