@@ -66,7 +66,7 @@ public class Menu {
     menuPanel = new JPanel();
     mainPanel.add(menuPanel, BorderLayout.CENTER);
     JButton play = addMenuButton(ImageLoader.playButton);
-    JButton shop = addMenuButton(ImageLoader.menuButton);
+    JButton shop = addMenuButton(ImageLoader.shopButton);
     JButton leaderboard = addMenuButton(ImageLoader.leaderboard_button);
     JButton quit = addMenuButton(ImageLoader.quitButton);
     int contentHeight = MainFrame.heightToPx(65);
