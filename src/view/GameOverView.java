@@ -41,6 +41,7 @@ public class GameOverView {
   private ActionListener saveAndQuit = new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
+      MainModel.coin += coin;
       if (score > MainModel.leaderboard[4].second) {
         String name = enterNameField.getText();
         int i = 4;
@@ -67,20 +68,21 @@ public class GameOverView {
    * @param gameModel GameModel yang telah selesai berjalan saat Constructor dipanggil
    */
   public GameOverView(GameModel gameModel) {
-      this.gameModel = gameModel;
-      currentPanel = new JPanel();
-      currentPanel.setLayout(new BorderLayout());
-      currentPanel.setSize(MainFrame.width, MainFrame.height);
-      currentPanel.setBackground(MainFrame.DARK_GRAY);
-      MainFrame.mainframe.setContentPane(currentPanel);
-      score = Math.round(gameModel.player.getScore() * MainModel.score_multiplier);;
-      coin = Math.round(gameModel.player.getScore() * MainModel.coin_multiplier / 100);
-      addPadder();
-      addHeader();
-      displayScore();
-      displayEnterNameForm();
-      MainFrame.mainframe.setVisible(true);
-      enterNameField.requestFocus();
+    this.gameModel = gameModel;
+    currentPanel = new JPanel();
+    currentPanel.setLayout(new BorderLayout());
+    currentPanel.setSize(MainFrame.width, MainFrame.height);
+    currentPanel.setBackground(MainFrame.DARK_GRAY);
+    MainFrame.mainframe.setContentPane(currentPanel);
+    score = Math.round(gameModel.player.getScore() * MainModel.score_multiplier);
+    ;
+    coin = Math.round(gameModel.player.getScore() * MainModel.coin_multiplier / 100);
+    addPadder();
+    addHeader();
+    displayScore();
+    displayEnterNameForm();
+    MainFrame.mainframe.setVisible(true);
+    enterNameField.requestFocus();
   }
 
   /**
@@ -122,7 +124,7 @@ public class GameOverView {
     JLabel scoreLabel = displayLabel("Score");
     JLabel scoreGet = displayLabel(": " + score);
     JLabel coinLabel = displayLabel("Coin");
-    JLabel cointGet = displayLabel(":" + coin);
+    JLabel cointGet = displayLabel(": " + coin);
     scorePanel.add(scoreLabel);
     scorePanel.add(scoreGet);
     scorePanel.add(coinLabel);
