@@ -235,8 +235,12 @@ public class GameController {
     while (gameModel.mutex) {
     }
     gameModel.mutex = true;
-    if (MainModel.item.get(Integer.parseInt(id)).second > 0) {
-      MainModel.item.get(Integer.parseInt(id)).first.use(gameModel);
+    try {
+      int idItem = Integer.parseInt(id);
+      if (MainModel.item.get(idItem).second > 0) {
+        MainModel.item.get(idItem).first.use(gameModel);
+      }
+    } catch (Exception e){
     }
     gameModel.mutex = false;
   }
