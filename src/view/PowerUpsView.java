@@ -8,7 +8,6 @@ import model.main.MainModel;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,11 +72,11 @@ public class PowerUpsView {
 
     String coinText = "<html> <font color = 'green'>";
     for (double i = 1; i < MainModel.coin_multiplier; i += 0.1) {
-      coinText += "\u2588 ";
+      coinText += "█ ";
     }
     coinText += "</font><font color = 'white'>";
     for (double i = MainModel.coin_multiplier; i < 1.999; i += 0.1) {
-      coinText += "\u2588 ";
+      coinText += "█ ";
     }
     coinText += "</font></html>";
     JLabel coinBar = new JLabel(coinText);
@@ -87,11 +86,11 @@ public class PowerUpsView {
 
     String scoreText = "<html> <font color = 'green'>";
     for (double i = 1; i < MainModel.score_multiplier; i += 0.1) {
-      scoreText += "\u2588 ";
+      scoreText += "█ ";
     }
     scoreText += "</font><font color = 'white'>";
     for (double i = MainModel.score_multiplier; i < 1.999; i += 0.1) {
-      scoreText += "\u2588 ";
+      scoreText += "█ ";
     }
     scoreText += "</font></html>";
     JLabel scoreBar = new JLabel(scoreText);
@@ -100,11 +99,11 @@ public class PowerUpsView {
 
     String healthText = "<html> <font color = 'green'>";
     for (int i = 3; i < MainModel.health_maximum; i++) {
-      healthText += "\u2588 ";
+      healthText += "█ ";
     }
     healthText += "</font><font color = 'white'>";
     for (int i = MainModel.health_maximum; i < 13; i++) {
-      healthText += "\u2588 ";
+      healthText += "█ ";
     }
     healthText += "</font></html>";
     JLabel healthBar = new JLabel(healthText);
@@ -265,11 +264,11 @@ public class PowerUpsView {
               // set bar
               String coinText = "<html> <font color = 'green'>";
               for (double i = 1; i < MainModel.coin_multiplier; i += 0.1) {
-                coinText += "\u2588 ";
+                coinText += "█ ";
               }
               coinText += "</font><font color = 'white'>";
               for (double i = MainModel.coin_multiplier; i < 1.999; i += 0.1) {
-                coinText += "\u2588 ";
+                coinText += "█ ";
               }
               coinText += "</font></html>";
               coinBar.setText(coinText);
@@ -281,11 +280,11 @@ public class PowerUpsView {
               // set bar
               String scoreText = "<html> <font color = 'green'>";
               for (double i = 1; i < MainModel.score_multiplier; i += 0.1) {
-                scoreText += "\u2588 ";
+                scoreText += "█ ";
               }
               scoreText += "</font><font color = 'white'>";
               for (double i = MainModel.score_multiplier; i < 1.999; i += 0.1) {
-                scoreText += "\u2588 ";
+                scoreText += "█ ";
               }
               scoreText += "</font></html>";
               scoreBar.setText(scoreText);
@@ -297,11 +296,11 @@ public class PowerUpsView {
               // set bar
               String healthText = "<html> <font color = 'green'>";
               for (int i = 3; i < MainModel.health_maximum; i++) {
-                healthText += "\u2588 ";
+                healthText += "█ ";
               }
               healthText += "</font><font color = 'white'>";
               for (int i = MainModel.health_maximum; i < 13; i++) {
-                healthText += "\u2588 ";
+                healthText += "█ ";
               }
               healthText += "</font></html>";
               healthBar.setText(healthText);
