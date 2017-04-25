@@ -1,16 +1,11 @@
 package model.goods;
 
+import model.game.GameModel;
+import model.main.MainModel;
+
 /**
  * File: Potion.java
  * Author: 13515063 - Kezia Suhendra
- */
-
-import model.game.GameModel;
-import model.main.MainModel;
-import model.player.Player;
-
-/**
- * Kelas Potion.
  */
 public class Potion extends Items {
   /**
@@ -52,7 +47,8 @@ public class Potion extends Items {
   }
 
   /**
-   * Buy Potion.
+   * I.S. Coin player lebih dari harga Potion.
+   * F.S. Coin player berkurang dan Potion player bertambah.
    */
 
   @Override
@@ -60,6 +56,12 @@ public class Potion extends Items {
     MainModel.item.get(id).second++;
     MainModel.coin -= price;
   }
+
+  /**
+   * I.S. Potion player tersedia.
+   * F.S. Potion player berkurang dan terpakai.
+   * @param gameModel Game Model yang dioperasikan.
+   */
 
   @Override
   public void use(GameModel gameModel) {

@@ -5,12 +5,10 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
-/**
- * Interface Shoppable.
- */
 public interface Shoppable {
   /**
-   * Buy Items atau PowerUp.
+   * I.S. Coin player lebih dari harga .
+   * F.S. Coin player berkurang dan Power Ups atau Items player bertambah.
    */
   public void buy();
 }

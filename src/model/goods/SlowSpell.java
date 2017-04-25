@@ -1,17 +1,13 @@
 package model.goods;
 
-/**
- * File: SlowSpell.java
- * Author: 13515063 - Kezia Suhendra
- */
+import javax.swing.SwingWorker;
 
 import model.game.GameModel;
 import model.main.MainModel;
 
-import javax.swing.*;
-
 /**
- * Kelas SlowSpell.
+ * File: SlowSpell.java
+ * Author: 13515063 - Kezia Suhendra
  */
 public class SlowSpell extends Items {
   /**
@@ -53,7 +49,8 @@ public class SlowSpell extends Items {
   }
 
   /**
-   * Buy SlowSpell.
+   * I.S. Coin player lebih dari harga Slow Spell.
+   * F.S. Coin player berkurang dan Slow Spell player bertambah.
    */
 
   @Override
@@ -61,6 +58,12 @@ public class SlowSpell extends Items {
     MainModel.item.get(id).second++;
     MainModel.coin -= price;
   }
+
+  /**
+   * I.S. Slow Spell player tersedia.
+   * F.S. Slow Spell player berkurang dan terpakai.
+   * @param gameModel Game Model yang dioperasikan.
+   */
 
   @Override
   public void use(GameModel gameModel) {
