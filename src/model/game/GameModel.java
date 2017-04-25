@@ -48,7 +48,7 @@ public class GameModel {
   public void updateHealth() {
     String health = "";
     for (int i = 0; i < player.getCurrentHealth(); i++) {
-      health += "\u2665";
+      health += "♥";
     }
     healthLabel.setText(health);
   }
