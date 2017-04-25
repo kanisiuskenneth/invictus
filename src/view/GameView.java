@@ -5,13 +5,17 @@ import controller.ImageLoader;
 //import controller.SubmitButton;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
+import java.awt.image.*;
+import java.util.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import model.game.GameModel;
+import model.goods.*;
+import model.main.*;
+import util.*;
 
 /**
  * File: GameView.java
@@ -22,11 +26,11 @@ public class GameView {
   public GameController gameController;
   GameModel gameModel;
   private static int REFRESH_RATE = 60;
-
+  private HashMap<Integer,JLabel> itemLabelMap;
   public GameView() {
     System.out.println("Starting game");
     gameModel = new GameModel();
-
+    itemLabelMap = new HashMap<>();
     gameModel.gamePanel = new JLayeredPane();
     gameModel.gamePanel.setVisible(true);
     gameModel.gamePanel.setSize(MainFrame.widthToPx(80),500);
@@ -51,7 +55,7 @@ public class GameView {
     middlePanel.setLayout(new BorderLayout());
     middlePanel.add(mediatorPanel,BorderLayout.CENTER);
     JLabel leftPadder = new JLabel(new ImageIcon(
-            ImageLoader.SPACER.getScaledInstance(MainFrame.widthToPx(10),1000,Image.SCALE_FAST)));
+        ImageLoader.SPACER.getScaledInstance(MainFrame.widthToPx(10),1000,Image.SCALE_FAST)));
     leftPadder.setBackground(MainFrame.DARK_GRAY);
     middlePanel.add(leftPadder,BorderLayout.WEST);
 
@@ -84,12 +88,10 @@ public class GameView {
     topPanel.add(gameModel.healthLabel,BorderLayout.WEST);
     topPanel.add(gameModel.scoreLabel,BorderLayout.EAST);
     mainPanel.add(topPanel,BorderLayout.NORTH);
-    JPanel itemPanel = new JPanel();
-    itemPanel.setBackground(Color.WHITE);
 
     bottomPanel.setLayout(new BorderLayout());
     bottomPanel.add(gameModel.field,BorderLayout.NORTH);
-    bottomPanel.add(itemPanel,BorderLayout.SOUTH);
+    addItems(bottomPanel);
     mainPanel.add(middlePanel,BorderLayout.CENTER);
     mainPanel.add(bottomPanel,BorderLayout.SOUTH);
     gameModel.field.requestFocus();
@@ -97,34 +99,83 @@ public class GameView {
     MainFrame.mainframe.setVisible(true);
 
     gameModel.field.addKeyListener(new KeyListener() {
-        @Override
-        public void keyTyped(KeyEvent e) {
+      @Override
+      public void keyTyped(KeyEvent e) {
 
-        }
+      }
 
-        @Override
-        public void keyReleased(KeyEvent e) {
-          gameModel.field.setText(gameModel.field.getText().toUpperCase());
-            if(e.getKeyCode() ==  KeyEvent.VK_SPACE)
-              gameModel.field.setText("");
-          gameController.refreshScreen();
-        }
+      @Override
+      public void keyReleased(KeyEvent e) {
+        gameModel.field.setText(gameModel.field.getText().toUpperCase());
+        if(e.getKeyCode() ==  KeyEvent.VK_SPACE)
+          gameModel.field.setText("");
+        gameController.refreshScreen();
+      }
 
-        @Override
-        public void keyPressed(KeyEvent e) {
-          if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_ENTER)
-          {
-            String buffer = gameModel.field.getText();
-            gameModel.field.setText("");
+      @Override
+      public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+          String buffer = gameModel.field.getText();
+          gameModel.field.setText("");
+          try {
+            int id = Integer.parseInt(buffer);
+            itemLabelMap.get(id).setText("x"+(MainModel.item.get(id).second-1));
+            gameController.useItem(id+"");
+          }
+          catch (Exception ex) {
             gameController.attemptToDeleteWord(buffer);
-            gameController.useItem(buffer);
           }
         }
+      }
 
     });
-
-
   }
 
 
+  private void addItems(JPanel bottomPanel) {
+    HashMap<Integer, BufferedImage> imageMap = new HashMap<>();
+    imageMap.put(1,ImageLoader.slowButton);
+    imageMap.put(2,ImageLoader.freezeButton);
+    imageMap.put(3, ImageLoader.potionButton);
+    imageMap.put(4, ImageLoader.lightningButton);
+    imageMap.put(5, ImageLoader.shieldButton);
+    JPanel itemPanel = new JPanel();
+    itemPanel.setBackground(MainFrame.DARK_GRAY);
+    for(Pair<Items,Integer> iter : MainModel.item.values()) {
+      itemPanel.add(addItemButton(iter.first,iter.second,imageMap.get(iter.first.getId())));
+    }
+    bottomPanel.add(itemPanel,BorderLayout.SOUTH);
+    bottomPanel.repaint();
+  }
+
+  private JPanel addItemButton(Items currItem,int count, BufferedImage img) {
+    JPanel item = new JPanel();
+    item.setOpaque(false);
+    item.setBackground(MainFrame.DARK_GRAY);
+    JButton label = new JButton();
+    label.setIcon(new ImageIcon(img.getScaledInstance(50,50,Image.SCALE_DEFAULT)));
+    label.setText(""+currItem.getId());
+    label.setHorizontalTextPosition(JLabel.CENTER);
+    label.setFont(new Font("Sans Serif",Font.BOLD,25));
+    label.setForeground(MainFrame.DARK_GRAY);
+    label.setBackground(MainFrame.DARK_GRAY);
+    JLabel countLabel = new JLabel("x"+ count);
+    countLabel.setFont(new Font("Sans Serif",Font.BOLD,20));
+    countLabel.setForeground(Color.WHITE);
+    label.setBorder(BorderFactory.createEmptyBorder());
+    label.setContentAreaFilled(false);
+    item.add(label);
+    item.add(countLabel);
+    itemLabelMap.put(currItem.getId(),countLabel);
+    label.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        countLabel.setText("x" + (MainModel.item.get(currItem.getId()).second-1));
+        gameController.useItem(currItem.getId()+"");
+
+      }
+    });
+    return  item;
+  }
 }
