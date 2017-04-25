@@ -1,28 +1,24 @@
 package view;
 
 import controller.ImageLoader;
-import model.game.GameModel;
-import model.main.MainModel;
-import util.Pair;
-
-
-import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
+import model.game.GameModel;
+import model.main.MainModel;
 
 /**
  * File: GameOverView.java
@@ -33,6 +29,7 @@ import javax.swing.JPanel;
  * Kelas GameOverView.
  */
 public class GameOverView {
+
   GameModel gameModel;
   JPanel currentPanel;
   JTextField enterNameField;
@@ -65,7 +62,7 @@ public class GameOverView {
   /**
    * Constructor
    *
-   * @param gameModel GameModel yang telah selesai berjalan saat Constructor dipanggil
+   * @param gameModel GameModel yang telah selesai berjalan saat Constructor dipanggil.
    */
   public GameOverView(GameModel gameModel) {
     this.gameModel = gameModel;
@@ -90,12 +87,12 @@ public class GameOverView {
    */
   private void addHeader() {
     int headWidth = MainFrame.widthToPx(60);
-    int head_height = headWidth * ImageLoader.gameoverBanner.getHeight() /
-        ImageLoader.gameoverBanner.getWidth();
-    JLabel head_banner = new JLabel(new ImageIcon(
-        ImageLoader.gameoverBanner.getScaledInstance(headWidth, head_height, Image.SCALE_DEFAULT)));
-    head_banner.setBorder(new EmptyBorder(30, 0, 0, 0));
-    currentPanel.add(head_banner, BorderLayout.NORTH);
+    int headHeight = headWidth * ImageLoader.gameoverBanner.getHeight()
+        / ImageLoader.gameoverBanner.getWidth();
+    JLabel headBanner = new JLabel(new ImageIcon(
+        ImageLoader.gameoverBanner.getScaledInstance(headWidth, headHeight, Image.SCALE_DEFAULT)));
+    headBanner.setBorder(new EmptyBorder(30, 0, 0, 0));
+    currentPanel.add(headBanner, BorderLayout.NORTH);
   }
 
   /**
@@ -106,9 +103,11 @@ public class GameOverView {
     int dummyHeight = MainFrame.height;
 
     JLabel leftDummy = new JLabel(
-        new ImageIcon(ImageLoader.SPACER.getScaledInstance(dummyWidth, dummyHeight, Image.SCALE_DEFAULT)));
+        new ImageIcon(
+            ImageLoader.SPACER.getScaledInstance(dummyWidth, dummyHeight, Image.SCALE_DEFAULT)));
     JLabel rightDummy = new JLabel(
-        new ImageIcon(ImageLoader.SPACER.getScaledInstance(dummyWidth, dummyHeight, Image.SCALE_DEFAULT)));
+        new ImageIcon(
+            ImageLoader.SPACER.getScaledInstance(dummyWidth, dummyHeight, Image.SCALE_DEFAULT)));
 
     currentPanel.add(leftDummy, BorderLayout.WEST);
     currentPanel.add(rightDummy, BorderLayout.EAST);
@@ -139,14 +138,13 @@ public class GameOverView {
   private void displayEnterNameForm() {
     JLabel bottomDummy = new JLabel(
         new ImageIcon(ImageLoader.SPACER.getScaledInstance(100, 200, Image.SCALE_DEFAULT)));
-    int backWidth = MainFrame.widthToPx(30);
-    int backHeight = backWidth * ImageLoader.backButton.getHeight() / ImageLoader.backButton.getWidth();
     JPanel enterNamePanel = new JPanel();
     enterNamePanel.setLayout(new BorderLayout());
     int enterNameHeight = MainFrame.heightToPx(10);
     int enterNameWidth = 5 * enterNameHeight;
     JLabel enterNameLabel = new JLabel(new ImageIcon(
-        ImageLoader.enterName.getScaledInstance(enterNameWidth, enterNameHeight, Image.SCALE_DEFAULT)));
+        ImageLoader.enterName
+            .getScaledInstance(enterNameWidth, enterNameHeight, Image.SCALE_DEFAULT)));
     enterNamePanel.add(enterNameLabel, BorderLayout.NORTH);
     enterNameField = new JTextField();
     enterNameField.setFont(new Font("Serif", Font.BOLD, 40));
@@ -158,19 +156,22 @@ public class GameOverView {
     enterNameField.addActionListener(saveAndQuit);
     enterNamePanel.setBackground(MainFrame.DARK_GRAY);
 
-    JPanel bottomPanel = new JPanel();
+    int backWidth = MainFrame.widthToPx(30);
+    int backHeight =
+        backWidth * ImageLoader.backButton.getHeight() / ImageLoader.backButton.getWidth();
 
+    JPanel bottomPanel = new JPanel();
     bottomPanel.setBackground(MainFrame.DARK_GRAY);
     bottomPanel.setLayout(new BorderLayout());
+    bottomPanel.setBorder(new EmptyBorder(0, 0, 60, 0));
     JButton back = new JButton(new ImageIcon(ImageLoader.backButton.getScaledInstance(
         backWidth, backHeight, Image.SCALE_DEFAULT
     )));
+    bottomPanel.add(back, BorderLayout.SOUTH);
 
     currentPanel.repaint();
     enterNamePanel.add(enterNameField, BorderLayout.SOUTH);
 
-    bottomPanel.setBorder(new EmptyBorder(0, 0, 60, 0));
-    bottomPanel.add(back, BorderLayout.SOUTH);
     currentPanel.add(bottomPanel, BorderLayout.SOUTH);
     back.addActionListener(saveAndQuit);
     if (score > MainModel.leaderboard[4].second) {
