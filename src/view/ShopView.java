@@ -1,11 +1,18 @@
 package view;
 
 import controller.ImageLoader;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  * File: ShopView.java
@@ -35,7 +42,7 @@ public class ShopView {
    */
   private void addShopBanner() {
     JLabel headBanner = new JLabel(new ImageIcon(
-            ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
+        ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
     shopPanel.add(headBanner, BorderLayout.NORTH);
   }
 
@@ -67,31 +74,31 @@ public class ShopView {
     menuPanel.setVisible(true);
 
     menu.addActionListener(
-            new ActionListener() {
-              @Override
-              public void actionPerformed(ActionEvent e) {
-                Menu mainMenu = new Menu();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            Menu mainMenu = new Menu();
 
-              }
-            }
+          }
+        }
     );
     powerUp.addActionListener(
-            new ActionListener() {
-              @Override
-              public void actionPerformed(ActionEvent e) {
-                PowerUpsView pwrUp = new PowerUpsView();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            PowerUpsView pwrUp = new PowerUpsView();
 
-              }
-            }
+          }
+        }
     );
     items.addActionListener(
-            new ActionListener() {
-              @Override
-              public void actionPerformed(ActionEvent e) {
-                ItemsView itemsV = new ItemsView();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            ItemsView itemsV = new ItemsView();
 
-              }
-            }
+          }
+        }
     );
   }
 
@@ -103,7 +110,7 @@ public class ShopView {
    */
   private JButton addButton(BufferedImage img) {
     JButton button = new JButton(new ImageIcon(
-            img.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
+        img.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
     button.setBorder(BorderFactory.createEmptyBorder());
     button.setContentAreaFilled(false);
     return button;

@@ -14,24 +14,27 @@ import java.awt.event.ActionListener;
 public class CreditsView {
   JPanel creditsPanel;
 
+  /**
+   * Constructor.
+   */
   public CreditsView() {
     creditsPanel = new JPanel();
     creditsPanel.setLayout(new BorderLayout());
     creditsPanel.setSize(MainFrame.width, MainFrame.height);
     creditsPanel.setBackground(MainFrame.DARK_GRAY);
     MainFrame.mainframe.setContentPane(creditsPanel);
-    int head_width = MainFrame.widthToPx(60);
-    int head_height = head_width * ImageLoader.creditsBanner.getHeight() /
-      ImageLoader.creditsBanner.getWidth();
-    JLabel head_banner = new JLabel(new ImageIcon(
-      ImageLoader.creditsBanner.getScaledInstance(head_width, head_height, Image.SCALE_DEFAULT)));
-    creditsPanel.add(head_banner, BorderLayout.NORTH);
+    int headWidth = MainFrame.widthToPx(60);
+    int headHeight = headWidth * ImageLoader.creditsBanner.getHeight()
+        / ImageLoader.creditsBanner.getWidth();
+    JLabel headBanner = new JLabel(new ImageIcon(
+        ImageLoader.creditsBanner.getScaledInstance(headWidth, headHeight, Image.SCALE_DEFAULT)));
+    creditsPanel.add(headBanner, BorderLayout.NORTH);
     JPanel credits = new JPanel();
     creditsPanel.add(credits, BorderLayout.CENTER);
     credits.setLayout(new GridLayout(6, 1));
     credits.setBackground(MainFrame.DARK_GRAY);
     credits.setVisible(true);
-    head_banner.setVisible(true);
+    headBanner.setVisible(true);
 
     JLabel namaKelompok = new JLabel("Kelompok 11 - Invictus", SwingConstants.CENTER);
     namaKelompok.setFont(new Font("Helvetica", Font.PLAIN, 50));
@@ -55,10 +58,11 @@ public class CreditsView {
     credits.add(nama3);
     credits.add(nama4);
 
-    int back_width = MainFrame.widthToPx(30);
-    int back_height = back_width * ImageLoader.backButton.getHeight() / ImageLoader.backButton.getWidth();
+    int backWidth = MainFrame.widthToPx(30);
+    int backHeight = backWidth * ImageLoader.backButton.getHeight()
+        / ImageLoader.backButton.getWidth();
     JButton back = new JButton(new ImageIcon(ImageLoader.backButton.getScaledInstance(
-      back_width, back_height, Image.SCALE_DEFAULT
+        backWidth, backHeight, Image.SCALE_DEFAULT
     )));
 
     back.setBorder(new EmptyBorder(0, 0, 30, 0));
@@ -68,11 +72,11 @@ public class CreditsView {
     MainFrame.mainframe.setVisible(true);
 
     back.addActionListener(new ActionListener() {
-                             @Override
-                             public void actionPerformed(ActionEvent e) {
-                               Menu mainmenu = new Menu();
-                             }
-                           }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          Menu mainmenu = new Menu();
+        }
+      }
     );
   }
 }
