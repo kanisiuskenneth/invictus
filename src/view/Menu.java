@@ -102,7 +102,6 @@ public class Menu {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            ShopView sv = new ShopView();
 
           }
         }

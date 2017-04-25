@@ -74,9 +74,8 @@ public class GameOverView {
     currentPanel.setSize(MainFrame.width, MainFrame.height);
     currentPanel.setBackground(MainFrame.DARK_GRAY);
     MainFrame.mainframe.setContentPane(currentPanel);
-    score = Math.round(gameModel.player.getScore() * MainModel.score_multiplier);
-    ;
-    coin = Math.round(gameModel.player.getScore() * MainModel.coin_multiplier / 100);
+    score = Math.round(gameModel.player.getScore());
+    coin = Math.round(gameModel.player.getScore() / 100);
     addPadder();
     addHeader();
     displayScore();

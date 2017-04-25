@@ -84,12 +84,9 @@ public class GameView {
     topPanel.add(gameModel.healthLabel,BorderLayout.WEST);
     topPanel.add(gameModel.scoreLabel,BorderLayout.EAST);
     mainPanel.add(topPanel,BorderLayout.NORTH);
-    JPanel itemPanel = new JPanel();
-    itemPanel.setBackground(Color.WHITE);
 
     bottomPanel.setLayout(new BorderLayout());
     bottomPanel.add(gameModel.field,BorderLayout.NORTH);
-    bottomPanel.add(itemPanel,BorderLayout.SOUTH);
     mainPanel.add(middlePanel,BorderLayout.CENTER);
     mainPanel.add(bottomPanel,BorderLayout.SOUTH);
     gameModel.field.requestFocus();
@@ -117,7 +114,6 @@ public class GameView {
             String buffer = gameModel.field.getText();
             gameModel.field.setText("");
             gameController.attemptToDeleteWord(buffer);
-            gameController.useItem(buffer);
           }
         }
 

@@ -1,6 +1,5 @@
 package model.game;
 
-import model.goods.*;
 import model.player.Player;
 import model.word.Word;
 import util.Pair;

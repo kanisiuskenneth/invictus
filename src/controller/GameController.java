@@ -6,7 +6,6 @@ package controller;
  */
 
 import model.game.GameModel;
-import model.goods.Potion;
 import model.main.MainModel;
 import model.word.Word;
 import sun.applet.Main;
@@ -229,23 +228,6 @@ public class GameController {
         gameModel.mutex = false;
       }
     });
-  }
-
-  public void useItem(String id) {
-    if (!gameModel.itemFlag) {
-      gameModel.itemFlag = true;
-      while (gameModel.mutex) {
-      }
-      gameModel.mutex = true;
-      try {
-        int idItem = Integer.parseInt(id);
-        if (MainModel.item.get(idItem).second > 0) {
-          MainModel.item.get(idItem).first.use(gameModel);
-        }
-      } catch (Exception e) {
-      }
-      gameModel.mutex = false;
-    }
   }
 
   private int getIndexPrefix(String firstString, String secondString) {
