@@ -235,29 +235,8 @@ public class GameController {
     while (gameModel.mutex) {
     }
     gameModel.mutex = true;
-    if (id.equals("1")) {
-      if (MainModel.item.get(1).second > 0) {
-        gameModel.slowSpell.use(gameModel);
-      }
-    } else if (id.equals("2")) {
-      if (MainModel.item.get(2).second > 0) {
-        gameModel.freezeSpell.use(gameModel);
-      }
-
-    } else if (id.equals("3")) {
-      if (MainModel.item.get(3).second > 0) {
-        gameModel.potion.use(gameModel);
-      }
-
-    } else if (id.equals("4")) {
-      if (MainModel.item.get(4).second > 0) {
-        gameModel.lightningSpell.use(gameModel);
-      }
-
-    } else if (id.equals("5")) {
-      if (MainModel.item.get(5).second > 0) {
-        gameModel.shield.use(gameModel);
-      }
+    if (MainModel.item.get(Integer.parseInt(id)).second > 0) {
+      MainModel.item.get(Integer.parseInt(id)).first.use(gameModel);
     }
     gameModel.mutex = false;
   }

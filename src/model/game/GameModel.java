@@ -18,11 +18,6 @@ import java.util.Random;
  */
 
 public class GameModel {
-  public SlowSpell slowSpell;
-  public FreezeSpell freezeSpell;
-  public Potion potion;
-  public LightningSpell lightningSpell;
-  public Shield shield;
   public Player player;
   public Random random;
   public HashSet<Word> wordSet;
@@ -35,12 +30,8 @@ public class GameModel {
   public boolean shieldFlag;
   public Container menupanel;
   public volatile boolean mutex;
+
   public GameModel() {
-    slowSpell = new SlowSpell();
-    freezeSpell = new FreezeSpell();
-    potion = new Potion();
-    lightningSpell = new LightningSpell();
-    shield = new Shield();
     wordSet = new HashSet<Word>();
     player = new Player();
     random = new Random();
@@ -54,14 +45,21 @@ public class GameModel {
 
   public void updateHealth() {
     String health = "";
-    for(int i =0;i<player.getCurrentHealth();i++) {
+    for (int i = 0; i < player.getCurrentHealth(); i++) {
       health += "\u2665";
     }
     healthLabel.setText(health);
   }
 
   public void updateScore() {
-    scoreLabel.setText(""+player.getScore());
+    scoreLabel.setText("" + player.getScore());
+    if (player.getScore() > 10000) {
+      updateTic = 10;
+      spawnTic = 1000;
+    } else {
+      updateTic = 20 - player.getScore() / 1000;
+      spawnTic = 2000 - player.getScore() / 10;
+    }
   }
 
 }
