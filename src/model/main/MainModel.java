@@ -72,13 +72,13 @@ public class MainModel {
         int itemAmount = scanner.nextInt();
         try {
           Class cls = Class.forName(className);
-          java.lang.reflect.Constructor constructor = cls.getConstructor(new Class[0]);
-          Object items = constructor.newInstance(new Object[0]);
+          java.lang.reflect.Constructor constructor = cls.getConstructor();
+          Object items = constructor.newInstance();
           item.put(id, new Pair(items, itemAmount));
           System.out.println(id + " " + items.getClass().getName() + " " + itemAmount);
 
         } catch (Throwable e) {
-          System.err.println(e);
+          e.printStackTrace();
         }
       }
       scanner.next();

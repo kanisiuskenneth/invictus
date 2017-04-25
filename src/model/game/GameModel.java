@@ -20,13 +20,13 @@ import model.word.Word;
  * Kelas GameModel.
  */
 public class GameModel {
-  public Player player;
-  public Random random;
-  public HashSet<Word> wordSet;
+  public final Player player;
+  public final Random random;
+  public final HashSet<Word> wordSet;
   public JLayeredPane gamePanel;
   public JTextField field;
-  public JLabel healthLabel;
-  public JLabel scoreLabel;
+  public final JLabel healthLabel;
+  public final JLabel scoreLabel;
   public int updateTic = 20;
   public int spawnTic = 2000;
   public boolean shieldFlag;

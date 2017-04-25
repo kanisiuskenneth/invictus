@@ -13,8 +13,8 @@ import util.Pair;
  * Kelas Word.
  */
 public class Word {
-  private String content;
-  private JLabel label;
+  private final String content;
+  private final JLabel label;
   private Pair<Integer, Integer> position;
 
   /**

@@ -8,7 +8,7 @@ package model.goods;
 /**
  * Kelas Abstrak PowerUp.
  */
-public abstract class PowerUp extends Goods {
+abstract class PowerUp extends Goods {
   /**
    * Constructor.
    *
@@ -16,7 +16,7 @@ public abstract class PowerUp extends Goods {
    * @param price harga PowerUp.
    */
 
-  public PowerUp(int id, int price) {
+  PowerUp(int id, int price) {
     super(id, price);
   }
 

@@ -9,6 +9,7 @@ package model.goods;
  * Kelas Abstrak Items.
  */
 public abstract class Items extends Goods implements Usable {
+
   /**
    * Constructor.
    *
@@ -16,7 +17,7 @@ public abstract class Items extends Goods implements Usable {
    * @param price harga Items.
    */
 
-  public Items(int id, int price) {
+  Items(int id, int price) {
     super(id, price);
   }
 
@@ -26,9 +27,7 @@ public abstract class Items extends Goods implements Usable {
    * @return Description dari items.
    */
 
-  public String getDescription() {
-    return "";
-  }
+  public abstract String getDescription();
 
   /**
    * Getter id.

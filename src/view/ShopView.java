@@ -23,15 +23,13 @@ import javax.swing.JPanel;
 /**
  * Kelas ShopView.
  */
-public class ShopView {
-  Container temp;
-  JPanel shopPanel;
+class ShopView {
+  private final JPanel shopPanel;
 
   /**
    * Constructor.
    */
   public ShopView() {
-    temp = MainFrame.mainframe.getContentPane();
     shopPanel = new JPanel();
     shopPanel.setBackground(MainFrame.DARK_GRAY);
     shopPanel.setLayout(new BorderLayout());
@@ -82,7 +80,7 @@ public class ShopView {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            Menu mainMenu = new Menu();
+            new Menu();
 
           }
         }
@@ -91,7 +89,7 @@ public class ShopView {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            PowerUpsView pwrUp = new PowerUpsView();
+            new PowerUpsView();
 
           }
         }
@@ -100,7 +98,7 @@ public class ShopView {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            ItemsView itemsV = new ItemsView();
+            new ItemsView();
 
           }
         }

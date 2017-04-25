@@ -35,12 +35,12 @@ import util.Pair;
 /**
  * Kelas GameView.
  */
-public class GameView {
+class GameView {
 
-  public GameController gameController;
-  GameModel gameModel;
-  private HashMap<Integer, JLabel> itemLabelMap;
-  JPanel mainPanel;
+  private GameController gameController;
+  private final GameModel gameModel;
+  private final HashMap<Integer, JLabel> itemLabelMap;
+  private final JPanel mainPanel;
 
   /**
    * Constructor.

@@ -30,15 +30,15 @@ import model.main.MainModel;
 /**
  * Kelas PowerUpsView.
  */
-public class PowerUpsView {
+class PowerUpsView {
 
-  JPanel powerUpPanel;
+  private final JPanel powerUpPanel;
   private int currentId;
-  static final Color LIGHT_GRAY = new Color(40, 40, 40);
-  static final Color GRAY = new Color(35, 35, 35);
-  private CoinMultiplier itemCoinMultiplier = new CoinMultiplier();
-  private ScoreMultiplier itemScoreMultiplier = new ScoreMultiplier();
-  private HealthUpgrade itemHealthUpgrade = new HealthUpgrade();
+  private static final Color LIGHT_GRAY = new Color(40, 40, 40);
+  private static final Color GRAY = new Color(35, 35, 35);
+  private final CoinMultiplier itemCoinMultiplier = new CoinMultiplier();
+  private final ScoreMultiplier itemScoreMultiplier = new ScoreMultiplier();
+  private final HealthUpgrade itemHealthUpgrade = new HealthUpgrade();
 
   /**
    * Constructor.
@@ -281,7 +281,7 @@ public class PowerUpsView {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            ShopView shop = new ShopView();
+            new ShopView();
           }
         }
     );
@@ -289,7 +289,7 @@ public class PowerUpsView {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            Menu main = new Menu();
+            new Menu();
           }
         }
     );

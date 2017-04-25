@@ -25,8 +25,7 @@ import model.main.MainModel;
  * Kelas Menu.
  */
 public class Menu {
-  JPanel mainPanel;
-  JPanel menuPanel;
+  private final JPanel mainPanel;
 
   /**
    * Constructor.
@@ -63,7 +62,7 @@ public class Menu {
    */
   private void addMenu() {
 
-    menuPanel = new JPanel();
+    JPanel menuPanel = new JPanel();
     mainPanel.add(menuPanel, BorderLayout.CENTER);
     JButton play = addMenuButton(ImageLoader.playButton);
     JButton shop = addMenuButton(ImageLoader.shopButton);
@@ -92,7 +91,7 @@ public class Menu {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            LeaderboardView ld = new LeaderboardView();
+            new LeaderboardView();
             //ld.close();
           }
         }
@@ -102,7 +101,7 @@ public class Menu {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            ShopView sv = new ShopView();
+            new ShopView();
 
           }
         }

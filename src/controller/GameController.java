@@ -24,10 +24,10 @@ import view.MainFrame;
  * Kelas GameController untuk mengatur kerja game.
  */
 public class GameController {
-  public GameModel gameModel;
-  public Container gamePanel;
-  SwingWorker<Void, Word> wordSpawner;
-  SwingWorker<Void, Boolean> wordUpdater;
+  private final GameModel gameModel;
+  private final Container gamePanel;
+  private SwingWorker<Void, Word> wordSpawner;
+  private SwingWorker<Void, Boolean> wordUpdater;
 
   /**
    * Constructore.
@@ -43,7 +43,7 @@ public class GameController {
   /**
    * Memulai permainan.
    */
-  public void startGame() {
+  private void startGame() {
     gameModel.mutex = false;
     refreshScreen();
     addWord();
@@ -61,7 +61,6 @@ public class GameController {
         while (!isCancelled()) {
           while (gameModel.mutex) {
           }
-          ;
           gameModel.mutex = true;
           for (Word word : gameModel.wordSet) {
             word.setPosition(new Pair<>(word.getPosition().first, word.getPosition().second + 1));
@@ -97,7 +96,7 @@ public class GameController {
   /**
    * Menambah kata-kata pada layar permainan.
    */
-  public void addWord() {
+  private void addWord() {
     wordSpawner = new SwingWorker<Void, Word>() {
       @Override
       protected Void doInBackground() throws Exception {
@@ -107,7 +106,7 @@ public class GameController {
           gameModel.mutex = true;
           Word temp = new Word(MainModel.word_bank.elementAt(
                   gameModel.random.nextInt(MainModel.word_bank.size())));
-          temp.setPosition(new Pair(gameModel.random.nextInt(
+          temp.setPosition(new Pair<>(gameModel.random.nextInt(
                   gamePanel.getWidth() - 300) + 100, -20));
           gameModel.wordSet.add(temp);
           publish(temp);
@@ -146,7 +145,7 @@ public class GameController {
    * @param word kata yang akan dihapus dari layar.
    * @param typed mengecek apakah kata sudah diketik atau belum.
    */
-  public void deleteWord(Word word, boolean typed) {
+  private void deleteWord(Word word, boolean typed) {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
       public void run() {
@@ -193,7 +192,7 @@ public class GameController {
   /**
    * Mengurangi hati dari pemain jika word gagal diketikkan.
    */
-  public void reduceHealth() {
+  private void reduceHealth() {
     gameModel.player.reduceHealth();
   }
 
@@ -201,7 +200,7 @@ public class GameController {
    * Menambahkan skor seiring dengan berjalannya permainan.
    * @param score yang akan ditambahkan.
    */
-  public void addScore(int score) {
+  private void addScore(int score) {
     gameModel.player.increaseScore(score);
   }
 

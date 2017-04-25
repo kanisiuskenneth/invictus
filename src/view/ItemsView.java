@@ -33,16 +33,16 @@ import model.main.MainModel;
 /**
  * Kelas ItemsView.
  */
-public class ItemsView {
-  JPanel itemsPanel;
-  int currentId;
-  static final Color GRAY = new Color(35, 35, 35);
-  static final Color LIGHT_GRAY = new Color(40, 40, 40);
-  private SlowSpell itemSlow = new SlowSpell();
-  private FreezeSpell itemFreeze;
-  private Potion itemPotion = new Potion();
-  private LightningSpell itemLightning = new LightningSpell();
-  private Shield itemShield = new Shield();
+class ItemsView {
+  private final JPanel itemsPanel;
+  private int currentId;
+  private static final Color GRAY = new Color(35, 35, 35);
+  private static final Color LIGHT_GRAY = new Color(40, 40, 40);
+  private final SlowSpell itemSlow = new SlowSpell();
+  private final FreezeSpell itemFreeze;
+  private final Potion itemPotion = new Potion();
+  private final LightningSpell itemLightning = new LightningSpell();
+  private final Shield itemShield = new Shield();
 
   /**
    * Constructor.
@@ -103,11 +103,11 @@ public class ItemsView {
     menuPanel2.add(potion);
     JButton lightningSpell = addButton(ImageLoader.lightningButton);
     menuPanel1.add(lightningSpell);
-    JButton shield = addButton(ImageLoader.shieldButton);
-    menuPanel1.add(shield);
     JButton dummy = new JButton(new ImageIcon(
         ImageLoader.dummyImg.getScaledInstance(195, 150, Image.SCALE_DEFAULT)));
     menuPanel1.add(dummy);
+    JButton shield = addButton(ImageLoader.shieldButton);
+    menuPanel1.add(shield);
 
     slowSpell.setBorder(BorderFactory.createEmptyBorder());
     slowSpell.setContentAreaFilled(false);
@@ -291,7 +291,7 @@ public class ItemsView {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            ShopView shop = new ShopView();
+            new ShopView();
           }
         }
     );
@@ -299,7 +299,7 @@ public class ItemsView {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            Menu main = new Menu();
+            new Menu();
           }
         }
     );

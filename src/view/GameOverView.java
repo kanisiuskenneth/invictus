@@ -30,12 +30,12 @@ import model.main.MainModel;
  */
 public class GameOverView {
 
-  GameModel gameModel;
-  JPanel currentPanel;
-  JTextField enterNameField;
-  long score;
-  long coin;
-  private ActionListener saveAndQuit = new ActionListener() {
+  private final GameModel gameModel;
+  private final JPanel currentPanel;
+  private JTextField enterNameField;
+  private final long score;
+  private final long coin;
+  private final ActionListener saveAndQuit = new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
       MainModel.coin += coin;
@@ -72,7 +72,6 @@ public class GameOverView {
     currentPanel.setBackground(MainFrame.DARK_GRAY);
     MainFrame.mainframe.setContentPane(currentPanel);
     score = Math.round(gameModel.player.getScore() * MainModel.score_multiplier);
-    ;
     coin = Math.round(gameModel.player.getScore() * MainModel.coin_multiplier / 100);
     addPadder();
     addHeader();

@@ -8,10 +8,10 @@ package model.goods;
 /**
  * Interface Shoppable.
  */
-public interface Shoppable {
+interface Shoppable {
   /**
    * I.S. Coin player lebih dari harga .
    * F.S. Coin player berkurang dan Power Ups atau Items player bertambah.
    */
-  public void buy();
+  void buy();
 }
