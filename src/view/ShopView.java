@@ -1,6 +1,7 @@
 package view;
 
 import controller.ImageLoader;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +36,7 @@ public class ShopView {
    */
   private void addShopBanner() {
     JLabel headBanner = new JLabel(new ImageIcon(
-            ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
+        ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
     shopPanel.add(headBanner, BorderLayout.NORTH);
   }
 
@@ -67,31 +68,31 @@ public class ShopView {
     menuPanel.setVisible(true);
 
     menu.addActionListener(
-            new ActionListener() {
-              @Override
-              public void actionPerformed(ActionEvent e) {
-                Menu mainMenu = new Menu();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            Menu mainMenu = new Menu();
 
-              }
-            }
+          }
+        }
     );
     powerUp.addActionListener(
-            new ActionListener() {
-              @Override
-              public void actionPerformed(ActionEvent e) {
-                PowerUpsView pwrUp = new PowerUpsView();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            PowerUpsView pwrUp = new PowerUpsView();
 
-              }
-            }
+          }
+        }
     );
     items.addActionListener(
-            new ActionListener() {
-              @Override
-              public void actionPerformed(ActionEvent e) {
-                ItemsView itemsV = new ItemsView();
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            ItemsView itemsV = new ItemsView();
 
-              }
-            }
+          }
+        }
     );
   }
 
@@ -103,7 +104,7 @@ public class ShopView {
    */
   private JButton addButton(BufferedImage img) {
     JButton button = new JButton(new ImageIcon(
-            img.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
+        img.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
     button.setBorder(BorderFactory.createEmptyBorder());
     button.setContentAreaFilled(false);
     return button;
