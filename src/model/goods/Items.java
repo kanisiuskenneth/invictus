@@ -8,6 +8,9 @@ package model.goods;
 public abstract class Items extends Goods implements Usable {
   /**
    * Constructor.
+   *
+   * @param id id Items.
+   * @param price harga Items.
    */
 
   public Items(int id, int price) {

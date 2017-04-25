@@ -16,6 +16,9 @@ import model.word.Word;
  * Author: 13515033 - Andika Kusuma
  */
 
+/**
+ * Kelas GameModel.
+ */
 public class GameModel {
   public Player player;
   public Random random;

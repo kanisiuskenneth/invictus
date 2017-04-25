@@ -1,6 +1,7 @@
 package view;
 
 import controller.ImageLoader;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -17,6 +18,10 @@ import javax.swing.JPanel;
 /**
  * File: ShopView.java
  * Created by 13515063 - Kezia Suhendra.
+ */
+
+/**
+ * Kelas ShopView.
  */
 public class ShopView {
   Container temp;

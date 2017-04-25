@@ -1,6 +1,7 @@
 package view;
 
 import controller.ImageLoader;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -15,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
 import model.goods.CoinMultiplier;
 import model.goods.HealthUpgrade;
 import model.goods.ScoreMultiplier;
@@ -23,6 +25,10 @@ import model.main.MainModel;
 /**
  * File: PowerUpsView.java
  * Created by sylviajuliana on 23-Apr-17.
+ */
+
+/**
+ * Kelas PowerUpsView.
  */
 public class PowerUpsView {
 

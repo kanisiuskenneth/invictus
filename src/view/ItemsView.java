@@ -1,6 +1,7 @@
 package view;
 
 import controller.ImageLoader;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
 import model.goods.FreezeSpell;
 import model.goods.LightningSpell;
 import model.goods.Potion;
@@ -26,6 +28,10 @@ import model.main.MainModel;
 /**
  * File: ItemsView.java
  * Created by 13515063 - Kezia Suhendra.
+ */
+
+/**
+ * Kelas ItemsView.
  */
 public class ItemsView {
   JPanel itemsPanel;

@@ -8,6 +8,9 @@ package model.goods;
 public abstract class PowerUp extends Goods {
   /**
    * Constructor.
+   *
+   * @param id id PowerUp.
+   * @param price harga PowerUp.
    */
 
   public PowerUp(int id, int price) {

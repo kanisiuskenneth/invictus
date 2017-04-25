@@ -1,6 +1,7 @@
 package view;
 
 import controller.ImageLoader;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -17,6 +18,10 @@ import javax.swing.border.EmptyBorder;
 
 /**
  * Created by sylviajuliana on 24-Apr-17.
+ */
+
+/**
+ * Kelas CreditsView.
  */
 public class CreditsView {
   JPanel creditsPanel = new JPanel();
@@ -78,11 +83,11 @@ public class CreditsView {
     MainFrame.mainframe.setVisible(true);
 
     back.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          Menu mainmenu = new Menu();
-        }
-      }
+                             @Override
+                             public void actionPerformed(ActionEvent e) {
+                               Menu mainmenu = new Menu();
+                             }
+                           }
     );
   }
 }
