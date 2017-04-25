@@ -45,7 +45,7 @@ public class MainFrame {
                     ImageLoader.splash.getScaledInstance(
                             splashWidth, splashHeiht, Image.SCALE_SMOOTH))));
       mainframe.setVisible(true);
-      //device.setFullScreenWindow(mainframe);
+      device.setFullScreenWindow(mainframe);
   }
 
   /**

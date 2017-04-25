@@ -5,50 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e2c2f20-4605-42a1-b7e0-a624f992ae65" name="Default" comment="MainFrame ubah dikit">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/asset/data.txt" afterPath="$PROJECT_DIR$/src/asset/data.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/asset/out.txt" afterPath="$PROJECT_DIR$/src/asset/template.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/asset/word.txt" afterPath="$PROJECT_DIR$/src/asset/word.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/arrow.png" afterPath="$PROJECT_DIR$/src/img/arrow.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/backbutton.png" afterPath="$PROJECT_DIR$/src/img/backbutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/buybutton.png" afterPath="$PROJECT_DIR$/src/img/buybutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/chest.png" afterPath="$PROJECT_DIR$/src/img/chest.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/coin.png" afterPath="$PROJECT_DIR$/src/img/coin.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/comlogo.png" afterPath="$PROJECT_DIR$/src/img/comlogo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/creditsbanner.png" afterPath="$PROJECT_DIR$/src/img/creditsbanner.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/description.png" afterPath="$PROJECT_DIR$/src/img/description.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/dummy.png" afterPath="$PROJECT_DIR$/src/img/dummy.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/entername.png" afterPath="$PROJECT_DIR$/src/img/entername.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/freeze.png" afterPath="$PROJECT_DIR$/src/img/freeze.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/gamebanner.png" afterPath="$PROJECT_DIR$/src/img/gamebanner.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/gamelogo.png" afterPath="$PROJECT_DIR$/src/img/gamelogo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/gameover.png" afterPath="$PROJECT_DIR$/src/img/gameover.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/heart.png" afterPath="$PROJECT_DIR$/src/img/heart.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/home.png" afterPath="$PROJECT_DIR$/src/img/home.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/itemsbanner.png" afterPath="$PROJECT_DIR$/src/img/itemsbanner.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/itemsbutton.png" afterPath="$PROJECT_DIR$/src/img/itemsbutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/leaderboardbanner.png" afterPath="$PROJECT_DIR$/src/img/leaderboardbanner.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/leaderboardbutton.png" afterPath="$PROJECT_DIR$/src/img/leaderboardbutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/lightning.png" afterPath="$PROJECT_DIR$/src/img/lightning.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/menubutton.png" afterPath="$PROJECT_DIR$/src/img/menubutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/playbutton.png" afterPath="$PROJECT_DIR$/src/img/playbutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/plus.png" afterPath="$PROJECT_DIR$/src/img/plus.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/potion.png" afterPath="$PROJECT_DIR$/src/img/potion.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/powerupbanner.png" afterPath="$PROJECT_DIR$/src/img/powerupbanner.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/powerupbutton.png" afterPath="$PROJECT_DIR$/src/img/powerupbutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/quitbutton.png" afterPath="$PROJECT_DIR$/src/img/quitbutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/score.png" afterPath="$PROJECT_DIR$/src/img/score.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/shield.png" afterPath="$PROJECT_DIR$/src/img/shield.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/shopbanner.png" afterPath="$PROJECT_DIR$/src/img/shopbanner.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/shopbutton.png" afterPath="$PROJECT_DIR$/src/img/shopbutton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/slow.png" afterPath="$PROJECT_DIR$/src/img/slow.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/spacer.png" afterPath="$PROJECT_DIR$/src/img/spacer.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ImageLoader.java" afterPath="$PROJECT_DIR$/src/controller/ImageLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/goods/ScoreMultiplier.java" afterPath="$PROJECT_DIR$/src/model/goods/ScoreMultiplier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/main/MainModel.java" afterPath="$PROJECT_DIR$/src/model/main/MainModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GameOverView.java" afterPath="$PROJECT_DIR$/src/view/GameOverView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ut/data.txt" afterPath="$PROJECT_DIR$/.ut/data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/MainFrame.java" afterPath="$PROJECT_DIR$/src/view/MainFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/PowerUpsView.java" afterPath="$PROJECT_DIR$/src/view/PowerUpsView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,35 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ImageLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/ImageLoader.java">
+      <file leaf-file-name="GameView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/GameView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-262">
-              <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/MainFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+            <state relative-caret-position="15">
+              <caret line="42" column="12" lean-forward="false" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,41 +54,66 @@
       <file leaf-file-name="MainModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/main/MainModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1965">
-              <caret line="139" column="18" lean-forward="false" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="18" />
+            <state relative-caret-position="78">
+              <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/player/Player.java">
+      <file leaf-file-name="ImageLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/ImageLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="466">
+              <caret line="77" column="25" lean-forward="false" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="176">
+              <caret line="68" column="55" lean-forward="false" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="favicon.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/favicon.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/view/MainFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1493091249000" expanded="false" signature="1873:1880" ph=" { " />
+                <marker date="1493091249000" expanded="false" signature="1910:1914" ph=" }" />
+                <marker date="1493091249000" expanded="false" signature="2168:2175" ph=" { " />
+                <marker date="1493091249000" expanded="false" signature="2206:2210" ph=" }" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameOverView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ItemsView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/ItemsView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="68" column="17" lean-forward="false" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameOverView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/GameOverView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="78">
@@ -165,23 +125,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/GameController.java">
+      <file leaf-file-name="data.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/asset/data.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="42" column="3" lean-forward="false" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/asset/template.txt">
+      <file leaf-file-name="GameBridge.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/GameBridge.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubmitButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/SubmitButton.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -315,6 +283,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -372,6 +358,10 @@
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="word" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -387,7 +377,77 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="player" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="goods" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -406,6 +466,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="invictus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1603,7 +1677,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69674000" />
+    <option name="totallyTimeSpent" value="70305000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1626,6 +1700,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1653,6 +1728,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1725,26 +1801,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/GameView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ImageLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/game/GameModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1779,6 +1835,10 @@
           <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1493091249000" expanded="false" signature="1873:1880" ph=" { " />
+            <marker date="1493091249000" expanded="false" signature="1910:1914" ph=" }" />
+            <marker date="1493091249000" expanded="false" signature="2168:2175" ph=" { " />
+            <marker date="1493091249000" expanded="false" signature="2206:2210" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1857,6 +1917,10 @@
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1493091249000" expanded="false" signature="1873:1880" ph=" { " />
+            <marker date="1493091249000" expanded="false" signature="1910:1914" ph=" }" />
+            <marker date="1493091249000" expanded="false" signature="2168:2175" ph=" { " />
+            <marker date="1493091249000" expanded="false" signature="2206:2210" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1952,6 +2016,10 @@
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1493091249000" expanded="false" signature="1873:1880" ph=" { " />
+            <marker date="1493091249000" expanded="false" signature="1910:1914" ph=" }" />
+            <marker date="1493091249000" expanded="false" signature="2168:2175" ph=" { " />
+            <marker date="1493091249000" expanded="false" signature="2206:2210" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -2040,16 +2108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="68" column="55" lean-forward="false" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/LeaderboardView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -2064,7 +2122,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/GameView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-867">
+        <state relative-caret-position="15">
           <caret line="42" column="12" lean-forward="false" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -2076,7 +2134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2087,8 +2144,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/asset/data.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+        <state relative-caret-position="165">
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -2123,8 +2180,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ImageLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-262">
-          <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        <state relative-caret-position="466">
+          <caret line="77" column="25" lean-forward="false" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2135,7 +2192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2151,8 +2207,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/main/MainModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
-          <caret line="139" column="18" lean-forward="false" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="18" />
+        <state relative-caret-position="78">
+          <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -2161,7 +2217,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="537">
           <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2169,7 +2224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2178,13 +2232,29 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/MainFrame.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/rt.jar!/sun/awt/SunToolkit.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        <state relative-caret-position="189">
+          <caret line="683" column="0" lean-forward="false" selection-start-line="683" selection-start-column="0" selection-end-line="683" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="68" column="55" lean-forward="false" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/goods/SlowSpell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2194,6 +2264,20 @@
           <caret line="172" column="40" lean-forward="false" selection-start-line="172" selection-start-column="40" selection-end-line="172" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1493091249000" expanded="false" signature="1873:1880" ph=" { " />
+            <marker date="1493091249000" expanded="false" signature="1910:1914" ph=" }" />
+            <marker date="1493091249000" expanded="false" signature="2168:2175" ph=" { " />
+            <marker date="1493091249000" expanded="false" signature="2206:2210" ph=" }" />
           </folding>
         </state>
       </provider>
