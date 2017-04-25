@@ -173,7 +173,7 @@ public class GameView {
       public void actionPerformed(ActionEvent e) {
         countLabel.setText("x" + (MainModel.item.get(currItem.getId()).second-1));
         gameController.useItem(currItem.getId()+"");
-
+        gameModel.field.requestFocus();
       }
     });
     return  item;
