@@ -1,7 +1,6 @@
 package model.goods;
 
 import javax.swing.SwingWorker;
-
 import model.game.GameModel;
 import model.main.MainModel;
 
