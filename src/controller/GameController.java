@@ -5,30 +5,18 @@ package controller;
  * Author: 13515033 - Andika Kusuma
  */
 
+import java.awt.*;
+import java.util.List;
+import javax.swing.*;
 import model.game.GameModel;
-import model.goods.Potion;
 import model.main.MainModel;
 import model.word.Word;
-import sun.applet.Main;
 import util.Pair;
-
-import javax.swing.*;
-import java.util.Map;
-
 import view.GameOverView;
-import view.GameView;
-import view.LeaderboardView;
 import view.MainFrame;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.*;
-import java.util.List;
-
 /**
- * Kelas GameController untuk mengatur kerja game
+ * Kelas GameController untuk mengatur kerja game.
  */
 public class GameController {
   public GameModel gameModel;
@@ -36,6 +24,10 @@ public class GameController {
   SwingWorker<Void, Word> wordSpawner;
   SwingWorker<Void, Boolean> wordUpdater;
 
+  /**
+   * Constructore.
+   * @param gameModel yang akan di kontrol.
+   */
   public GameController(GameModel gameModel) {
     JLayeredPane gamePanel = gameModel.gamePanel;
     this.gameModel = gameModel;
@@ -43,6 +35,9 @@ public class GameController {
     startGame();
   }
 
+  /**
+   * Memulai permainan.
+   */
   public void startGame() {
     gameModel.mutex = false;
     refreshScreen();
@@ -51,6 +46,9 @@ public class GameController {
 
   }
 
+  /**
+   * Memperbaharui kata-kata yang akan keluar pada permainan.
+   */
   private void updateWord() {
     wordUpdater = new SwingWorker<Void, Boolean>() {
       @Override
@@ -62,9 +60,7 @@ public class GameController {
           gameModel.mutex = true;
           for (Word word : gameModel.wordSet) {
             word.setPosition(new Pair<>(word.getPosition().first, word.getPosition().second + 1));
-            if (word.getPosition().second >= (gamePanel.getHeight() - 40))
-
-            {
+            if (word.getPosition().second >= (gamePanel.getHeight() - 40)) {
               deleteWord(word, false);
             }
           }
@@ -93,8 +89,10 @@ public class GameController {
 
   }
 
+  /**
+   * Menambah kata-kata pada layar permainan.
+   */
   public void addWord() {
-
     wordSpawner = new SwingWorker<Void, Word>() {
       @Override
       protected Void doInBackground() throws Exception {
@@ -102,8 +100,10 @@ public class GameController {
           while (gameModel.mutex) {
           }
           gameModel.mutex = true;
-          Word temp = new Word(MainModel.word_bank.elementAt(gameModel.random.nextInt(MainModel.word_bank.size())));
-          temp.setPosition(new Pair(gameModel.random.nextInt(gamePanel.getWidth() - 300) + 100, -20));
+          Word temp = new Word(MainModel.word_bank.elementAt(
+                  gameModel.random.nextInt(MainModel.word_bank.size())));
+          temp.setPosition(new Pair(gameModel.random.nextInt(
+                  gamePanel.getWidth() - 300) + 100, -20));
           gameModel.wordSet.add(temp);
           publish(temp);
           System.out.print("Word Spawned");
@@ -130,13 +130,17 @@ public class GameController {
 
       @Override
       protected void done() {
-
       }
     };
     wordSpawner.execute();
 
   }
 
+  /**
+   * Menghilangkan kata-kata yang ada pada layar setelah diketikkan.
+   * @param word kata yang akan dihapus dari layar.
+   * @param typed mengecek apakah kata sudah diketik atau belum.
+   */
   public void deleteWord(Word word, boolean typed) {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
@@ -158,9 +162,11 @@ public class GameController {
         gameModel.updateScore();
       }
     });
-
   }
 
+  /**
+   * Menghentikan permainan.
+   */
   private void stopGame() {
     SwingWorker<Void, Void> stopper = new SwingWorker<Void, Void>() {
       @Override
@@ -179,14 +185,25 @@ public class GameController {
     stopper.execute();
   }
 
+  /**
+   * Mengurangi hati dari pemain jika word gagal diketikkan.
+   */
   public void reduceHealth() {
     gameModel.player.reduceHealth();
   }
 
+  /**
+   * Menambahkan skor seiring dengan berjalannya permainan.
+   * @param score yang akan ditambahkan.
+   */
   public void addScore(int score) {
     gameModel.player.increaseScore(score);
   }
 
+  /**
+   * Kondisi menunggu mutex atau keadaan aman agar tidak terjadi deadlock sebelum di delete.
+   * @param content kata yang akan di delete.
+   */
   public void attemptToDeleteWord(String content) {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
@@ -207,6 +224,9 @@ public class GameController {
     });
   }
 
+  /**
+   * Mengubah warna huruf dari kata yang prefixnya sama dengan kata yang ada di input field.
+   */
   public void refreshScreen() {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
@@ -217,8 +237,9 @@ public class GameController {
         for (Word word : gameModel.wordSet) {
           String currString = gameModel.field.getText();
           int idx = getIndexPrefix(currString, word.getContent());
-          String newLabel = "<html><font color =green>" + word.getContent().substring(0, idx + 1) + "</font>" +
-              word.getContent().substring(idx + 1);
+          String newLabel = "<html><font color =green>"
+                  + word.getContent().substring(0, idx + 1) + "</font>"
+                  + word.getContent().substring(idx + 1);
           if (!word.getLabel().getText().equals(newLabel)) {
             word.getLabel().setText(newLabel);
           }
@@ -230,6 +251,10 @@ public class GameController {
     });
   }
 
+  /**
+   * Menggunakan item yang dimiliki.
+   * @param id dari item yang akan digunakan.
+   */
   public void useItem(String id) {
     if (!gameModel.itemFlag) {
       gameModel.itemFlag = true;
@@ -249,6 +274,12 @@ public class GameController {
     }
   }
 
+  /**
+   * Mendapatkan indeks dari longest common prefix.
+   * @param firstString sad.
+   * @param secondString sa.
+   * @return indeks dari longest common prefix.
+   */
   private int getIndexPrefix(String firstString, String secondString) {
     if (firstString.length() > secondString.length()) {
       return -1;
