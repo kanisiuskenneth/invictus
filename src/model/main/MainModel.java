@@ -30,7 +30,7 @@ public class MainModel {
   public static HashMap<Integer, Pair<Items, Integer>> item;
   public static Pair<String, Integer>[] leaderboard;
   public static Vector<String> word_bank;
-  public static final String VERSION = "UT alpha v1.0";
+  public static final String VERSION = "UT beta v2.0";
   private static final String DATA_PATH = ".ut/data.txt";
 
   /**
