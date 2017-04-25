@@ -1,15 +1,27 @@
 package view;
 
 import controller.ImageLoader;
-import model.goods.*;
-import model.main.MainModel;
-
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import model.goods.FreezeSpell;
+import model.goods.LightningSpell;
+import model.goods.Potion;
+import model.goods.Shield;
+import model.goods.SlowSpell;
+import model.main.MainModel;
 
 /**
  * File: ItemsView.java
@@ -21,7 +33,7 @@ public class ItemsView {
   static final Color GRAY = new Color(35, 35, 35);
   static final Color LIGHT_GRAY = new Color(40, 40, 40);
   private SlowSpell itemSlow = new SlowSpell();
-  private FreezeSpell itemFreeze = new FreezeSpell();
+  private FreezeSpell itemFreeze;
   private Potion itemPotion = new Potion();
   private LightningSpell itemLightning = new LightningSpell();
   private Shield itemShield = new Shield();
@@ -38,6 +50,7 @@ public class ItemsView {
     addItemsBanner();
     addMenu();
     itemsPanel.setVisible(true);
+    itemFreeze = new FreezeSpell();
   }
 
   /**
