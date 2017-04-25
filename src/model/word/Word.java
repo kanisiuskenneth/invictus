@@ -1,10 +1,8 @@
 package model.word;
 
-import java.awt.*;
+import javax.swing.JLabel;
 
 import util.Pair;
-
-import javax.swing.*;
 
 /**
  * File: Word.java
