@@ -1,24 +1,30 @@
 package view;
 
 import controller.ImageLoader;
-
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 /**
  * Created by sylviajuliana on 24-Apr-17.
  */
 public class CreditsView {
-  JPanel creditsPanel;
+  JPanel creditsPanel = new JPanel();
 
   /**
    * Constructor.
    */
   public CreditsView() {
-    creditsPanel = new JPanel();
     creditsPanel.setLayout(new BorderLayout());
     creditsPanel.setSize(MainFrame.width, MainFrame.height);
     creditsPanel.setBackground(MainFrame.DARK_GRAY);
