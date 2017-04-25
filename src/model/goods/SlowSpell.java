@@ -8,6 +8,10 @@ import model.main.MainModel;
  * File: SlowSpell.java
  * Author: 13515063 - Kezia Suhendra
  */
+
+/**
+ * Kelas SlowSpell.
+ */
 public class SlowSpell extends Items {
   /**
    * Constructor.

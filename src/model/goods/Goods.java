@@ -5,6 +5,9 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+/**
+ * Kelas Abstrak Goods.
+ */
 public abstract class Goods implements Shoppable {
   protected int id;
   protected int price;

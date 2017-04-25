@@ -5,6 +5,9 @@ package model.goods;
  * Author: 13515070 - Sylvia Juliana
  */
 
+/**
+ * Kelas Abstrak Items.
+ */
 public abstract class Items extends Goods implements Usable {
   /**
    * Constructor.

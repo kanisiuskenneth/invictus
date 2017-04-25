@@ -6,6 +6,10 @@ import model.main.MainModel;
  * File: ScoreMultiplier.java
  * Author: 13515070 - Sylvia Juliana
  */
+
+/**
+ * Kelas ScoreMultiplier.
+ */
 public class ScoreMultiplier extends PowerUp {
   /**
    * Constructor.

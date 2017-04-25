@@ -7,6 +7,10 @@ import model.main.MainModel;
  * File: Potion.java
  * Author: 13515063 - Kezia Suhendra
  */
+
+/**
+ * Kelas Potion.
+ */
 public class Potion extends Items {
   /**
    * Constructor.

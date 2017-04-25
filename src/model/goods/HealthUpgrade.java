@@ -7,6 +7,9 @@ import model.main.MainModel;
  * Author: 13515063 - Kezia Suhendra
  */
 
+/**
+ * Kelas HealthUpgrade.
+ */
 public class HealthUpgrade extends PowerUp {
   /**
    * Constructor.

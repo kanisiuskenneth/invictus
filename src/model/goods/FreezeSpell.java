@@ -9,6 +9,10 @@ import model.main.MainModel;
  * File: FreezeSpell.java
  * Author: 13515063 - Kezia Suhendra
  */
+
+/**
+ * Kelas FreezeSpell.
+ */
 public class FreezeSpell extends Items {
   /**
    * Constructor.

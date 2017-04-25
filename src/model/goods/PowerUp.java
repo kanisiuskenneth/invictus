@@ -5,11 +5,14 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+/**
+ * Kelas Abstrak PowerUp.
+ */
 public abstract class PowerUp extends Goods {
   /**
    * Constructor.
    *
-   * @param id id PowerUp.
+   * @param id    id PowerUp.
    * @param price harga PowerUp.
    */
 

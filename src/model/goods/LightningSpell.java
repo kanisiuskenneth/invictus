@@ -10,6 +10,10 @@ import model.word.Word;
  * File: LightningSpell.java
  * Author: 13515070 - Sylvia Juliana
  */
+
+/**
+ * Kelas LightningSpell.
+ */
 public class LightningSpell extends Items {
   /**
    * Constructor.

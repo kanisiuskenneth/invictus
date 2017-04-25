@@ -5,6 +5,9 @@ package model.goods;
  * Author: 13515063 - Kezia Suhendra
  */
 
+/**
+ * Interface Shoppable.
+ */
 public interface Shoppable {
   /**
    * I.S. Coin player lebih dari harga .

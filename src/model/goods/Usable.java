@@ -7,6 +7,9 @@ import model.game.GameModel;
  * Author: 13515033 - Andika Kusuma
  */
 
+/**
+ * Interface Usable.
+ */
 public interface Usable {
   /**
    * I.S. Items player tersedia.

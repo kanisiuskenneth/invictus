@@ -7,6 +7,9 @@ import model.main.MainModel;
  * Author: 13515070 - Sylvia Juliana
  */
 
+/**
+ * Kelas CoinMultiplier.
+ */
 public class CoinMultiplier extends PowerUp {
   /**
    * Constructor.

@@ -9,6 +9,10 @@ import model.main.MainModel;
  * File: Shield.java
  * Author: 13515070 - Sylvia Juliana
  */
+
+/**
+ * Kelas Shield.
+ */
 public class Shield extends Items {
   /**
    * Constructor.
