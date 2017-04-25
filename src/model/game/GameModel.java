@@ -28,6 +28,7 @@ public class GameModel {
   public int updateTic = 20;
   public int spawnTic = 2000;
   public boolean shieldFlag;
+  public volatile boolean itemFlag;
   public Container menupanel;
   public volatile boolean mutex;
 
@@ -39,6 +40,7 @@ public class GameModel {
     updateHealth();
     scoreLabel = new JLabel();
     shieldFlag = false;
+    itemFlag = false;
     updateScore();
 
   }

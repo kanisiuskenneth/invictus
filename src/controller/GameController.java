@@ -232,13 +232,20 @@ public class GameController {
   }
 
   public void useItem(String id) {
-    while (gameModel.mutex) {
+    if (!gameModel.itemFlag) {
+      gameModel.itemFlag = true;
+      while (gameModel.mutex) {
+      }
+      gameModel.mutex = true;
+      try {
+        int idItem = Integer.parseInt(id);
+        if (MainModel.item.get(idItem).second > 0) {
+          MainModel.item.get(idItem).first.use(gameModel);
+        }
+      } catch (Exception e) {
+      }
+      gameModel.mutex = false;
     }
-    gameModel.mutex = true;
-    if (MainModel.item.get(Integer.parseInt(id)).second > 0) {
-      MainModel.item.get(Integer.parseInt(id)).first.use(gameModel);
-    }
-    gameModel.mutex = false;
   }
 
   private int getIndexPrefix(String firstString, String secondString) {

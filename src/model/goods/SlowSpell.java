@@ -72,11 +72,12 @@ public class SlowSpell extends Items {
         gameModel.mutex = false;
         try {
           Thread.sleep(10000);
+          gameModel.spawnTic /= 2;
+          gameModel.updateTic /= 2;
+          gameModel.itemFlag = false;
         } catch (Exception e) {
           System.out.println("");
         }
-        gameModel.spawnTic /= 2;
-        gameModel.updateTic /= 2;
         return null;
       }
     };

@@ -78,5 +78,6 @@ public class LightningSpell extends Items {
     }
     gameModel.gamePanel.removeAll();
     MainModel.item.get(id).second--;
+    gameModel.itemFlag = false;
   }
 }

@@ -28,6 +28,7 @@ public class MainModel {
   public static Vector<String> word_bank;
   public static final String VERSION = "UT alpha v1.0";
   private static final String DATA_PATH = ".ut/data.txt";
+
   /**
    * Constructor.
    */
@@ -62,8 +63,20 @@ public class MainModel {
       coin_multiplier = scanner.nextFloat();
       score_multiplier = scanner.nextFloat();
       while (scanner.hasNextInt()) {
-        int firstValue = scanner.nextInt();
-        int secondValue = scanner.nextInt();
+        int id = scanner.nextInt();
+        String className = scanner.next();
+        int itemAmount = scanner.nextInt();
+        try {
+          Class cls = Class.forName(className);
+          java.lang.reflect.Constructor constructor = cls.getConstructor(new Class[0]);
+          Object items = constructor.newInstance(new Object[0]);
+          item.put(id, new Pair(items, itemAmount));
+          System.out.println(id + " " + items.getClass().getName() + " " + itemAmount);
+
+        } catch (Throwable e) {
+          System.err.println(e);
+        }
+        /*
         if (firstValue == 1) {
           item.put(firstValue, new Pair(new SlowSpell(), secondValue));
         } else if (firstValue == 2) {
@@ -75,7 +88,7 @@ public class MainModel {
         } else {
           item.put(firstValue, new Pair(new Shield(), secondValue));
         }
-        System.out.println("SAIDJASDJASD " + item.get(firstValue).second);
+        */
       }
       scanner.next();
       while (scanner.hasNext()) {
@@ -103,7 +116,8 @@ public class MainModel {
       fileWriter.println(health_maximum + " " + coin + " " + coin_multiplier + " "
           + score_multiplier);
       for (Map.Entry<Integer, Pair<Items, Integer>> entry : item.entrySet()) {
-        fileWriter.println(entry.getKey() + " " + entry.getValue().second);
+        fileWriter.println(entry.getKey() + " " + entry.getValue().first.getClass().getName() + " " + entry.getValue().second);
+        //fileWriter.println(entry.getKey() + " " + entry.getValue().second);
       }
       fileWriter.println("-");
       for (int i = 0; i < 5; i++) {
