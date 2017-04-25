@@ -55,12 +55,14 @@ public class GameModel {
 
   public void updateScore() {
     scoreLabel.setText("" + player.getScore());
-    if (player.getScore() > 10000) {
-      updateTic = 10;
-      spawnTic = 1000;
-    } else {
-      updateTic = 20 - player.getScore() / 1000;
-      spawnTic = 2000 - player.getScore() / 10;
+    if (!itemFlag) {
+      if (player.getScore() > 10000) {
+        updateTic = 10;
+        spawnTic = 1000;
+      } else {
+        updateTic = 20 - player.getScore() / 1000;
+        spawnTic = 2000 - player.getScore() / 10;
+      }
     }
   }
 
