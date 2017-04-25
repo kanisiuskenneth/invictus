@@ -65,16 +65,16 @@ public class Menu {
 
     menuPanel = new JPanel();
     mainPanel.add(menuPanel, BorderLayout.CENTER);
+    JLabel dummy = new JLabel(" ");
     JButton play = addMenuButton(ImageLoader.playButton);
-    JButton shop = addMenuButton(ImageLoader.shopButton);
     JButton leaderboard = addMenuButton(ImageLoader.leaderboard_button);
     JButton quit = addMenuButton(ImageLoader.quitButton);
     int contentHeight = MainFrame.heightToPx(65);
     int contentRows = contentHeight / 90;
     menuPanel.setLayout(new GridLayout(contentRows, 1));
     menuPanel.setBackground(MainFrame.DARK_GRAY);
+    menuPanel.add(dummy);
     menuPanel.add(play);
-    menuPanel.add(shop);
     menuPanel.add(leaderboard);
     menuPanel.add(quit);
     menuPanel.setVisible(true);
@@ -94,15 +94,6 @@ public class Menu {
           public void actionPerformed(ActionEvent e) {
             LeaderboardView ld = new LeaderboardView();
             //ld.close();
-          }
-        }
-    );
-
-    shop.addActionListener(
-        new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-
           }
         }
     );
