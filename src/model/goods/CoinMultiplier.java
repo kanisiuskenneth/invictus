@@ -1,15 +1,12 @@
 package model.goods;
 
+import model.main.MainModel;
+
 /**
  * File: CoinMultiplier.java
  * Author: 13515070 - Sylvia Juliana
  */
 
-import model.main.MainModel;
-
-/**
- * Kelas CoinMultiplier.
- */
 public class CoinMultiplier extends PowerUp {
   /**
    * Constructor.
@@ -50,7 +47,8 @@ public class CoinMultiplier extends PowerUp {
   }
 
   /**
-   * Buy CoinMultiplier.
+   * I.S. Coin player lebih dari harga Coin Multiplier.
+   * F.S. Coin player berkurang dan Coin Multiplier player bertambah.
    */
 
   @Override

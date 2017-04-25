@@ -1,15 +1,12 @@
 package model.goods;
 
+import model.main.MainModel;
+
 /**
  * File: HealthUpgrade.java
  * Author: 13515063 - Kezia Suhendra
  */
 
-import model.main.MainModel;
-
-/**
- * Kelas HealthUpgrade.
- */
 public class HealthUpgrade extends PowerUp {
   /**
    * Constructor.
@@ -50,7 +47,8 @@ public class HealthUpgrade extends PowerUp {
   }
 
   /**
-   * Buy HealthUpgrade.
+   * I.S. Coin player lebih dari harga Health Upgrade.
+   * F.S. Coin player berkurang dan Health Upgrade player bertambah.
    */
 
   @Override

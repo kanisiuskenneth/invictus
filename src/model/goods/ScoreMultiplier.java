@@ -1,15 +1,10 @@
 package model.goods;
 
+import model.main.MainModel;
+
 /**
  * File: ScoreMultiplier.java
  * Author: 13515070 - Sylvia Juliana
- */
-
-import model.main.MainModel;
-import sun.applet.Main;
-
-/**
- * Kelas ScoreMultiplier.
  */
 public class ScoreMultiplier extends PowerUp {
   /**
@@ -51,7 +46,8 @@ public class ScoreMultiplier extends PowerUp {
   }
 
   /**
-   * Buy ScoreMultiplier.
+   * I.S. Coin player lebih dari harga Score Multiplier.
+   * F.S. Coin player berkurang dan Score Multiplier player bertambah.
    */
 
   @Override

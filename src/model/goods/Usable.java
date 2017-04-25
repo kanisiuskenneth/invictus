@@ -8,5 +8,10 @@ import model.game.GameModel;
  */
 
 public interface Usable {
+  /**
+   * I.S. Items player tersedia.
+   * F.S. Items player berkurang dan terpakai.
+   * @param gameModel Game Model yang dioperasikan.
+   */
   void use(GameModel gameModel);
 }

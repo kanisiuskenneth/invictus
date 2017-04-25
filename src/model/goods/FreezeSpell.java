@@ -1,17 +1,13 @@
 package model.goods;
 
-/**
- * File: FreezeSpell.java
- * Author: 13515063 - Kezia Suhendra
- */
+import javax.swing.SwingWorker;
 
 import model.game.GameModel;
 import model.main.MainModel;
 
-import javax.swing.*;
-
 /**
- * Kelas FreezeSpell.
+ * File: FreezeSpell.java
+ * Author: 13515063 - Kezia Suhendra
  */
 public class FreezeSpell extends Items {
   /**
@@ -53,7 +49,8 @@ public class FreezeSpell extends Items {
   }
 
   /**
-   * Buy FreezeSpell.
+   * I.S. Coin player lebih dari harga Freeze Spell.
+   * F.S. Coin player berkurang dan Freeze Spell player bertambah.
    */
 
   @Override
@@ -61,6 +58,12 @@ public class FreezeSpell extends Items {
     MainModel.item.get(id).second++;
     MainModel.coin -= price;
   }
+
+  /**
+   * I.S. Freeze Spell player tersedia.
+   * F.S. Freeze Spell player berkurang dan terpakai.
+   * @param gameModel Game Model yang dioperasikan.
+   */
 
   @Override
   public void use(GameModel gameModel) {

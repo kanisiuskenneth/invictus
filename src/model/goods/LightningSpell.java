@@ -1,18 +1,14 @@
 package model.goods;
 
-/**
- * File: LightningSpell.java
- * Author: 13515070 - Sylvia Juliana
- */
+import javax.swing.SwingUtilities;
 
 import model.game.GameModel;
 import model.main.MainModel;
 import model.word.Word;
 
-import javax.swing.*;
-
 /**
- * Kelas LightningSpell.
+ * File: LightningSpell.java
+ * Author: 13515070 - Sylvia Juliana
  */
 public class LightningSpell extends Items {
   /**
@@ -54,7 +50,8 @@ public class LightningSpell extends Items {
   }
 
   /**
-   * Buy LightningSpell.
+   * I.S. Coin player lebih dari harga Lightning Spell.
+   * F.S. Coin player berkurang dan Lightning Spell player bertambah.
    */
 
   @Override
@@ -62,6 +59,12 @@ public class LightningSpell extends Items {
     MainModel.item.get(id).second++;
     MainModel.coin -= price;
   }
+
+  /**
+   * I.S. Lightning Spell player tersedia.
+   * F.S. Lightning Spell player berkurang dan terpakai.
+   * @param gameModel Game Model yang dioperasikan.
+   */
 
   @Override
   public void use(GameModel gameModel) {

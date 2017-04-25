@@ -1,17 +1,13 @@
 package model.goods;
 
-/**
- * File: Shield.java
- * Author: 13515070 - Sylvia Juliana
- */
+import javax.swing.SwingWorker;
 
 import model.game.GameModel;
 import model.main.MainModel;
 
-import javax.swing.*;
-
 /**
- * Kelas Shield.
+ * File: Shield.java
+ * Author: 13515070 - Sylvia Juliana
  */
 public class Shield extends Items {
   /**
@@ -53,7 +49,8 @@ public class Shield extends Items {
   }
 
   /**
-   * Buy Shield.
+   * I.S. Coin player lebih dari harga Shield.
+   * F.S. Coin player berkurang dan Shield player bertambah.
    */
 
   @Override
@@ -61,6 +58,12 @@ public class Shield extends Items {
     MainModel.item.get(id).second++;
     MainModel.coin -= price;
   }
+
+  /**
+   * I.S. Shield player tersedia.
+   * F.S. Shield player berkurang dan terpakai.
+   * @param gameModel Game Model yang dioperasikan.
+   */
 
   @Override
   public void use(GameModel gameModel) {

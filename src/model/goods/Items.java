@@ -5,10 +5,7 @@ package model.goods;
  * Author: 13515070 - Sylvia Juliana
  */
 
-/**
- * Kelas abstrak Items.
- */
-public abstract class Items extends Goods implements Usable{
+public abstract class Items extends Goods implements Usable {
   /**
    * Constructor.
    */
@@ -16,8 +13,10 @@ public abstract class Items extends Goods implements Usable{
   public Items(int id, int price) {
     super(id, price);
   }
+
   /**
    * Getter description.
+   *
    * @return Description dari items.
    */
 
@@ -27,6 +26,7 @@ public abstract class Items extends Goods implements Usable{
 
   /**
    * Getter id.
+   *
    * @return id dari items.
    */
   public int getId() {
