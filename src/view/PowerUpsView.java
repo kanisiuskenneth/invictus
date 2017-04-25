@@ -21,23 +21,40 @@ public class PowerUpsView {
   private int currentId;
   static final Color LIGHT_GRAY = new Color(40, 40, 40);
   static final Color GRAY = new Color(35, 35, 35);
+  private CoinMultiplier itemCoinMultiplier = new CoinMultiplier();
+  private ScoreMultiplier itemScoreMultiplier = new ScoreMultiplier();
+  private HealthUpgrade itemHealthUpgrade = new HealthUpgrade();
 
+  /**
+   * Constructor.
+   */
   public PowerUpsView() {
     currentId = 1;
-    CoinMultiplier itemCoinMultiplier = new CoinMultiplier();
-    ScoreMultiplier itemScoreMultiplier = new ScoreMultiplier();
-    HealthUpgrade itemHealthUpgrade = new HealthUpgrade();
     powerUpPanel = new JPanel();
     powerUpPanel.setBackground(MainFrame.DARK_GRAY);
     powerUpPanel.setLayout(new BorderLayout());
     powerUpPanel.setSize(MainFrame.width, MainFrame.height);
+    addPowerBanner();
+    addMenu();
+    powerUpPanel.setVisible(true);
+  }
+
+  /**
+   * Menambahkan logo power up pada bagian atas dari panel power up.
+   */
+  private void addPowerBanner() {
     int itemBannerWidth = 800;
     int itemBannerHeight = ImageLoader.powerUpBanner.getHeight() * itemBannerWidth / ImageLoader.powerUpBanner.getWidth();
     MainFrame.mainframe.setContentPane(powerUpPanel);
     JLabel headBanner = new JLabel(new ImageIcon(
-      ImageLoader.powerUpBanner.getScaledInstance(itemBannerWidth, itemBannerHeight, Image.SCALE_DEFAULT)));
+            ImageLoader.powerUpBanner.getScaledInstance(itemBannerWidth, itemBannerHeight, Image.SCALE_DEFAULT)));
     powerUpPanel.add(headBanner, BorderLayout.NORTH);
+  }
 
+  /**
+   * Menambahkan tombol dan gambar power up pada content power up.
+   */
+  private void addMenu() {
     JPanel menuPanel = new JPanel();
     powerUpPanel.add(menuPanel, BorderLayout.CENTER);
     menuPanel.setLayout(new GridLayout(3, 1));
