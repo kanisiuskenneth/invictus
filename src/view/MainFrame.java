@@ -2,6 +2,7 @@ package view;
 
 import controller.ImageLoader;
 import java.awt.*;
+import java.awt.image.*;
 import javax.swing.*;
 
 /**
@@ -25,6 +26,8 @@ public class MainFrame {
    */
   public MainFrame() {
     mainframe = new JFrame("Undefeated Typer");
+    Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/favicon.png"));
+    mainframe.setIconImage(image);
     mainframe.setUndecorated(true);
     mainframe.setIconImage(new ImageIcon("img/gamelogo.png").getImage());
     mainframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

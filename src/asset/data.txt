@@ -1,0 +1,12 @@
+3 1703874 2.000000000000001 2.000000000000001
+1 19
+2 11
+3 27
+4 8
+5 9
+-
+Kanisius 3315
+fkasdkfksdaf 1292
+KanisiusKenneth 135
+AndikaKusuma 135
+KeziaSuhendra 135

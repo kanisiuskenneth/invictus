@@ -1,0 +1,12 @@
+3 0 1.0 1.0
+1 0
+2 1
+3 5
+4 3
+5 0
+-
+KanisiusKenneth 135
+AndikaKusuma 135
+KeziaSuhendra 135
+SylviaJuliana 135
+InvictusTeam 135
