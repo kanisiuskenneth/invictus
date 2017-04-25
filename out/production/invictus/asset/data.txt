@@ -1,9 +1,9 @@
 3 1703874 2.000000000000001 2.000000000000001
-1 19
-2 11
-3 27
-4 8
-5 9
+1 model.goods.SlowSpell 12
+2 model.goods.FreezeSpell 10
+3 model.goods.Potion 12
+4 model.goods.LightningSpell 10
+5 model.goods.Shield 10
 -
 Kanisius 3315
 fkasdkfksdaf 1292
