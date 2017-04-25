@@ -1,13 +1,17 @@
 package model.main;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Vector;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
-import model.goods.*;
+import model.goods.Items;
 import util.Pair;
 
 /**
@@ -76,19 +80,6 @@ public class MainModel {
         } catch (Throwable e) {
           System.err.println(e);
         }
-        /*
-        if (firstValue == 1) {
-          item.put(firstValue, new Pair(new SlowSpell(), secondValue));
-        } else if (firstValue == 2) {
-          item.put(firstValue, new Pair(new FreezeSpell(), secondValue));
-        } else if (firstValue == 3) {
-          item.put(firstValue, new Pair(new Potion(), secondValue));
-        } else if (firstValue == 4) {
-          item.put(firstValue, new Pair(new LightningSpell(), secondValue));
-        } else {
-          item.put(firstValue, new Pair(new Shield(), secondValue));
-        }
-        */
       }
       scanner.next();
       while (scanner.hasNext()) {
@@ -116,8 +107,8 @@ public class MainModel {
       fileWriter.println(health_maximum + " " + coin + " " + coin_multiplier + " "
           + score_multiplier);
       for (Map.Entry<Integer, Pair<Items, Integer>> entry : item.entrySet()) {
-        fileWriter.println(entry.getKey() + " " + entry.getValue().first.getClass().getName() + " " + entry.getValue().second);
-        //fileWriter.println(entry.getKey() + " " + entry.getValue().second);
+        fileWriter.println(entry.getKey() + " " + entry.getValue().first.getClass().getName()
+            + " " + entry.getValue().second);
       }
       fileWriter.println("-");
       for (int i = 0; i < 5; i++) {
