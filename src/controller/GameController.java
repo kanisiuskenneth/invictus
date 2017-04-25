@@ -81,7 +81,6 @@ public class GameController {
         if (chunks.get(chunks.size() - 1)) {
           while (gameModel.mutex) {
           }
-          ;
           gameModel.mutex = true;
           for (Word word : gameModel.wordSet) {
             word.getLabel().setLocation(word.getPosition().first, word.getPosition().second);
@@ -240,9 +239,11 @@ public class GameController {
       try {
         int idItem = Integer.parseInt(id);
         if (MainModel.item.get(idItem).second > 0) {
+          System.out.println("Use item " + id);
           MainModel.item.get(idItem).first.use(gameModel);
         }
       } catch (Exception e) {
+        gameModel.itemFlag = false;
       }
       gameModel.mutex = false;
     }

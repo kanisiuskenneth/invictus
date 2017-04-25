@@ -72,6 +72,7 @@ public class SlowSpell extends Items {
         gameModel.mutex = false;
         try {
           Thread.sleep(10000);
+          System.out.println("Slow Spell finished");
           gameModel.spawnTic /= 2;
           gameModel.updateTic /= 2;
           gameModel.itemFlag = false;
