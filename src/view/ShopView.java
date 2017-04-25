@@ -4,6 +4,7 @@ import controller.ImageLoader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 /**
@@ -24,20 +25,32 @@ public class ShopView {
     shopPanel.setLayout(new BorderLayout());
     shopPanel.setSize(MainFrame.width, MainFrame.height);
     MainFrame.mainframe.setContentPane(shopPanel);
+    addShopBanner();
+    addMenu();
+    MainFrame.mainframe.setVisible(true);
+  }
+
+  /**
+   * Menambahkan logo shop pada bagian atas dari panel menu.
+   */
+  private void addShopBanner() {
     JLabel headBanner = new JLabel(new ImageIcon(
-        ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
+            ImageLoader.shopBanner.getScaledInstance(500, 250, Image.SCALE_DEFAULT)));
     shopPanel.add(headBanner, BorderLayout.NORTH);
+  }
+
+  /**
+   * Menambahkan tombol pada content Shop.
+   */
+  private void addMenu() {
     JPanel menuPanel = new JPanel();
     shopPanel.add(menuPanel, BorderLayout.CENTER);
     menuPanel.setLayout(new GridLayout(5, 3));
     menuPanel.setBackground(MainFrame.DARK_GRAY);
 
-    JButton powerUp = new JButton(new ImageIcon(
-        ImageLoader.powerUpButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
-    JButton items = new JButton(new ImageIcon(
-        ImageLoader.itemsButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
-    JButton menu = new JButton(new ImageIcon(
-        ImageLoader.menuButton.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
+    JButton powerUp = addButton(ImageLoader.powerUpButton);
+    JButton items = addButton(ImageLoader.itemsButton);
+    JButton menu = addButton(ImageLoader.menuButton);
     menuPanel.add(powerUp, BorderLayout.NORTH);
     menuPanel.add(items, BorderLayout.CENTER);
     menuPanel.add(menu, BorderLayout.SOUTH);
@@ -54,31 +67,45 @@ public class ShopView {
     menuPanel.setVisible(true);
 
     menu.addActionListener(
-        new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-            Menu mainMenu = new Menu();
+            new ActionListener() {
+              @Override
+              public void actionPerformed(ActionEvent e) {
+                Menu mainMenu = new Menu();
 
-          }
-        }
+              }
+            }
     );
     powerUp.addActionListener(
-        new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-            PowerUpsView pwrUp = new PowerUpsView();
+            new ActionListener() {
+              @Override
+              public void actionPerformed(ActionEvent e) {
+                PowerUpsView pwrUp = new PowerUpsView();
 
-          }
-        }
+              }
+            }
     );
     items.addActionListener(
-        new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent e) {
-            ItemsView itemsV = new ItemsView();
+            new ActionListener() {
+              @Override
+              public void actionPerformed(ActionEvent e) {
+                ItemsView itemsV = new ItemsView();
 
-          }
-        }
+              }
+            }
     );
+  }
+
+  /**
+   * Mengubah gambar menjadi button yang akan digunakan pada shop.
+   *
+   * @param img gambar yang akan digunakan.
+   * @return JButton yang akan ditambahkan.
+   */
+  private JButton addButton(BufferedImage img) {
+    JButton button = new JButton(new ImageIcon(
+            img.getScaledInstance(350, 70, Image.SCALE_DEFAULT)));
+    button.setBorder(BorderFactory.createEmptyBorder());
+    button.setContentAreaFilled(false);
+    return button;
   }
 }
