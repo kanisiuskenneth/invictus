@@ -72,11 +72,12 @@ public class FreezeSpell extends Items {
         gameModel.mutex = false;
         try {
           Thread.sleep(8000);
+          gameModel.spawnTic -= 10000;
+          gameModel.updateTic -= 10000;
+          gameModel.itemFlag = false;
         } catch (Exception e) {
           System.out.println("");
         }
-        gameModel.spawnTic -= 10000;
-        gameModel.updateTic -= 10000;
         return null;
       }
     };

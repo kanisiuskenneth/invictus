@@ -71,6 +71,7 @@ public class Shield extends Items {
         gameModel.mutex = false;
         try {
           Thread.sleep(10000);
+          gameModel.itemFlag = false;
         } catch (Exception e) {
           System.out.println("");
         }

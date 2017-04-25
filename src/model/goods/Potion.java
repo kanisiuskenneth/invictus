@@ -68,5 +68,6 @@ public class Potion extends Items {
       gameModel.updateHealth();
     }
     MainModel.item.get(id).second--;
+    gameModel.itemFlag = false;
   }
 }

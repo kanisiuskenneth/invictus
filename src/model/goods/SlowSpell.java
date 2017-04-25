@@ -74,6 +74,7 @@ public class SlowSpell extends Items {
           Thread.sleep(10000);
           gameModel.spawnTic /= 2;
           gameModel.updateTic /= 2;
+          gameModel.itemFlag = false;
         } catch (Exception e) {
           System.out.println("");
         }
