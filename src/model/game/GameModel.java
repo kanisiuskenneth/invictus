@@ -18,11 +18,6 @@ import java.util.Random;
  */
 
 public class GameModel {
-  public SlowSpell slowSpell;
-  public FreezeSpell freezeSpell;
-  public Potion potion;
-  public LightningSpell lightningSpell;
-  public Shield shield;
   public Player player;
   public Random random;
   public HashSet<Word> wordSet;
@@ -37,11 +32,6 @@ public class GameModel {
   public volatile boolean mutex;
 
   public GameModel() {
-    slowSpell = new SlowSpell();
-    freezeSpell = new FreezeSpell();
-    potion = new Potion();
-    lightningSpell = new LightningSpell();
-    shield = new Shield();
     wordSet = new HashSet<Word>();
     player = new Player();
     random = new Random();
