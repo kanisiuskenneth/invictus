@@ -5,9 +5,14 @@ package controller;
  * Author: 13515033 - Andika Kusuma
  */
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
 import java.util.List;
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 import model.game.GameModel;
 import model.main.MainModel;
 import model.word.Word;
@@ -276,8 +281,8 @@ public class GameController {
 
   /**
    * Mendapatkan indeks dari longest common prefix.
-   * @param firstString sad.
-   * @param secondString sa.
+   * @param firstString kata pertama yang akan dibandingkan.
+   * @param secondString kata kedua yang akan dibandingkan.
    * @return indeks dari longest common prefix.
    */
   private int getIndexPrefix(String firstString, String secondString) {
