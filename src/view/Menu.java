@@ -41,6 +41,7 @@ public class Menu {
     addGameBanner();
     addMenu();
     addFooter();
+    addCreditButton();
     mainPanel.setVisible(true);
     MainFrame.mainframe.setVisible(true);
   }
@@ -118,6 +119,24 @@ public class Menu {
 
   }
 
+  /**
+   * Menambah Button Credit pada menu
+   */
+  private void addCreditButton() {
+    JPanel pane = new JPanel();
+    mainPanel.add(pane,BorderLayout.EAST);
+    pane.setBackground(MainFrame.DARK_GRAY);
+    pane.setLayout(new BorderLayout());
+    JButton creditButton = new JButton("Credits");
+    pane.add(creditButton,BorderLayout.SOUTH);
+    pane.setVisible(true);
+    creditButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        new CreditsView();
+      }
+    });
+  }
   /**
    * Menambahkan footer pada menu.
    */
