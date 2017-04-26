@@ -26,9 +26,9 @@ import model.main.MainModel;
 /**
  * Kelas LeaderboardView.
  */
-public class LeaderboardView {
-  Container old;
-  JPanel currentPanel;
+class LeaderboardView {
+  private final Container old;
+  private final JPanel currentPanel;
 
   /**
    * Constructor.
@@ -126,7 +126,7 @@ public class LeaderboardView {
   /**
    * Menutup LeaderboardView.
    */
-  public void close() {
+  private void close() {
     currentPanel.removeAll();
     MainFrame.mainframe.remove(currentPanel);
     MainFrame.mainframe.setContentPane(old);

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
+ * File: PlayerTest.java
  * Created by 13515063 - Kezia Suhendra.
  */
 class PlayerTest {
@@ -14,7 +15,7 @@ class PlayerTest {
     MainModel main = new MainModel();
     main.loadData("data.txt");
     Player me = new Player();
-    assertEquals(5, me.getCurrentHealth());
+    assertEquals(3, me.getCurrentHealth());
   }
 
   @Test
@@ -24,11 +25,20 @@ class PlayerTest {
   }
 
   @Test
-  void reducedHealth() {
+  void reduceHealth() {
     MainModel main = new MainModel();
     main.loadData("data.txt");
     Player me = new Player();
     me.reduceHealth();
+    assertEquals(2, me.getCurrentHealth());
+  }
+
+  @Test
+  void increaseHealth() {
+    MainModel main = new MainModel();
+    main.loadData("data.txt");
+    Player me = new Player();
+    me.increaseHealth();
     assertEquals(4, me.getCurrentHealth());
   }
 

@@ -1,7 +1,6 @@
 package controller;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import javax.imageio.ImageIO;
 
 /**
@@ -17,7 +16,6 @@ public class ImageLoader {
   public static BufferedImage playButton;
   public static BufferedImage quitButton;
   public static BufferedImage leaderboard_button;
-  public static BufferedImage gameLogo;
   public static BufferedImage gameBanner;
   public static BufferedImage leaderboardBanner;
   public static BufferedImage shopButton;
@@ -56,7 +54,6 @@ public class ImageLoader {
       playButton = ImageIO.read(getClass().getResource("/img/playbutton.png"));
       quitButton = ImageIO.read(getClass().getResource("/img/quitbutton.png"));
       leaderboard_button = ImageIO.read(getClass().getResource("/img/leaderboardbutton.png"));
-      gameLogo = ImageIO.read(getClass().getResource("/img/gamelogo.png"));
       gameBanner = ImageIO.read(getClass().getResource("/img/gamebanner.png"));
       shopButton = ImageIO.read(getClass().getResource("/img/shopbutton.png"));
       leaderboardBanner = ImageIO.read(getClass().getResource("/img/leaderboardbanner.png"));

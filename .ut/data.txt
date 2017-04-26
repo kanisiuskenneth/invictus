@@ -1,6 +1,12 @@
-3 999624
+3 999657 1.100000023841858 1.0
+1 model.goods.SlowSpell 12
+2 model.goods.FreezeSpell 10
+3 model.goods.Potion 10
+4 model.goods.LightningSpell 5
+5 model.goods.Shield 10
+-
 kenn 1970
-dika 440
-KanisiusKenneth 135
-AndikaKusuma 135
-KeziaSuhendra 135
+knen 1240
+sadf asdfasdfasdn sadfasdf 1140
+noice 550
+jkljfsa 360

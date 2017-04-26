@@ -25,8 +25,8 @@ import model.main.MainModel;
  * Kelas Menu.
  */
 public class Menu {
-  JPanel mainPanel;
-  JPanel menuPanel;
+
+  private final JPanel mainPanel;
 
   /**
    * Constructor.
@@ -42,6 +42,7 @@ public class Menu {
     addGameBanner();
     addMenu();
     addFooter();
+    addCreditButton();
     mainPanel.setVisible(true);
     MainFrame.mainframe.setVisible(true);
   }
@@ -63,7 +64,7 @@ public class Menu {
    */
   private void addMenu() {
 
-    menuPanel = new JPanel();
+    JPanel menuPanel = new JPanel();
     mainPanel.add(menuPanel, BorderLayout.CENTER);
     JLabel dummy = new JLabel(" ");
     JButton play = addMenuButton(ImageLoader.playButton);
@@ -92,7 +93,7 @@ public class Menu {
         new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            LeaderboardView ld = new LeaderboardView();
+            new LeaderboardView();
             //ld.close();
           }
         }
@@ -107,6 +108,25 @@ public class Menu {
         }
     );
 
+  }
+
+  /**
+   * Menambah Button Credit pada menu.
+   */
+  private void addCreditButton() {
+    JPanel pane = new JPanel();
+    mainPanel.add(pane, BorderLayout.EAST);
+    pane.setBackground(MainFrame.DARK_GRAY);
+    pane.setLayout(new BorderLayout());
+    JButton creditButton = new JButton("Credits");
+    pane.add(creditButton, BorderLayout.SOUTH);
+    pane.setVisible(true);
+    creditButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        new CreditsView();
+      }
+    });
   }
 
   /**

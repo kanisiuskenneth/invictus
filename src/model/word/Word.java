@@ -1,10 +1,8 @@
 package model.word;
 
-import java.awt.*;
+import javax.swing.JLabel;
 
 import util.Pair;
-
-import javax.swing.*;
 
 /**
  * File: Word.java
@@ -15,8 +13,8 @@ import javax.swing.*;
  * Kelas Word.
  */
 public class Word {
-  private String content;
-  private JLabel label;
+  private final String content;
+  private final JLabel label;
   private Pair<Integer, Integer> position;
 
   /**

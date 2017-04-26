@@ -1,36 +1,40 @@
 package model.game;
 
-import model.player.Player;
-import model.word.Word;
-import util.Pair;
-import view.MainFrame;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.HashMap;
+import java.awt.Container;
 import java.util.HashSet;
 import java.util.Random;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextField;
+
+import model.player.Player;
+import model.word.Word;
+
 
 /**
  * File: GameModel.java
  * Author: 13515033 - Andika Kusuma
  */
 
+/**
+ * Kelas GameModel.
+ */
 public class GameModel {
-  public Player player;
-  public Random random;
-  public HashSet<Word> wordSet;
+  public final Player player;
+  public final Random random;
+  public final HashSet<Word> wordSet;
   public JLayeredPane gamePanel;
   public JTextField field;
-  public JLabel healthLabel;
-  public JLabel scoreLabel;
+  public final JLabel healthLabel;
+  public final JLabel scoreLabel;
   public int updateTic = 20;
   public int spawnTic = 2000;
-  public boolean shieldFlag;
-  public volatile boolean itemFlag;
   public Container menupanel;
   public volatile boolean mutex;
 
+  /**
+   * Constructor.
+   */
   public GameModel() {
     wordSet = new HashSet<Word>();
     player = new Player();
@@ -38,20 +42,26 @@ public class GameModel {
     healthLabel = new JLabel();
     updateHealth();
     scoreLabel = new JLabel();
-    shieldFlag = false;
-    itemFlag = false;
     updateScore();
 
   }
 
+  /**
+   * I.S. : healthLabel terdefinisi.
+   * F.S. : healthLabel berubah sesuai dengan jumlah hati player.
+   */
   public void updateHealth() {
     String health = "";
     for (int i = 0; i < player.getCurrentHealth(); i++) {
-      health += "\u2665";
+      health += "♥";
     }
     healthLabel.setText(health);
   }
 
+  /**
+   * I.S. : scoreLabel terdefinisi.
+   * F.S. : scoreLabel berubah sesuai dengan score player sekarang.
+   */
   public void updateScore() {
     scoreLabel.setText("" + player.getScore());
     if (player.getScore() > 10000) {
