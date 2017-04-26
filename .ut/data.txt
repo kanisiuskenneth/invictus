@@ -1,12 +1,12 @@
-3 999657 1.100000023841858 1.0
-1 model.goods.SlowSpell 12
-2 model.goods.FreezeSpell 10
-3 model.goods.Potion 10
-4 model.goods.LightningSpell 5
-5 model.goods.Shield 10
+3 999733 1.100000023841858 1.0
+1 model.goods.SlowSpell 11
+2 model.goods.FreezeSpell 9
+3 model.goods.Potion 8
+4 model.goods.LightningSpell 1
+5 model.goods.Shield 9
 -
+ 6940
 kenn 1970
 knen 1240
 sadf asdfasdfasdn sadfasdf 1140
 noice 550
-jkljfsa 360
