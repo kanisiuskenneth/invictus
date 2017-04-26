@@ -74,8 +74,6 @@ class GameView {
           gameModel.field.setText("");
           try {
             int id = Integer.parseInt(buffer);
-            itemLabelMap.get(id).setText("x" + (MainModel.item.get(id).second - 1));
-            gameController.useItem(id + "");
           } catch (Exception ex) {
             gameController.attemptToDeleteWord(buffer);
           }

@@ -1,12 +1,6 @@
-3 0 1.0 1.0
-1 model.goods.SlowSpell 12
-2 model.goods.FreezeSpell 10
-3 model.goods.Potion 12
-4 model.goods.LightningSpell 10
-5 model.goods.Shield 10
--
+3 0
+InvictusTeam 135
 KanisiusKenneth 135
 AndikaKusuma 135
 KeziaSuhendra 135
 SylviaJuliana 135
-InvictusTeam 135

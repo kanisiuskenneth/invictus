@@ -6,7 +6,6 @@ import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
-
 import model.player.Player;
 import model.word.Word;
 

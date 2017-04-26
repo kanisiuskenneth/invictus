@@ -1,7 +1,6 @@
 package model.word;
 
 import javax.swing.JLabel;
-
 import util.Pair;
 
 /**
