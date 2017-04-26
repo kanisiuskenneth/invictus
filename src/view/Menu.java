@@ -121,6 +121,10 @@ public class Menu {
     JButton creditButton = new JButton("Credits");
     pane.add(creditButton, BorderLayout.SOUTH);
     pane.setVisible(true);
+    creditButton.setSize(50,20);
+    JLabel dummy = new JLabel(new ImageIcon(ImageLoader
+        .SPACER.getScaledInstance(10g0,10,Image.SCALE_FAST)));
+    mainPanel.add(dummy,BorderLayout.WEST);
     creditButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
