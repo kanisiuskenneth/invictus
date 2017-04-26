@@ -64,7 +64,7 @@ public class GameController {
           gameModel.mutex = true;
           for (Word word : gameModel.wordSet) {
             word.setPosition(new Pair<>(word.getPosition().first, word.getPosition().second + 1));
-            if (word.getPosition().second >= (gamePanel.getHeight() - 40)) {
+            if (word.getPosition().second >= (gamePanel.getHeight() - 30)) {
               deleteWord(word, false);
             }
           }
