@@ -25,6 +25,7 @@ import model.main.MainModel;
  * Kelas Menu.
  */
 public class Menu {
+
   private final JPanel mainPanel;
 
   /**
@@ -120,15 +121,15 @@ public class Menu {
   }
 
   /**
-   * Menambah Button Credit pada menu
+   * Menambah Button Credit pada menu.
    */
   private void addCreditButton() {
     JPanel pane = new JPanel();
-    mainPanel.add(pane,BorderLayout.EAST);
+    mainPanel.add(pane, BorderLayout.EAST);
     pane.setBackground(MainFrame.DARK_GRAY);
     pane.setLayout(new BorderLayout());
     JButton creditButton = new JButton("Credits");
-    pane.add(creditButton,BorderLayout.SOUTH);
+    pane.add(creditButton, BorderLayout.SOUTH);
     pane.setVisible(true);
     creditButton.addActionListener(new ActionListener() {
       @Override
@@ -137,6 +138,7 @@ public class Menu {
       }
     });
   }
+   
   /**
    * Menambahkan footer pada menu.
    */
